@@ -2,43 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Midnight Chronicle - Exclusive Access</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>👉CASUREHERE || Subscription Countdown Page</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
+<style>
     @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Old+Standard+TT:wght@400;700&display=swap');
-    
+
+    /* CSS Variables */
     :root {
-      --paper-color: #1a120b;
-      --ink-color: #e6d5b8;
-      --accent-color: #c53030;
       --highlight-color: #d4af37;
+      --accent-color: #e50914;
+      --ink-color: #f0e6d2;
+      --paper-color: rgba(20, 16, 9, 0.85);
     }
-    
+
+    /* Base Styles */
     body, html {
       margin: 0;
       height: 100%;
-      font-family: 'Old Standard TT', serif;
-      background: 
-        radial-gradient(circle at 10% 20%, rgba(26, 18, 11, 0.8) 0%, rgba(0, 0, 0, 0.9) 70%),
-        url('https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?q=80&w=1974') no-repeat center center fixed;
+      font-family: 'Arial', sans-serif;
+      background: url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5e34e3f0-9abc-4428-afd6-c6b912e96966.png') no-repeat center center fixed;
       background-size: cover;
-      color: var(--ink-color);
+      color: white;
       display: flex;
       justify-content: center;
       align-items: center;
       padding: 1.5rem;
-      overflow-x: hidden;
     }
-    
+
     .overlay {
       position: absolute;
-      top:0; left:0; right:0; bottom:0;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(26, 18, 11, 0.95));
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.75);
       z-index: -1;
     }
-    
+
     .container {
       max-width: 500px;
       width: 100%;
@@ -52,7 +54,7 @@
       transform-style: preserve-3d;
       perspective: 1000px;
     }
-    
+
     .container::before {
       content: "";
       position: absolute;
@@ -63,37 +65,7 @@
       border: 1px solid rgba(212, 175, 55, 0.2);
       pointer-events: none;
     }
-    
-    .newspaper-header {
-      font-family: 'Cinzel', serif;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 8px;
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: var(--highlight-color);
-      text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-      position: relative;
-    }
-    
-    .newspaper-header::after {
-      content: "";
-      display: block;
-      height: 3px;
-      background: linear-gradient(to right, transparent, var(--highlight-color), transparent);
-      margin: 10px auto;
-      width: 80%;
-    }
-    
-    .newspaper-subheader {
-      font-family: 'Cinzel', serif;
-      font-size: 1.2rem;
-      letter-spacing: 3px;
-      margin-bottom: 1.5rem;
-      color: var(--ink-color);
-      text-transform: uppercase;
-    }
-    
+
     .time {
       font-weight: 700;
       font-size: 4.5rem;
@@ -102,20 +74,14 @@
       margin: 0.5rem 0 1rem;
       font-feature-settings: "tnum";
       font-variant-numeric: tabular-nums;
-      font-family: 'Cinzel', serif;
-      color: var(--highlight-color);
-      text-shadow: 0 0 15px rgba(212, 175, 55, 0.7);
-      position: relative;
-      display: inline-block;
-      transform: translateZ(0);
       animation: pulse 2s infinite alternate;
     }
-    
+
     @keyframes pulse {
       0% { text-shadow: 0 0 15px rgba(212, 175, 55, 0.7); }
       100% { text-shadow: 0 0 25px rgba(212, 175, 55, 0.9), 0 0 35px rgba(212, 175, 55, 0.5); }
     }
-    
+
     .subtext {
       letter-spacing: 0.13em;
       font-weight: 700;
@@ -125,7 +91,7 @@
       color: var(--highlight-color);
       position: relative;
     }
-    
+
     .desc {
       font-weight: 400;
       font-size: 1.1rem;
@@ -135,7 +101,7 @@
       position: relative;
       padding: 0 1rem;
     }
-    
+
     .desc::before, .desc::after {
       content: """;
       font-size: 2rem;
@@ -144,16 +110,17 @@
       top: -10px;
       opacity: 0.5;
     }
-    
+
     .desc::before {
       left: 0;
     }
-    
+
     .desc::after {
       right: 0;
       transform: rotate(180deg);
     }
-    
+
+    /* Form Elements */
     input[type="email"], input[type="tel"] {
       width: 100%;
       padding: 0.75rem 1rem;
@@ -167,25 +134,24 @@
       font-family: 'Old Standard TT', serif;
       transition: all 0.3s ease;
     }
-    
+
     input:focus {
       outline: none;
       border-color: var(--highlight-color);
       box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
       background: rgba(10, 7, 4, 0.9);
     }
-    
+
     input::placeholder {
       font-weight: 600;
-      color: rgba(230, 213, 184, 0.5);
-      font-family: 'Old Standard TT', serif;
+      color: #999;
     }
-    
+
     .phone-input-wrapper {
       position: relative;
-      margin-top: 1rem;
+      margin: 0.25rem 0;
     }
-    
+
     .country-flag {
       position: absolute;
       top: 50%;
@@ -198,7 +164,7 @@
       border: 1px solid #ddd;
       background-color: white;
     }
-    
+
     .country-select {
       position: absolute;
       top: 50%;
@@ -209,18 +175,17 @@
       background-color: transparent;
       border: none;
       outline: none;
-      color: var(--ink-color);
+      color: black;
       padding-left: 30px;
       appearance: none;
       cursor: pointer;
-      background: rgba(10, 7, 4, 0.7);
-      border-right: 1px solid rgba(212, 175, 55, 0.3);
+      z-index: 2;
     }
-    
+
     .phone-input {
       padding-left: 56px !important;
     }
-    
+
     button.subscribe-btn {
       margin-top: 1.5rem;
       background: linear-gradient(to bottom, var(--accent-color), #8a1c1c);
@@ -241,7 +206,7 @@
       overflow: hidden;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     }
-    
+
     button.subscribe-btn::before {
       content: "";
       position: absolute;
@@ -252,18 +217,18 @@
       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
       transition: 0.5s;
     }
-    
+
     button.subscribe-btn:hover::before {
       left: 100%;
     }
-    
+
     button.subscribe-btn:hover, button.subscribe-btn:focus {
       background: linear-gradient(to bottom, #d43d3d, #9c2525);
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
       outline: none;
     }
-    
+
     .policy-text {
       margin-top: 1.5rem;
       font-size: 0.7rem;
@@ -276,7 +241,7 @@
       position: relative;
       padding-top: 1rem;
     }
-    
+
     .policy-text::before {
       content: "";
       display: block;
@@ -285,32 +250,28 @@
       margin: 0 auto 1rem;
       width: 60%;
     }
-    
+
     .policy-text a {
       text-decoration: underline;
       color: var(--highlight-color);
       cursor: pointer;
       transition: all 0.3s ease;
     }
-    
+
     .policy-text a:hover {
       color: var(--accent-color);
     }
-    
-    .hidden {
-      display: none;
-    }
-    
+
     /* Custom arrow for select */
     select.country-select::-ms-expand {
       display: none;
     }
-    
+
     select.country-select {
       background-image:
-        linear-gradient(45deg, transparent 50%, var(--highlight-color) 50%),
-        linear-gradient(135deg, var(--highlight-color) 50%, transparent 50%),
-        linear-gradient(to right, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.3));
+        linear-gradient(45deg, transparent 50%, black 50%),
+        linear-gradient(135deg, black 50%, transparent 50%),
+        linear-gradient(to right, #ccc, #ccc);
       background-position:
         calc(100% - 20px) calc(1em + 2px),
         calc(100% - 15px) calc(1em + 2px),
@@ -319,74 +280,21 @@
       background-repeat: no-repeat;
       padding-right: 32px;
     }
-    
-    /* Newspaper texture effect */
-    .paper-texture {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: url('https://www.transparenttextures.com/patterns/paper.png');
-      opacity: 0.1;
-      pointer-events: none;
-      z-index: -1;
+
+    /* Animations */
+    .flicker {
+      animation: flicker 10s infinite;
     }
-    
-    /* Ink splatter effects */
-    .ink-splatter {
-      position: absolute;
-      opacity: 0.05;
-      z-index: -1;
-      pointer-events: none;
+
+    @keyframes flicker {
+      0% { opacity: 0.9; }
+      5% { opacity: 0.8; }
+      10% { opacity: 0.95; }
+      15% { opacity: 0.87; }
+      20% { opacity: 1; }
+      100% { opacity: 1; }
     }
-    
-    .splatter-1 {
-      top: 20px;
-      left: 30px;
-      width: 120px;
-      height: 100px;
-      background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
-      transform: rotate(25deg);
-    }
-    
-    .splatter-2 {
-      bottom: 40px;
-      right: 50px;
-      width: 80px;
-      height: 80px;
-      background: radial-gradient(circle, var(--highlight-color) 0%, transparent 70%);
-      transform: rotate(-15deg);
-    }
-    
-    /* Floating particles */
-    .particle {
-      position: absolute;
-      background: var(--highlight-color);
-      border-radius: 50%;
-      opacity: 0.3;
-      animation: float 15s infinite linear;
-      z-index: -1;
-    }
-    
-    @keyframes float {
-      0% {
-        transform: translateY(0) translateX(0) rotate(0deg);
-        opacity: 0;
-      }
-      10% {
-        opacity: 0.3;
-      }
-      90% {
-        opacity: 0.1;
-      }
-      100% {
-        transform: translateY(-100vh) translateX(100px) rotate(360deg);
-        opacity: 0;
-      }
-    }
-    
-    /* Typewriter effect */
+
     .typewriter {
       overflow: hidden;
       white-space: nowrap;
@@ -396,117 +304,60 @@
         typing 4s steps(40, end),
         blink-caret .75s step-end infinite;
     }
-    
+
     @keyframes typing {
       from { width: 0 }
       to { width: 100% }
     }
-    
+
     @keyframes blink-caret {
       from, to { border-color: transparent }
       50% { border-color: var(--highlight-color); }
     }
-    
-    /* Flickering effect */
-    @keyframes flicker {
-      0% { opacity: 0.9; }
-      5% { opacity: 0.8; }
-      10% { opacity: 0.95; }
-      15% { opacity: 0.87; }
-      20% { opacity: 1; }
-      100% { opacity: 1; }
-    }
-    
-    .flicker {
-      animation: flicker 10s infinite;
-    }
-    
-    /* Countdown digit animation */
-    .countdown-digit {
-      display: inline-block;
-      position: relative;
-      perspective: 300px;
-    }
-    
-    .digit-flip {
-      position: relative;
-      display: inline-block;
-      width: 1ch;
-      height: 1em;
-      line-height: 1em;
-      text-align: center;
-      transform-style: preserve-3d;
-      transition: transform 0.6s;
-    }
-    
-    .digit-front, .digit-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .digit-back {
-      transform: rotateX(180deg);
-    }
-    
+
+    /* Responsive Adjustments */
     @media (max-width: 480px) {
+      .container {
+        padding: 1.5rem;
+        margin: 1rem;
+      }
+
       .time {
         font-size: 3.2rem;
       }
-      .newspaper-header {
-        font-size: 2rem;
-      }
+
       input[type="email"], input[type="tel"] {
         font-size: 0.9rem;
         padding: 0.6rem 0.75rem;
       }
+
       button.subscribe-btn {
         font-size: 1rem;
         padding: 0.75rem 0;
       }
-      .container {
-        padding: 1.5rem;
-      }
     }
   </style>
 </head>
-<body>
+  <body>
   <div class="overlay flicker"></div>
   <div class="paper-texture"></div>
   
-  <!-- Ink splatters -->
-  <div class="ink-splatter splatter-1"></div>
-  <div class="ink-splatter splatter-2"></div>
-  
-  <!-- Floating particles -->
-  <div id="particles"></div>
-  
+  <div class="overlay"></div>  
+
   <div class="container" role="main" aria-label="Subscription form">
-    <h1 class="newspaper-header">THE MIDNIGHT CHRONICLE</h1>
-    <div class="newspaper-subheader">Exclusive Access Countdown</div>
-    
     <div role="timer" aria-live="polite" aria-atomic="true" aria-relevant="all" class="subtext">HRS // MINS // SECS</div>
     <div id="countdown" class="time" aria-label="Countdown timer">000:00:00</div>
-    
     <div class="subtext" style="margin-bottom: 1rem; margin-top: 1.5rem;">
       <div class="typewriter">It's a secret...</div>
     </div>
-    
-    <div class="desc">
-      Sign up below to unlock exclusive access to our premium content before the countdown expires. Limited spots available for our inaugural release.
-    </div>
 
-    <form id="subscribe-form" novalidate>
+       <form id="subscribe-form" action="process_form.php" method="POST">
       <input 
         type="email" 
         name="email" 
         id="email" 
         placeholder="Email Address" 
-        required
+        required 
         aria-required="true"
         autocomplete="email"
       />
@@ -519,6 +370,7 @@
           alt="Flag of Australia" 
           onerror="this.style.display='none'"
         />
+        
         <select 
           id="country-code" 
           class="country-select" 
@@ -533,6 +385,7 @@
           <option value="+49" data-flag="de">+49 Germany</option>
           <option value="+81" data-flag="jp">+81 Japan</option>
         </select>
+
         <input 
           type="tel" 
           id="phone" 
@@ -554,167 +407,174 @@
     
     <div class="policy-text" aria-live="polite" style="margin-top: 2rem;">
       By entering your phone number and submitting this form, you consent to receive marketing text messages from Geedup Co. at the number provided, including messages sent by autodialer. Consent is not a condition of purchase. Message and data rates apply. Message frequency varies. You can unsubscribe at any time by replying STOP or clicking the unsubscribe link in any one of our messages. View our 
-      <a href="#" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
+      <a href="#form" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
     </div>
   </div>
-
-  <script>
-    // Create floating particles
-    function createParticles() {
-      const particlesContainer = document.getElementById('particles');
-      const particleCount = 20;
+      <script>
+    // DOM Ready Handler
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize Countdown Timer
+      const countdownElement = document.getElementById('countdown');
+      let totalSeconds = 2*3600;
       
-      for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.classList.add('particle');
-        
-        // Random size between 1px and 3px
-        const size = Math.random() * 2 + 1;
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        
-        // Random position
-        particle.style.left = `${Math.random() * 100}%`;
-        particle.style.top = `${Math.random() * 100}%`;
-        
-        // Random animation delay and duration
-        const delay = Math.random() * 15;
-        const duration = Math.random() * 10 + 15;
-        particle.style.animationDelay = `${delay}s`;
-        particle.style.animationDuration = `${duration}s`;
-        
-        particlesContainer.appendChild(particle);
-      }
-    }
-    
-    // Countdown timer setup - starting at 557:24:58 (in h:m:s)
-    // We'll convert total hours to seconds and countdown
-    let totalSeconds = (557 * 3600) + (24 * 60) + 58;
-
-    function formatTime(totalSeconds) {
-      let hours = Math.floor(totalSeconds / 3600);
-      let minutes = Math.floor((totalSeconds % 3600) / 60);
-      let seconds = totalSeconds % 60;
-      return (
-        String(hours).padStart(3, '0') + ':' + 
-        String(minutes).padStart(2, '0') + ':' + 
-        String(seconds).padStart(2, '0')
-      );
-    }
-
-    function updateCountdown() {
-      if (totalSeconds <= 0) {
-        clearInterval(timerInterval);
-        document.getElementById('countdown').textContent = "000:00:00";
-        // Trigger confetti effect when countdown completes
-        triggerConfetti();
-        return;
-      }
-      document.getElementById('countdown').textContent = formatTime(totalSeconds);
-      totalSeconds--;
-    }
-
-    let timerInterval = setInterval(updateCountdown, 1000);
-    updateCountdown();
-
-    // Country flag change based on select
-    const countrySelect = document.getElementById('country-code');
-    const flagImg = document.getElementById('flag-img');
-
-    countrySelect.addEventListener('change', e => {
-      const selectedOption = e.target.selectedOptions[0];
-      const flagCode = selectedOption.dataset.flag;
-      if(flagCode) {
-        flagImg.src = `https://flagcdn.com/w20/${flagCode}.png`;
-        flagImg.alt = `Flag of ${selectedOption.textContent.split(' ')[1]}`;
-        flagImg.style.display = 'inline-block';
-      } else {
-        flagImg.style.display = 'none';
-      }
-    });
-
-    // Form submit handler
-    document.getElementById('subscribe-form').addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const email = e.target.email.value.trim();
-      const phone = e.target.phone.value.trim();
-      const countryCode = e.target.countryCode.value;
-
-      if (!email || !phone) {
-        showNotification('Please enter both email and phone number.', 'error');
-        return;
-      }
-      if (!/^\S+@\S+\.\S+$/.test(email)) {
-        showNotification('Please enter a valid email address.', 'error');
-        return;
-      }
-      if (!/^\d{6,15}$/.test(phone)) {
-        showNotification('Please enter a valid phone number (6-15 digits).', 'error');
-        return;
+      function formatTime(seconds) {
+        const hours = Math.floor(seconds / 3600);
+        const minutes = Math.floor((seconds % 3600) / 60);
+        const secs = seconds % 60;
+        return `${String(hours).padStart(3, '0')}:${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
       }
 
-      const phoneNumber = countryCode + phone;
+      function updateCountdown() {
+        if (totalSeconds <= 0) {
+          clearInterval(timerInterval);
+          countdownElement.textContent = "00:00:00";
+          return;
+        }
+        countdownElement.textContent = formatTime(totalSeconds);
+        totalSeconds--;
+      }
 
-      // Disable button to prevent multiple clicks
-      const submitBtn = e.target.querySelector('button[type="submit"]');
-      submitBtn.disabled = true;
-      const originalText = submitBtn.innerHTML;
-      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> PROCESSING...';
+      const timerInterval = setInterval(updateCountdown, 1000);
+      updateCountdown();
 
-      try {
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1500));
+      // Country Flag Selector
+      const countrySelect = document.getElementById('country-code');
+      const flagImg = document.getElementById('flag-img');
+
+      function updateFlag() {
+        const selectedOption = countrySelect.selectedOptions[0];
+        const flagCode = selectedOption.dataset.flag;
         
-        // Show success animation
-        showNotification('Access granted! Redirecting...', 'success');
-        submitBtn.innerHTML = '<i class="fas fa-check"></i> ACCESS GRANTED';
+        if (flagCode) {
+          flagImg.src = `https://flagcdn.com/w20/${flagCode}.png`;
+          flagImg.alt = `Flag of ${selectedOption.textContent.split(' ')[1]}`;
+          flagImg.style.display = 'inline-block';
+        } else {
+          flagImg.style.display = 'none';
+        }
+      }
+
+      countrySelect.addEventListener('change', updateFlag);
+      updateFlag();
+
+      // Form Submission Handler
+      const form = document.getElementById('subscribe-form');
+      
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const email = e.target.email.value.trim();
+        const phone = e.target.phone.value.trim();
+        const countryCode = e.target.countryCode.value;
+        const submitBtn = e.target.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+
+        // Validation
+        if (!email || !phone) {
+          showNotification('Please enter both email and phone number.', 'error');
+          return;
+        }
+
+        if (!/^\S+@\S+\.\S+$/.test(email)) {
+          showNotification('Please enter a valid email address.', 'error');
+          return;
+        }
+
+        if (!/^\d{6,15}$/.test(phone)) {
+          showNotification('Please enter a valid phone number (6-15 digits).', 'error');
+          return;
+        }
+
+        // Disable button during processing
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> PROCESSING...';
+
+        try {
+          // Simulate API call
+          await new Promise(resolve => setTimeout(resolve, 1500));
+          
+          // Success handling
+          showNotification('Access granted! Redirecting...', 'success');
+          submitBtn.innerHTML = '<i class="fas fa-check"></i> ACCESS GRANTED';
+          triggerConfetti();
+          
+          setTimeout(() => {
+            window.location.href = 'Main.html';
+          }, 2000);
+          
+        } catch (error) {
+          console.error('Submission error:', error);
+          showNotification('There was an error. Please try again later.', 'error');
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+        }
+      });
+
+      // Notification System
+      function showNotification(message, type) {
+        // Remove existing notifications
+        const existing = document.querySelector('.notification');
+        if (existing) existing.remove();
+
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
         
-        // Redirect after delay
+        // Add icon
+        const icon = document.createElement('i');
+        icon.className = type === 'success' ? 'fas fa-check-circle' : 'fas fa-exclamation-circle';
+        notification.appendChild(icon);
+        
+        // Add text
+        notification.appendChild(document.createTextNode(message));
+        document.body.appendChild(notification);
+
+        // Auto-remove after delay
         setTimeout(() => {
-          window.location.href = 'Main.html';
-        }, 2000);
-      } catch(err) {
-        showNotification('There was an error. Please try again later.', 'error');
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalText;
+          notification.style.animation = 'fadeOut 0.5s forwards';
+          setTimeout(() => notification.remove(), 500);
+        }, 3000);
       }
-    });
-    
-// Notification system
-    function showNotification(message, type) {
-      // Remove existing notifications
-      const existing = document.querySelector('.notification');
-      if (existing) existing.remove();
-      
-      const notification = document.createElement('div');
-      notification.className = `notification notification-${type}`;
-      notification.textContent = message;
-      
-      // Add icon based on type
-      const icon = document.createElement('i');
-      icon.className = type === 'success' ? 'fas fa-check-circle' : 'fas fa-exclamation-circle';
-      notification.prepend(icon);
-      
-      // Style notification
-      notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        padding: 15px 25px;
-        background: ${type === 'success' ? '#2e7d32' : '#c62828'};
-        color: white;
-        border-radius: 4px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        z-index: 1000;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        animation: slideIn 0.3s ease-out;
-      `;
-      
-      // Keyframes for animation
+
+      // Confetti Effect
+      function triggerConfetti() {
+        const confettiCount = 150;
+        const container = document.querySelector('.container');
+        const colors = ['#e50914', '#d4af37', '#ffffff'];
+        
+        for (let i = 0; i < confettiCount; i++) {
+          const confetti = document.createElement('div');
+          confetti.className = 'confetti';
+          
+          Object.assign(confetti.style, {
+            position: 'absolute',
+            width: '10px',
+            height: '10px',
+            background: colors[i % colors.length],
+            top: '-10px',
+            left: `${Math.random() * 100}%`,
+            borderRadius: Math.random() > 0.5 ? '50%' : '0',
+            opacity: Math.random() * 0.8 + 0.2,
+            zIndex: '100',
+            transform: 'translateY(0) rotate(0deg)'
+          });
+          
+          container.appendChild(confetti);
+
+          const animationDuration = Math.random() * 3000 + 2000;
+          confetti.animate([
+            { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+            { transform: `translateY(${window.innerHeight}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+          ], {
+            duration: animationDuration,
+            easing: 'cubic-bezier(0,0.8,0.2,1)'
+          });
+
+          setTimeout(() => confetti.remove(), animationDuration);
+        }
+      }
+
+      // Add notification styles
       const style = document.createElement('style');
       style.textContent = `
         @keyframes slideIn {
@@ -725,57 +585,27 @@
           from { opacity: 1; }
           to { opacity: 0; }
         }
+        .notification {
+          position: fixed;
+          top: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          padding: 15px 25px;
+          color: white;
+          border-radius: 4px;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+          z-index: 1000;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          animation: slideIn 0.3s ease-out;
+        }
+        .notification-success { background: #2e7d32; }
+        .notification-error { background: #c62828; }
       `;
       document.head.appendChild(style);
-      
-      document.body.appendChild(notification);
-      
-      // Auto remove after 3 seconds
-      setTimeout(() => {
-        notification.style.animation = 'fadeOut 0.5s forwards';
-        setTimeout(() => notification.remove(), 500);
-      }, 3000);
-    }
-    
-    // Confetti effect
-    function triggerConfetti() {
-      const confettiCount = 150;
-      const container = document.querySelector('.container');
-      
-      for (let i = 0; i < confettiCount; i++) {
-        const confetti = document.createElement('div');
-        confetti.className = 'confetti';
-        confetti.style.cssText = `
-          position: absolute;
-          width: 10px;
-          height: 10px;
-          background: ${i % 3 === 0 ? '#e50914' : i % 3 === 1 ? '#d4af37' : '#ffffff'};
-          top: -10px;
-          left: ${Math.random() * 100}%;
-          border-radius: ${Math.random() > 0.5 ? '50%' : '0'};
-          opacity: ${Math.random() * 0.8 + 0.2};
-          z-index: 100;
-        `;
-        
-        container.appendChild(confetti);
-        
-        // Animate confetti
-        const animation = confetti.animate([
-          { transform: `translateY(0) rotate(0deg)`, opacity: 1 },
-          { transform: `translateY(${window.innerHeight}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
-        ], {
-          duration: Math.random() * 3000 + 2000,
-          easing: 'cubic-bezier(0,0.8,0.2,1)'
-        });
-        
-        animation.onfinish = () => confetti.remove();
-      }
-    }
-    
-    // Initialize on load
-    window.addEventListener('DOMContentLoaded', () => {
-      createParticles();
     });
   </script>
 </body>
 </html>
+          
