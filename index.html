@@ -61,6 +61,13 @@
       border: 12px double var(--highlight-color);
       box-shadow: 0 0 50px rgba(0, 0, 0, 0.8), 0 0 10px rgba(212, 175, 55, 0.3);
     }
+    .logo{
+        width: 100px; /* Adjust size as needed */
+      height: 100px; /* Adjust size as needed */
+      border-radius: 50%; /* Circular shape */
+      object-fit: cover; /* Maintain aspect ratio */
+      margin-bottom: 1rem;
+          }
 
     .brand-header {
       font-family: 'Cinzel', serif;
@@ -349,6 +356,7 @@
     }
 
     @media (max-width: 480px) {
+       
       .brand-header {
         font-size: 1.8rem;
       }
@@ -367,6 +375,7 @@
   <div class="overlay"></div>
 
   <div class="container">
+          <img src="IMG_20250702_184253.png" alt="" class="logo">
     <!-- Brand Header -->
     <div class="brand-header">CAUSEHERE.CO</div>
     <div class="brand-tagline">Exclusive Members Portal</div>
