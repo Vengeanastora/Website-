@@ -6,10 +6,9 @@
   <title>👉CASUREHERE || Subscription Countdown Page</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
+      <style>
     @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Old+Standard+TT:wght@400;700&display=swap');
 
-    /* CSS Variables */
     :root {
       --highlight-color: #d4af37;
       --accent-color: #e50914;
@@ -17,10 +16,16 @@
       --paper-color: rgba(20, 16, 9, 0.85);
     }
 
-    /* Base Styles */
-    body, html {
+    * {
       margin: 0;
-      height: 100%;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
       font-family: 'Arial', sans-serif;
       background: url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5e34e3f0-9abc-4428-afd6-c6b912e96966.png') no-repeat center center fixed;
       background-size: cover;
@@ -28,53 +33,76 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 1.5rem;
     }
 
     .overlay {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
-      right: 0;
-      bottom: 0;
+      width: 100%;
+      height: 100%;
       background-color: rgba(0, 0, 0, 0.75);
       z-index: -1;
+      animation: flicker 10s infinite;
     }
 
     .container {
-      max-width: 500px;
       width: 100%;
+      max-width: 600px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
       text-align: center;
       z-index: 1;
       background-color: var(--paper-color);
       border: 12px double var(--highlight-color);
-      padding: 2rem;
-      position: relative;
       box-shadow: 0 0 50px rgba(0, 0, 0, 0.8), 0 0 10px rgba(212, 175, 55, 0.3);
-      transform-style: preserve-3d;
-      perspective: 1000px;
     }
 
-    .container::before {
-      content: "";
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      right: 10px;
-      bottom: 10px;
-      border: 1px solid rgba(212, 175, 55, 0.2);
-      pointer-events: none;
+    .brand-header {
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: 3rem;
+      color: var(--highlight-color);
+      margin-bottom: 0.5rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-shadow: 0 0 15px rgba(212, 175, 55, 0.7);
+    }
+
+    .brand-tagline {
+      font-style: italic;
+      font-size: 1rem;
+      opacity: 0.8;
+      margin-bottom: 2rem;
+      letter-spacing: 1px;
+      color: var(--highlight-color);
+    }
+
+    .time-container {
+      margin: 2rem 0;
+    }
+
+    .time-label {
+      font-size: 1rem;
+      letter-spacing: 2px;
+      color: var(--highlight-color);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
     }
 
     .time {
       font-weight: 700;
-      font-size: 4.5rem;
+      font-size: 5rem;
       line-height: 1;
-      letter-spacing: 0.06em;
-      margin: 0.5rem 0 1rem;
+      letter-spacing: 0.1em;
       font-feature-settings: "tnum";
       font-variant-numeric: tabular-nums;
       animation: pulse 2s infinite alternate;
+      margin: 1rem 0;
     }
 
     @keyframes pulse {
@@ -82,87 +110,86 @@
       100% { text-shadow: 0 0 25px rgba(212, 175, 55, 0.9), 0 0 35px rgba(212, 175, 55, 0.5); }
     }
 
-    .subtext {
-      letter-spacing: 0.13em;
-      font-weight: 700;
-      font-size: 0.85rem;
-      margin-bottom: 0.35rem;
-      text-transform: uppercase;
-      color: var(--highlight-color);
-      position: relative;
-    }
-
-    .desc {
-      font-weight: 400;
-      font-size: 1.1rem;
-      opacity: 0.9;
-      margin-bottom: 1.5rem;
-      line-height: 1.6;
-      position: relative;
+    .access-message {
+      font-family: 'Old Standard TT', serif;
+      font-size: 1rem;
+      margin: 1rem 0 2rem;
       padding: 0 1rem;
+      position: relative;
     }
 
-    .desc::before, .desc::after {
+    .access-message::before, .access-message::after {
       content: """;
-      font-size: 2rem;
+      font-size: 1rem;
       color: var(--highlight-color);
       position: absolute;
-      top: -10px;
+      top: -15px;
       opacity: 0.5;
     }
 
-    .desc::before {
-      left: 0;
-    }
+    .access-message::before { left: 0; }
+    .access-message::after { right: 0; transform: rotate(180deg); }
 
-    .desc::after {
-      right: 0;
-      transform: rotate(180deg);
-    }
-
-    /* Form Elements */
-    input[type="email"], input[type="tel"] {
+    form {
       width: 100%;
-      padding: 0.75rem 1rem;
-      margin: 0.25rem 0;
-      border-radius: 0;
+      max-width: 400px;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .form-label {
+      display: block;
+      text-align: left;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--highlight-color);
+      letter-spacing: 1px;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 1rem;
       border: 1px solid rgba(212, 175, 55, 0.3);
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--ink-color);
       background: rgba(10, 7, 4, 0.7);
+      color: var(--ink-color);
       font-family: 'Old Standard TT', serif;
+      font-size: 1rem;
       transition: all 0.3s ease;
     }
 
-    input:focus {
+    .form-input:focus {
       outline: none;
       border-color: var(--highlight-color);
       box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
       background: rgba(10, 7, 4, 0.9);
     }
 
-    input::placeholder {
-      font-weight: 600;
-      color: #999;
+    .form-hint {
+      display: block;
+      text-align: left;
+      margin-top: 0.5rem;
+      font-size: 0.75rem;
+      color: rgba(212, 175, 55, 0.7);
+      font-style: italic;
     }
 
     .phone-input-wrapper {
       position: relative;
-      margin: 0.25rem 0;
     }
 
     .country-flag {
       position: absolute;
       top: 50%;
-      left: 8px;
+      left: 15px;
       transform: translateY(-50%);
       width: 24px;
       height: 16px;
       border-radius: 2px;
       pointer-events: none;
       border: 1px solid #ddd;
-      background-color: white;
     }
 
     .country-select {
@@ -171,43 +198,41 @@
       left: 0;
       transform: translateY(-50%);
       height: 100%;
-      width: 48px;
+      width: 60px;
       background-color: transparent;
       border: none;
       outline: none;
       color: black;
-      padding-left: 30px;
+      padding-left: 40px;
       appearance: none;
       cursor: pointer;
       z-index: 2;
     }
 
     .phone-input {
-      padding-left: 56px !important;
+      padding-left: 70px !important;
     }
 
-    button.subscribe-btn {
-      margin-top: 1.5rem;
+    .submit-btn {
+      width: 100%;
+      padding: 1.2rem;
+      margin-top: 1rem;
       background: linear-gradient(to bottom, var(--accent-color), #8a1c1c);
       color: var(--ink-color);
+      font-family: 'Cinzel', serif;
       font-weight: 700;
-      border-radius: 0;
-      padding: 1rem 0;
-      width: 100%;
       font-size: 1.2rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
       border: none;
       cursor: pointer;
       transition: all 0.3s ease;
-      user-select: none;
-      font-family: 'Cinzel', serif;
-      letter-spacing: 2px;
-      text-transform: uppercase;
       position: relative;
       overflow: hidden;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     }
 
-    button.subscribe-btn::before {
+    .submit-btn::before {
       content: "";
       position: absolute;
       top: 0;
@@ -218,74 +243,30 @@
       transition: 0.5s;
     }
 
-    button.subscribe-btn:hover::before {
+    .submit-btn:hover::before {
       left: 100%;
     }
 
-    button.subscribe-btn:hover, button.subscribe-btn:focus {
+    .submit-btn:hover {
       background: linear-gradient(to bottom, #d43d3d, #9c2525);
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
-      outline: none;
     }
 
     .policy-text {
-      margin-top: 1.5rem;
+      margin-top: 2rem;
       font-size: 0.7rem;
       color: rgba(230, 213, 184, 0.6);
       line-height: 1.5;
-      font-weight: 400;
-      max-width: 350px;
-      margin-left: auto;
-      margin-right: auto;
-      position: relative;
-      padding-top: 1rem;
-    }
-
-    .policy-text::before {
-      content: "";
-      display: block;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--highlight-color), transparent);
-      margin: 0 auto 1rem;
-      width: 60%;
+      max-width: 400px;
     }
 
     .policy-text a {
-      text-decoration: underline;
       color: var(--highlight-color);
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .policy-text a:hover {
-      color: var(--accent-color);
-    }
-
-    /* Custom arrow for select */
-    select.country-select::-ms-expand {
-      display: none;
-    }
-
-    select.country-select {
-      background-image:
-        linear-gradient(45deg, transparent 50%, black 50%),
-        linear-gradient(135deg, black 50%, transparent 50%),
-        linear-gradient(to right, #ccc, #ccc);
-      background-position:
-        calc(100% - 20px) calc(1em + 2px),
-        calc(100% - 15px) calc(1em + 2px),
-        calc(100% - 25px) 0.8em;
-      background-size: 5px 5px, 5px 5px, 1px 1.5em;
-      background-repeat: no-repeat;
-      padding-right: 32px;
+      text-decoration: underline;
     }
 
     /* Animations */
-    .flicker {
-      animation: flicker 10s infinite;
-    }
-
     @keyframes flicker {
       0% { opacity: 0.9; }
       5% { opacity: 0.8; }
@@ -301,7 +282,7 @@
       margin: 0 auto;
       letter-spacing: .15em;
       animation: 
-        typing 4s steps(40, end),
+        typing 3.5s steps(40, end),
         blink-caret .75s step-end infinite;
     }
 
@@ -315,297 +296,317 @@
       50% { border-color: var(--highlight-color); }
     }
 
+    /* Notification System */
+    .notification {
+      position: fixed;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 15px 25px;
+      color: white;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: slideIn 0.3s ease-out;
+    }
+
+    .notification-success { background: #2e7d32; }
+    .notification-error { background: #c62828; }
+    .notification-warning { background: #d4af37; color: #000; }
+
+    @keyframes slideIn {
+      from { top: -50px; opacity: 0; }
+      to { top: 30px; opacity: 1; }
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+
     /* Responsive Adjustments */
-    @media (max-width: 480px) {
+    @media (max-width: 768px) {
       .container {
         padding: 1.5rem;
-        margin: 1rem;
+        border-width: 8px;
+      }
+
+      .brand-header {
+        font-size: 2.2rem;
       }
 
       .time {
-        font-size: 3.2rem;
+        font-size: 3.5rem;
       }
 
-      input[type="email"], input[type="tel"] {
-        font-size: 0.9rem;
-        padding: 0.6rem 0.75rem;
-      }
-
-      button.subscribe-btn {
+      .submit-btn {
+        padding: 1rem;
         font-size: 1rem;
-        padding: 0.75rem 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .brand-header {
+        font-size: 1.8rem;
+      }
+
+      .time {
+        font-size: 2.8rem;
+      }
+
+      .form-input {
+        padding: 0.8rem;
       }
     }
   </style>
 </head>
-  <body>
-  <div class="overlay flicker"></div>
-  <div class="paper-texture"></div>
-  
-  <div class="overlay"></div>  
+<body>
+  <div class="overlay"></div>
 
-  <div class="container" role="main" aria-label="Subscription form">
-    <div role="timer" aria-live="polite" aria-atomic="true" aria-relevant="all" class="subtext">HRS // MINS // SECS</div>
-    <div id="countdown" class="time" aria-label="Countdown timer">000:00:00</div>
-    <div class="subtext" style="margin-bottom: 1rem; margin-top: 1.5rem;">
-      <div class="typewriter">It's a secret...</div>
+  <div class="container">
+    <!-- Brand Header -->
+    <div class="brand-header">CAUSEHERE.CO</div>
+    <div class="brand-tagline">Exclusive Members Portal</div>
+
+    <!-- Countdown Timer -->
+    <div class="time-container">
+      <div class="time-label">VIP ACCESS COUNTDOWN</div>
+      <div id="countdown" class="time">000:00:00</div>
+      <div class="access-message">
+        <div class="typewriter">Restricted Area-Authorized need Verification. </div>
+      </div>
     </div>
 
-       <form id="subscribe-form" action="process_form.php" method="POST">
-      <input 
-        type="email" 
-        name="email" 
-        id="email" 
-        placeholder="Email Address" 
-        required 
-        aria-required="true"
-        autocomplete="email"
-      />
-      
-      <div class="phone-input-wrapper" aria-label="Phone number with country code input">
-        <img 
-          class="country-flag" 
-          id="flag-img" 
-          src="https://flagcdn.com/w20/au.png" 
-          alt="Flag of Australia" 
-          onerror="this.style.display='none'"
-        />
-        
-        <select 
-          id="country-code" 
-          class="country-select" 
-          aria-label="Select country code" 
-          name="countryCode"
-        >
-          <option value="+61" data-flag="au" selected>+61 Australia</option>
-          <option value="+1" data-flag="us">+1 USA</option>
-          <option value="+44" data-flag="gb">+44 UK</option>
-          <option value="+91" data-flag="in">+91 India</option>
-          <option value="+33" data-flag="fr">+33 France</option>
-          <option value="+49" data-flag="de">+49 Germany</option>
-          <option value="+81" data-flag="jp">+81 Japan</option>
-        </select>
-
+    <!-- Access Form -->
+    <form id="access-form">
+      <!-- Access Code Field -->
+      <div class="form-group" id="access-code-group">
+        <label for="access-code" class="form-label">VIP ENTRY CODE REQUIRED</label>
         <input 
-          type="tel" 
-          id="phone" 
-          name="phone" 
-          class="phone-input"
-          placeholder="Phone Number" 
-          required
-          aria-required="true"
-          autocomplete="tel"
-          pattern="[0-9]{6,15}" 
-          inputmode="tel"
+          type="text" 
+          id="access-code" 
+          class="form-input" 
+          placeholder="Enter 9-digit VIP code" 
+          maxlength="9"
+          autocomplete="off"
+        />
+        <span class="form-hint">Hint: It begins with "ELITE" and (ends with current year)</span>
+      </div>
+
+      <!-- Email Field (Initially Hidden) -->
+      <div class="form-group" id="email-group" style="display: none;">
+        <label for="email" class="form-label">VERIFIED EMAIL</label>
+        <input 
+          type="email" 
+          id="email" 
+          class="form-input" 
+          placeholder="Your secure email" 
+          autocomplete="email"
         />
       </div>
 
-      <button type="submit" class="subscribe-btn" aria-label="Subscribe to updates">
-        <i class="fas fa-lock-open" style="margin-right: 8px;"></i> UNLOCK ACCESS
-      </button>
+      <!-- Phone Field (Initially Hidden) -->
+      <div class="form-group" id="phone-group" style="display: none;">
+        <label for="phone" class="form-label">SECURE CONTACT NUMBER</label>
+        <div class="phone-input-wrapper">
+          <img 
+            class="country-flag" 
+            id="flag-img" 
+            src="https://flagcdn.com/w20/au.png" 
+            alt="Country flag" 
+            onerror="this.style.display='none'"
+          />
+          <select id="country-code" class="country-select" name="countryCode">
+            <option value="+61" data-flag="au" selected>+61</option>
+            <option value="+1" data-flag="us">+1</option>
+            <option value="+44" data-flag="gb">+44</option>
+            <option value="+91" data-flag="in">+91</option>
+          </select>
+          <input 
+            type="tel" 
+            id="phone" 
+            class="form-input phone-input" 
+            placeholder="Mobile number" 
+            pattern="[0-9]{6,15}"
+          />
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submit-btn">
+        <i class="fas fa-fingerprint"></i> VERIFY & ENTER </button>
     </form>
-    
-    <div class="policy-text" aria-live="polite" style="margin-top: 2rem;">
-      By entering your phone number and submitting this form, you consent to receive marketing text messages from Geedup Co. at the number provided, including messages sent by autodialer. Consent is not a condition of purchase. Message and data rates apply. Message frequency varies. You can unsubscribe at any time by replying STOP or clicking the unsubscribe link in any one of our messages. View our 
-      <a href="#form" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
+
+    <div class="policy-text">
+      By proceeding, you agree to CAUSEHERE CO.'s <a href="#">Privacy Protocol</a> and <a href="#">Terms of Access</a>.
+      Unauthorized entry is prohibited.
     </div>
   </div>
-      <script>
-    // DOM Ready Handler
-    document.addEventListener('DOMContentLoaded', function() {
-      // Initialize Countdown Timer
-      const countdownElement = document.getElementById('countdown');
-      let totalSeconds = 2*3600;
+
+  <script>
+    // Configuration
+    const ACCESS_CODE = "ELITE2025"; // Change this to your desired code
+    let accessGranted = false;
+
+    // DOM Elements
+    const countdownEl = document.getElementById('countdown');
+    const accessForm = document.getElementById('access-form');
+    const accessCodeGroup = document.getElementById('access-code-group');
+    const emailGroup = document.getElementById('email-group');
+    const phoneGroup = document.getElementById('phone-group');
+    const submitBtn = document.getElementById('submit-btn');
+    const countrySelect = document.getElementById('country-code');
+    const flagImg = document.getElementById('flag-img');
+
+    // Initialize Countdown Timer (557:24:58)
+    let totalSeconds = 2*3600;
+    const timerInterval = setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    function updateCountdown() {
+      if (totalSeconds <= 0) {
+        clearInterval(timerInterval);
+        countdownEl.textContent = "ACCESS CLOSED";
+        return;
+      }
       
-      function formatTime(seconds) {
-        const hours = Math.floor(seconds / 3600);
-        const minutes = Math.floor((seconds % 3600) / 60);
-        const secs = seconds % 60;
-        return `${String(hours).padStart(3, '0')}:${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
-      }
-
-      function updateCountdown() {
-        if (totalSeconds <= 0) {
-          clearInterval(timerInterval);
-          countdownElement.textContent = "00:00:00";
-          return;
-        }
-        countdownElement.textContent = formatTime(totalSeconds);
-        totalSeconds--;
-      }
-
-      const timerInterval = setInterval(updateCountdown, 1000);
-      updateCountdown();
-
-      // Country Flag Selector
-      const countrySelect = document.getElementById('country-code');
-      const flagImg = document.getElementById('flag-img');
-
-      function updateFlag() {
-        const selectedOption = countrySelect.selectedOptions[0];
-        const flagCode = selectedOption.dataset.flag;
-        
-        if (flagCode) {
-          flagImg.src = `https://flagcdn.com/w20/${flagCode}.png`;
-          flagImg.alt = `Flag of ${selectedOption.textContent.split(' ')[1]}`;
-          flagImg.style.display = 'inline-block';
-        } else {
-          flagImg.style.display = 'none';
-        }
-      }
-
-      countrySelect.addEventListener('change', updateFlag);
-      updateFlag();
-
-      // Form Submission Handler
-      const form = document.getElementById('subscribe-form');
+      const hours = Math.floor(totalSeconds / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
       
-      form.addEventListener('submit', async function(e) {
-        e.preventDefault();
+      countdownEl.textContent = 
+        `${String(hours).padStart(3, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      
+      totalSeconds--;
+    }
 
-        const email = e.target.email.value.trim();
-        const phone = e.target.phone.value.trim();
-        const countryCode = e.target.countryCode.value;
-        const submitBtn = e.target.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
+    // Country Flag Selector
+    function updateFlag() {
+      const selectedOption = countrySelect.selectedOptions[0];
+      const flagCode = selectedOption.dataset.flag;
+      
+      if (flagCode) {
+        flagImg.src = `https://flagcdn.com/w20/${flagCode}.png`;
+        flagImg.alt = `Flag of ${selectedOption.textContent}`;
+        flagImg.style.display = 'inline-block';
+      }
+    }
 
-        // Validation
-        if (!email || !phone) {
-          showNotification('Please enter both email and phone number.', 'error');
+    countrySelect.addEventListener('change', updateFlag);
+    updateFlag();
+
+    // Form Submission
+    accessForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const accessCode = document.getElementById('access-code').value.trim();
+      
+      // First Step: Verify Access Code
+      if (!accessGranted) {
+        if (!accessCode) {
+          showNotification('Access code is required', 'error');
           return;
         }
-
-        if (!/^\S+@\S+\.\S+$/.test(email)) {
-          showNotification('Please enter a valid email address.', 'error');
-          return;
-        }
-
-        if (!/^\d{6,15}$/.test(phone)) {
-          showNotification('Please enter a valid phone number (6-15 digits).', 'error');
-          return;
-        }
-
-        // Disable button during processing
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> PROCESSING...';
-
-        try {
-          // Simulate API call
-          await new Promise(resolve => setTimeout(resolve, 1500));
-          
-          // Success handling
-          showNotification('Access granted! Redirecting...', 'success');
-          submitBtn.innerHTML = '<i class="fas fa-check"></i> ACCESS GRANTED';
-          triggerConfetti();
-          
-          setTimeout(() => {
-            window.location.href = 'Main.html';
-          }, 2000);
-          
-        } catch (error) {
-          console.error('Submission error:', error);
-          showNotification('There was an error. Please try again later.', 'error');
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = originalText;
-        }
-      });
-
-      // Notification System
-      function showNotification(message, type) {
-        // Remove existing notifications
-        const existing = document.querySelector('.notification');
-        if (existing) existing.remove();
-
-        // Create notification element
-        const notification = document.createElement('div');
-        notification.className = `notification notification-${type}`;
         
-        // Add icon
-        const icon = document.createElement('i');
-        icon.className = type === 'success' ? 'fas fa-check-circle' : 'fas fa-exclamation-circle';
-        notification.appendChild(icon);
+        if (accessCode !== ACCESS_CODE) {
+          showNotification('Invalid security passcode', 'error');
+          return;
+        }
         
-        // Add text
-        notification.appendChild(document.createTextNode(message));
-        document.body.appendChild(notification);
-
-        // Auto-remove after delay
+        // Correct code - grant access
+        accessGranted = true;
+        showNotification('Identity verified. Please complete your details', 'success');
+        
+        // Show additional fields
+        emailGroup.style.display = 'block';
+        phoneGroup.style.display = 'block';
+        accessCodeGroup.style.display = 'none';
+        submitBtn.innerHTML = '<i class="fas fa-lock-open"></i> COMPLETE REGISTRATION';
+        
+        return;
+      }
+      
+      // Second Step: Process Full Form
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const countryCode = countrySelect.value;
+      
+      // Validation
+      if (!email || !phone) {
+        showNotification('All fields are required', 'error');
+        return;
+      }
+      
+      if (!/^\S+@\S+\.\S+$/.test(email)) {
+        showNotification('Please enter a valid email', 'error');
+        return;
+      }
+      
+      if (!/^\d{6,15}$/.test(phone)) {
+        showNotification('Please enter a valid phone number', 'error');
+        return;
+      }
+      
+      // Disable button during processing
+      const originalBtnText = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> PROCESSING...';
+      
+      try {
+        // Simulate API call
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        
+        // Success
+        showNotification('Access granted! Welcome to CAUSEHERE co.', 'success');
+        submitBtn.innerHTML = '<i class="fas fa-check"></i> ACCESS GRANTED';
+        
+        // Redirect after delay
         setTimeout(() => {
-          notification.style.animation = 'fadeOut 0.5s forwards';
-          setTimeout(() => notification.remove(), 500);
-        }, 3000);
-      }
-
-      // Confetti Effect
-      function triggerConfetti() {
-        const confettiCount = 150;
-        const container = document.querySelector('.container');
-        const colors = ['#e50914', '#d4af37', '#ffffff'];
+          window.location.href = 'Main.html';
+        }, 2000);
         
-        for (let i = 0; i < confettiCount; i++) {
-          const confetti = document.createElement('div');
-          confetti.className = 'confetti';
-          
-          Object.assign(confetti.style, {
-            position: 'absolute',
-            width: '10px',
-            height: '10px',
-            background: colors[i % colors.length],
-            top: '-10px',
-            left: `${Math.random() * 100}%`,
-            borderRadius: Math.random() > 0.5 ? '50%' : '0',
-            opacity: Math.random() * 0.8 + 0.2,
-            zIndex: '100',
-            transform: 'translateY(0) rotate(0deg)'
-          });
-          
-          container.appendChild(confetti);
-
-          const animationDuration = Math.random() * 3000 + 2000;
-          confetti.animate([
-            { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
-            { transform: `translateY(${window.innerHeight}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
-          ], {
-            duration: animationDuration,
-            easing: 'cubic-bezier(0,0.8,0.2,1)'
-          });
-
-          setTimeout(() => confetti.remove(), animationDuration);
-        }
+      } catch (error) {
+        console.error('Submission error:', error);
+        showNotification('Connection error. Please try again', 'error');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
       }
-
-      // Add notification styles
-      const style = document.createElement('style');
-      style.textContent = `
-        @keyframes slideIn {
-          from { top: -50px; opacity: 0; }
-          to { top: 20px; opacity: 1; }
-        }
-        @keyframes fadeOut {
-          from { opacity: 1; }
-          to { opacity: 0; }
-        }
-        .notification {
-          position: fixed;
-          top: 20px;
-          left: 50%;
-          transform: translateX(-50%);
-          padding: 15px 25px;
-          color: white;
-          border-radius: 4px;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-          z-index: 1000;
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          animation: slideIn 0.3s ease-out;
-        }
-        .notification-success { background: #2e7d32; }
-        .notification-error { background: #c62828; }
-      `;
-      document.head.appendChild(style);
     });
+
+    // Notification System
+    function showNotification(message, type) {
+      // Remove existing notifications
+      const existing = document.querySelector('.notification');
+      if (existing) existing.remove();
+      
+      // Create notification
+      const notification = document.createElement('div');
+      notification.className = `notification notification-${type}`;
+      
+      // Add icon
+      const icon = document.createElement('i');
+      icon.className = type === 'success' ? 'fas fa-check-circle' : 
+                       type === 'error' ? 'fas fa-exclamation-circle' : 'fas fa-exclamation-triangle';
+      notification.appendChild(icon);
+      
+      // Add text
+      notification.appendChild(document.createTextNode(message));
+      document.body.appendChild(notification);
+      
+      // Auto-remove after delay
+      setTimeout(() => {
+        notification.style.animation = 'fadeOut 0.5s forwards';
+        setTimeout(() => notification.remove(), 500);
+      }, 3000);
+    }
+
+    // Initial notification
+    setTimeout(() => {
+      showNotification('VIP authentication required', 'warning');
+    }, 1000);
   </script>
 </body>
 </html>
-          
+
