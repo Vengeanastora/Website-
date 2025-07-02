@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECH-RETRO DIGITAL EXPERIENCE CAUSEHERE</title>
+<style>
+        /* === BASE STYLES === */
+        :root {
+            --neon-pink: #ff2a6d;
+            --neon-blue: #05d9e8;
+            --neon-purple: #d300c5;
+            --neon-green: #00ff9d;
+            --dark-bg: #0d0221;
+            --darker-bg: #05010e;
+            --glow-pink: 0 0 10px rgba(255, 42, 109, 0.8);
+            --glow-blue: 0 0 10px rgba(5, 217, 232, 0.8);
+            --scanline: rgba(0, 255, 157, 0.05);
+            --crt-flicker: rgba(5, 217, 232, 0.02);
+        }
+        /* === YOUR EXISTING FONT FACES === */
+        @font-face{
+            src: url("FONTS/attila.ttf");
+            font-family: "attila Sans Uniform";
+        }
+        @font-face{
+            src: url("FONTS/DancingScript-VariableFont_wght.ttf");
+            font-family: "dancing script";
+        }
+        @font-face{
+            src: url("FONTS/Havelock\ Titling\ Family/havelock.otf");
+            font-family: "havelock titling";
+        }
+        @font-face{
+            src: url("FONTS/Montserrat/Montserrat-Medium.ttf");
+            font-family: "montserrat";
+        }
+        @font-face {
+            font-family: manuka;
+            src: url(./manuka-regular.ttf);
+            font-weight: 500;
+        }
+        @font-face {
+            font-family: druk heavy;
+            src: url("./Druk-Heavy.ttf");
+        }
+        @font-face {
+            font-family: Gilroy;
+            src: url(./Gilroy-Medium.woff2);
+            font-weight: 500;
+        }
+        @font-face {
+            font-family: america-b;
+            src: url(./GT-America-Compressed-Black-Trial.woff2);
+        }
+        @font-face {
+            font-family: manuka;
+            font-weight: 700;
+            src: url(./manuka-bold.ttf);
+        }
+        /* === CRT SCREEN EFFECT === */
+        body {
+            background-color: var(--dark-bg);
+            color: #fff;
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            position: relative;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(var(--scanline) 1px, transparent 1px),
+                linear-gradient(90deg, var(--scanline) 1px, transparent 1px);
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+            z-index: 1000;
+            animation: flicker 0.1s infinite alternate;
+        }
+        @keyframes flicker {
+            0% { background-color: var(--crt-flicker); }
+            100% { background-color: transparent; }
+        }
+        /* === HERO SECTION === */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: 
+                radial-gradient(circle at 20% 30%, var(--neon-purple) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, var(--neon-blue) 0%, transparent 40%),
+                linear-gradient(to bottom, var(--darker-bg), var(--dark-bg));
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="%2305d9e8" stroke-width="0.5" opacity="0.1"/></svg>');
+            opacity: 0.1;
+            pointer-events: none;
+        }
+        .hero-title {
+            font-family: 'druk heavy', sans-serif;
+            font-size: 8vw;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, var(--neon-pink), var(--neon-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: var(--glow-pink), var(--glow-blue);
+            margin: 0;
+            animation: glitch 2s infinite alternate, float 6s ease-in-out infinite;
+            position: relative;
+            z-index: 10;
+        }
+        .hero-subtitle {
+            font-family: 'dancing script', cursive;
+            font-size: 2.5rem;
+            color: var(--neon-green);
+            text-shadow: 0 0 8px var(--neon-green);
+            margin: 1rem 0 3rem;
+            animation: glitch-small 3s infinite alternate;
+        }
+        .hero-cta {
+            font-family: 'manuka', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            padding: 1rem 2.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid var(--neon-blue);
+            color: var(--neon-blue);
+            text-shadow: 0 0 5px var(--neon-blue);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 5;
+        }
+        .hero-cta::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(5, 217, 232, 0.4), transparent);
+            transition: all 0.6s ease;
+        }
+        .hero-cta:hover {
+            background: rgba(5, 217, 232, 0.2);
+            box-shadow: 0 0 15px var(--neon-blue);
+        }
+        .hero-cta:hover::before {
+            left: 100%;
+        }
+        /* === WINDOWS 98 STYLE NAV === */
+        .win98-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to right, #1084d0, #7eb6e8);
+            height: 50px;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            z-index: 100;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+            border-top: 2px solid #fff;
+        }
+        .start-button {
+        
+            background: linear-gradient(to bottom, #f6f6f6, #d6d6d6);
+            border: 2px solid;
+            border-color: #fff #808080 #808080 #fff;
+            padding: 5px 15px;
+            font-family: 'MS Sans Serif', sans-serif;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .start-button:active {
+            border-color: #808080 #fff #fff #808080;
+            background: linear-gradient(to bottom, #d6d6d6, #f6f6f6);
+        }
+        .start-button img {
+            margin-right: 5px;
+            width: 16px;
+            height: 16px;
+        }
+        .taskbar-items {
+            display: flex;
+            margin-left: 20px;
+        }
+        .taskbar-item {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid #fff;
+            border-radius: 3px;
+            padding: 5px 10px;
+            margin-right: 5px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .taskbar-item:hover {
+            background: rgba(255, 255, 255, 0.9);
+        }
+        .clock {
+            margin-left: auto;
+            font-family: 'MS Sans Serif', sans-serif;
+            font-size: 0.9rem;
+            padding: 5px 10px;
+            background: linear-gradient(to bottom, #d6d6d6, #f6f6f6);
+            border: 2px solid;
+            border-color: #808080 #fff #fff #808080;
+        }
+        /* === RETRO-FUTURISTIC CARDS === */
+        .features {
+            padding: 5rem 2rem;
+            background: var(--dark-bg);
+            position: relative;
+        }
+        .section-title {
+            font-family: 'america-b', sans-serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--neon-pink);
+            text-shadow: var(--glow-pink);
+            position: relative;
+        }
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--neon-pink), var(--neon-blue));
+            margin: 1rem auto;
+            box-shadow: var(--glow-pink), var(--glow-blue);
+        }
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .cyber-card {
+            background: rgba(13, 2, 33, 0.7);
+            border: 1px solid var(--neon-blue);
+            border-radius: 5px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(5, 217, 232, 0.3);
+        }
+        .cyber-card::before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--neon-pink), var(--neon-blue), var(--neon-purple));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .cyber-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(5, 217, 232, 0.5);
+        }
+        .cyber-card:hover::before {
+            opacity: 1;
+            animation: animate-border 2s linear infinite;
+        }
+        @keyframes animate-border {
+            0% { filter: blur(5px); opacity: 0.7; }
+            100% { filter: blur(10px); opacity: 0; }
+        }
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--neon-green);
+            text-shadow: 0 0 10px var(--neon-green);
+        }
+        .card-title {
+            font-family: 'manuka', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--neon-blue);
+        }
+        .card-text {
+            font-family: 'Courier New', monospace;
+            color: #ccc;
+            line-height: 1.6;
+        }
+        /* === MS PAINT STYLE ABOUT SECTION === */
+        .about {
+            padding: 5rem 2rem;
+            background: linear-gradient(to bottom, var(--dark-bg), #1a0a2a);
+            position: relative;
+            overflow: hidden;
+        }
+        .paint-canvas {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            border: 10px solid #ddd;
+            box-shadow: 0 0 0 5px #999, 0 0 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+            padding: 2rem;
+            font-family: 'Comic Sans MS', cursive;
+        }
+        .paint-canvas::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f0f0f0"/><path d="M0 0 L100 100 M0 100 L100 0" stroke="%23ddd" stroke-width="1"/></svg>');
+            opacity: 0.1;
+        }
+        .paint-title {
+            font-size: 2.5rem;
+            color: #000;
+            margin-bottom: 1rem;
+            text-align: center;
+            position: relative;
+        }
+        .paint-title::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, #000, #999);
+            margin: 0.5rem 0;
+        }
+        .paint-text {
+            color: #000;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        .paint-drawing {
+            width: 100%;
+            height: 200px;
+            background: #fff;
+            border: 2px solid #000;
+            margin: 1rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .paint-drawing::before {
+            content: "MS Paint Drawing Here";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #999;
+            font-size: 1.5rem;
+        }
+        /* === PIXELATED GALLERY === */
+        .gallery {
+            padding: 5rem 2rem;
+            background: var(--darker-bg);
+            position: relative;
+        }
+        .pixel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .pixel-item {
+            position: relative;
+            overflow: hidden;
+            border: 2px solid var(--neon-purple);
+            transition: all 0.3s ease;
+            aspect-ratio: 1/1;
+            filter: grayscale(100%) contrast(120%);
+        }
+        .pixel-item:hover {
+            transform: scale(1.05);
+            filter: none;
+            box-shadow: 0 0 20px var(--neon-purple);
+            z-index: 10;
+        }
+        .pixel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        .pixel-item:hover img {
+            transform: scale(1.1);
+        }
+        .pixel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--neon-green);
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: all 0.3s ease;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+        }
+        .pixel-item:hover .pixel-caption {
+            transform: translateY(0);
+        }
+        /* === RETRO CONTACT FORM === */
+        .contact {
+            padding: 5rem 2rem;
+            background: linear-gradient(to bottom, #1a0a2a, var(--dark-bg));
+            position: relative;
+        }
+        .retro-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 2rem;
+            border: 5px solid #000;
+            box-shadow: 10px 10px 0 #999, 15px 15px 0 #000;
+            position: relative;
+        }
+        .retro-form::before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border: 2px dashed #999;
+            pointer-events: none;
+        }
+        .form-title {
+            font-family: 'Comic Sans MS', cursive;
+            font-size: 2rem;
+            color: #000;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-label {
+            display: block;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 0.5rem;
+        }
+        .form-input {
+            width: 100%;
+            padding: 0.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            border: 2px solid #000;
+            background: #fff;
+            color: #000;
+        }
+        .form-textarea {
+            width: 100%;
+            height: 150px;
+            padding: 0.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            border: 2px solid #000;
+            background: #fff;
+            color: #000;
+            resize: none;
+        }
+        .form-submit {
+            background: #000;
+            color: #fff;
+            font-family: 'Comic Sans MS', cursive;
+            font-size: 1.2rem;
+            padding: 0.5rem 2rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .form-submit:hover {
+            background: #ff2a6d;
+            color: #000;
+        }
+        .form-submit:active {
+            transform: translate(5px, 5px);
+            box-shadow: none;
+        }
+        /* === UNDER CONSTRUCTION FOOTER === */
+        .footer {
+            padding: 3rem 2rem;
+            background: #000;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .construction {
+            font-family: 'Impact', sans-serif;
+            font-size: 3rem;
+            color: #ff0;
+            text-shadow: 0 0 10px #ff0, 0 0 20px #ff0;
+            margin-bottom: 1rem;
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0.5; }
+        }
+        .geocities {
+            font-family: 'Arial', sans-serif;
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 2rem;
+        }
+        .counter {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            color: #0f0;
+            margin-bottom: 1rem;
+        }
+        .guestbook {
+            font-family: 'Comic Sans MS', cursive;
+            font-size: 1rem;
+            color: #fff;
+            margin-top: 2rem;
+        }
+        /* === ANIMATIONS === */
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-3px, 3px); }
+            40% { transform: translate(-3px, -3px); }
+            60% { transform: translate(3px, 3px); }
+            80% { transform: translate(3px, -3px); }
+            100% { transform: translate(0); }
+        }
+        @keyframes glitch-small {
+            0% { transform: translate(0); }
+            20% { transform: translate(-1px, 1px); }
+            40% { transform: translate(-1px, -1px); }
+            60% { transform: translate(1px, 1px); }
+            80% { transform: translate(1px, -1px); }
+            100% { transform: translate(0); }
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+        /* === MARQUEE === */
+        .marquee {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #000;
+            color: #0f0;
+            font-family: 'Courier New', monospace;
+            padding: 10px 0;
+            z-index: 100;
+            overflow: hidden;
+        }
+        .marquee-content {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 20s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        /* === RESPONSIVE DESIGN === */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 12vw;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .win98-nav {
+                justify-content: space-between;
+            }
+            
+            .taskbar-items {
+                display: none;
+            }
+        }
+        /* === KONAMI CODE EASTER EGG === */
+        .easter-egg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #000;
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+        .easter-egg.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .egg-content {
+            font-family: 'Courier New', monospace;
+            color: #0f0;
+            text-align: center;
+            font-size: 2rem;
+            text-shadow: 0 0 10px #0f0;
+        }
+    </style>
+    </head>
+    <body>
+    <!-- Marquee -->
+    <div class="marquee">
+        <div class="marquee-content">
+            ★★★ WELCOME TO THE CYBER-RETRO EXPERIENCE ★★★ SYSTEM INITIALIZED ★★★ 3.5MB OF 640KB RAM FREE ★★★ PRESS ANY KEY TO CONTINUE ★★★
+        </div>
+    </div>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <h1 class="hero-title">🔴CAUSEHERE</h1>
+        <p class="hero-subtitle">Where CAUSEHERE Nostalgia Meets Cyberpunk Future</p>
+        <button class="hero-cta" id="explore-btn" ><a href="NEWS.html"></a>EXPLORE TERMINAL</button>
+        
+    </section>
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2 class="section-title">SYSTEM FEATURES</h2>
+        <div class="cards-container">
+            <div class="cyber-card">
+                <div class="card-icon">🖥️</div>
+                <h3 class="card-title">RETRO UI</h3>
+                <p class="card-text">Experience the classic Windows 98 interface enhanced with modern cyberpunk aesthetics and smooth animations.</p>
+            </div>
+            <div class="cyber-card">
+                <div class="card-icon">🔮</div>
+                <h3 class="card-title">GLITCH EFFECTS</h3>
+                <p class="card-text">Our advanced glitch technology creates a nostalgic yet futuristic visual experience that responds to your interactions.</p>
+            </div>
+            <div class="cyber-card">
+                <div class="card-icon">💾</div>
+                <h3 class="card-title">DATA STORAGE</h3>
+                <p class="card-text">Secure your memories with our vintage-inspired (but modern-powered) floppy disk storage system.</p>
+            </div>
+        </div>
+    </section>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2 class="section-title">ABOUT TERMINAL</h2>
+        <div class="paint-canvas">
+            <h3 class="paint-title">My Digital Journey</h3>
+            <p class="paint-text">Back in 1995, I booted up my first 486DX and fell in love with the digital world. The beeps, the dial-up sounds, the pixelated graphics - it was magic.</p>
+            <div class="paint-drawing"></div>
+            <p class="paint-text">Now in 2025, I'm blending those nostalgic elements with cutting-edge web technologies to create experiences that make your heart race and your inner child smile.</p>
+        </div>
+    </section>
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <h2 class="section-title">PIXEL MEMORIES</h2>
+        <div class="pixel-grid">
+            <div class="pixel-item">
+                <img src="photo3.jpg" alt="Code">
+                <div class="pixel-caption">// 1995 - First Website</div>
+            </div>
+            <div class="pixel-item">
+                <img src="photo2.jpg" alt="Retro Computer">
+                <div class="pixel-caption">// 1998 - Windows 98</div>
+            </div>
+            <div class="pixel-item">
+                <img src="photo4.jpg" alt="Neon City">
+                <div class="pixel-caption">// 2025 - Cyberpunk Future</div>
+            </div>
+            <div class="pixel-item">
+                <img src="photo5.jpg" alt="Glitch Art">
+                <div class="pixel-caption">// Digital Art Evolution</div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">CONTACT TERMINAL</h2>
+        <form class="retro-form">
+            <h3 class="form-title">SEND MESSAGE</h3>
+            <div class="form-group">
+                <label class="form-label" for="name">YOUR NAME:</label>
+                <input type="text" id="name" class="form-input" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="email">EMAIL ADDRESS:</label>
+                <input type="email" id="email" class="form-input" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="message">MESSAGE:</label>
+                <textarea id="message" class="form-textarea" required></textarea>
+            </div>
+            <button type="submit" class="form-submit">SEND (╯°□°)╯</button>
+        </form>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="construction">UNDER CONSTRUCTION</div>
+        <div class="geocities">Best viewed with Netscape Navigator at 800x600 resolution</div>
+        <div class="counter">Visitor Count: 0101010101</div>
+        <div class="guestbook" href="NEWS.html">Sign my guestbook! ✍️</div>
+    </footer>
+    <!-- Windows 98 Style Nav -->
+    <nav class="win98-nav">
+        <button class="start-button">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjMDAwMDAwIiBkPSJNMjU2IDBDMTE0LjYgMCAwIDExNC42IDAgMjU2czExNC42IDI1NiAyNTYgMjU2IDI1Ni0xMTQuNiAyNTYtMjU2UzM5Ny40IDAgMjU2IDB6bTAgNDY0Yy0xMTQuNyAwLTIwOC05My4zLTIwOC0yMDhTMTQxLjMgNDggMjU2IDQ4czIwOCA5My4zIDIwOCAyMDgtOTMuMyAyMDgtMjA4IDIwOHptLTIwLTQ0OGMtMTI3LjkgMC0yMzIgMTA0LjEtMjMyIDIzMnMxMDQuMSAyMzIgMjMyIDIzMiAyMzItMTA0LjEgMjMyLTIzMlMzNjMuOSAxNiAyMzYgMTZ6Ii8+PHBhdGggZmlsbD0iIzAwMDAwMCIgZD0iTTI5NiAzMDRjMCA0LjQtMy42IDgtOCA4SDIyNGMtNC40IDAtOC0zLjYtOC04di0zMmMwLTQuNCAzLjYtOCA4LThoNjRjNC40IDAgOCAzLjYgOCA4djMyem0wLTk2YzAgNC40LTMuNiA4LTggOEgyMjRjLTQuNCAwLTgtMy42LTgtOHYtMzJjMC00LjQgMy42LTggOC04aDY0YzQuNCAwIDggMy42IDggOHYzMnoiLz48L3N2Zz4=" alt="Windows Logo">
+            Start
+        </button>
+        <div class="taskbar-items">
+            <div class="taskbar-item">My Computer</div>
+            <div class="taskbar-item">Internet Explorer</div>
+            <div class="taskbar-item">Notepad</div>
+        </div>
+        <div class="clock" id="clock">10:41 PM</div>
+    </nav>
+    <!-- Easter Egg -->
+    <div class="easter-egg" id="easter-egg">
+        <div class="egg-content">
+            <p>ACCESS GRANTED</p>
+            <p>SECRET TERMINAL UNLOCKED</p>
+            <p>WELCOME TO THE MATRIX</p>
+            <p>PRESS ANY KEY TO CONTINUE...</p>
+        </div>
+    </div>
+    <script>
+        // Konami Code Easter Egg
+        const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        let konamiIndex = 0;
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === konamiCode[konamiIndex]) {
+                konamiIndex++;
+                if (konamiIndex === konamiCode.length) {
+                    document.getElementById('easter-egg').classList.add('active');
+                    konamiIndex = 0;
+                    
+                    // Play dial-up sound
+                    const dialupSound = new Audio('https://www.soundjay.com/communication/sounds/dial-up-modem-01.mp3');
+                    dialupSound.play();
+                }
+            } else {
+                konamiIndex = 0;
+            }
+        });
+        // Close easter egg on click
+        document.getElementById('easter-egg').addEventListener('click', () => {
+            document.getElementById('easter-egg').classList.remove('active');
+        });
+        // Update clock
+        function updateClock() {
+            const now = new Date();
+            let hours = now.getHours();
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+            document.getElementById('clock').textContent = '${hours}:${minutes} ${ampm';
+        }
+        
+        setInterval(updateClock, 1000);
+        updateClock();
+        // Play sound on button click
+        document.getElementById('explore-btn').addEventListener('click', () => {
+            const clickSound = new Audio('https://www.soundjay.com/buttons/sounds/button-10.mp3');
+            clickSound.play();
+        });
+        // Windows 98 start button sound
+        document.querySelector('.start-button').addEventListener('click', (e) => {
+            e.preventDefault();
+            const startSound = new Audio('https://www.soundjay.com/buttons/sounds/button-09.mp3');
+            startSound.play();
+            alert('Windows 98 Start Menu would appear here!');
+        });
+        // Taskbar item clicks
+        document.querySelectorAll('.taskbar-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const openSound = new Audio('https://www.soundjay.com/buttons/sounds/button-21.mp3');
+                openSound.play();
+                
+                // Create fake window
+                const window = document.createElement('div');
+                window.style.position = 'fixed';
+                window.style.top = '50%';
+                window.style.left = '50%';
+                window.style.transform = 'translate(-50%, -50%)';
+                window.style.width = '400px';
+                window.style.height = '300px';
+                window.style.backgroundColor = '#c0c0c0';
+                window.style.border = '3px solid';
+                window.style.borderColor = '#fff #808080 #808080 #fff';
+                window.style.boxShadow = '5px 5px 10px rgba(0, 0, 0, 0.5)';
+                window.style.zIndex = '1000';
+                
+                const titleBar = document.createElement('div');
+                titleBar.style.backgroundColor = '#000080';
+                titleBar.style.color = '#fff';
+                titleBar.style.padding = '3px';
+                titleBar.style.display = 'flex';
+                titleBar.style.justifyContent = 'space-between';
+                titleBar.style.alignItems = 'center';
+                
+                const title = document.createElement('span');
+                title.textContent = item.textContent;
+                
+                const closeBtn = document.createElement('button');
+                closeBtn.textContent = 'X';
+                closeBtn.style.backgroundColor = '#c0c0c0';
+                closeBtn.style.border = '2px solid';
+                closeBtn.style.borderColor = '#fff #808080 #808080 #fff';
+                closeBtn.style.padding = '0 5px';
+                closeBtn.addEventListener('click', () => {
+                    document.body.removeChild(window);
+                    const closeSound = new Audio('https://www.soundjay.com/buttons/sounds/button-17.mp3');
+                    closeSound.play();
+                });
+                
+                titleBar.appendChild(title);
+                titleBar.appendChild(closeBtn);
+                
+                const content = document.createElement('div');
+                content.style.padding = '10px';
+                content.style.height = 'calc(100% - 30px)';
+                content.style.overflow = 'auto';
+                content.style.backgroundColor = '#fff';
+                content.innerHTML = <p style="font-family: 'MS Sans Serif', sans-serif;">${item.textContent} content would appear here!</p>;
+                
+                window.appendChild(titleBar);
+                window.appendChild(content);
+                document.body.appendChild(window);
+            });
+        });
+    </script>
+</body>
+</html>
