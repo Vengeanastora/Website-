@@ -1,1561 +1,3147 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>🔵 Ecosyfom || Emprove YOUR Tomorrow,🗞️TODAY</title>
+
     <link rel="icon" href="IMG_20250702_184253.png" type="image/png">
-    
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Source+Code+Pro&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Roboto:wght@400&display=swap" rel="stylesheet">
+
  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Source+Code+Pro&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 
+
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet" />
+
        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
+
+
 <style>
+
 @font-face{
+
     src: url("FONTS/attila.ttf");
+
     font-family: "attila Sans Uniform";
+
 }
+
 @font-face{
+
     src: url("FONTS/DancingScript-VariableFont_wght.ttf");
+
     font-family: "dancing script";
+
 }
+
 @font-face{
+
     src: url("FONTS/Havelock\ Titling\ Family/havelock.otf");
+
     font-family: "havelock titling";
+
 }
+
 @font-face{
+
     src: url("FONTS/Montserrat/Montserrat-Medium.ttf");
+
     font-family: "montserrat";
+
 }
+
+
 
   @font-face {
+
   font-family: manuka;
+
   src: url(./manuka-regular.ttf);
+
   font-weight: 500;
+
 }
 
+
+
 @font-face {
+
   font-family: druk heavy;
+
   src: url("./Druk-Heavy.ttf");
+
 }
 
+
+
 @font-face {
+
   font-family: Gilroy;
+
   src: url(./Gilroy-Medium.woff2);
+
   font-weight: 500;
+
 }
 
-@fot-face {
-  font-family: america-b;
-  src: url(./GT-America-Compressed-Black-Trial.woff2);
-}
+
+
+
 
 @font-face {
+
   font-family: manuka;
+
   font-weight: 700;
+
   src: url(./manuka-bold.ttf);
+
 }
+
+
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+
+
     html, body {
+
       height: 100%;
+
       font-family: 'Playfair Display', serif;
+
       color: #FFFFFF;
+
       background: #3f3f3f;
+
       transition: background 0.6s ease, color 0.6s ease;
+
       overflow-x: hidden;
+
       scroll-behavior: smooth;
+
       backface-visibility: hidden;
+
       transform: translateZ(0);
+
     }
+
     body.night {
+
       background: #1a1a1a;
+
       color: #f1f1f1;
+
     }
+
+
 
     body::before {
+
       content: "";
+
       position: fixed;
+
       inset: 0;
+
       background: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+
       opacity: 0.1;
+
       z-index: 0;
+
     }
+
+
 
     .navbar {
+
       position: relative;
+
       top: 0px;
+
       width: 100%;
+
       background: #2F2F2F;
+
       border-bottom: 1px solid #e4d5ba;
+
       display: flex;
+
       justify-content: space-between;
+
       align-items: center;
+
       padding: 10px 30px;
+
       z-index: 997;
+
       opacity: 0;
+
       transform: translateY(-100%);
+
       transition: all 0.8s ease, background 0.6s ease, color 0.6s ease;
+
     }
+
+
 
     .navbar.show {
+
       opacity: 1;
+
       transform: translateY(0);
+
     }
+
+
 
     .navbar.night {
+
       background: #2c2c2c;
+
       border-color: #555;
+
     }
+
+
 
     .nav-logo {
+
       display: flex;
+
       align-items: center;
+
       font-size: 1.4rem;
+
       font-weight: bold;
+
       gap: 10px;
+
     }
+
+
 
     .nav-icon {
+
       animation: pulseGlow 1.5s infinite alternate;
+
       font-size: 1.4rem;
+
       color: #ff9900;
+
     }
+
+
 
     @keyframes pulseGlow {
+
       0% { transform: scale(1); filter: drop-shadow(0 0 0px #ffae00); }
+
       100% { transform: scale(1.2); filter: drop-shadow(0 0 6px #ffae00); }
+
     }
+
+
 
     .nav-links {
+
       display: flex;
+
       gap: 25px;
+
     }
+
+
 
     .nav-links a {
+
       text-decoration: none;
+
       color: #3d2b1f;
+
       font-weight: bold;
+
       font-size: 1rem;
+
       position: relative;
+
     }
+
+
 
     .navbar.night .nav-links a {
+
       color: #f0f0f0;
+
     }
+
+
 
     .nav-links a::after {
+
       content: "";
+
       position: absolute;
+
       bottom: -3px;
+
       left: 0;
+
       width: 0%;
+
       height: 2px;
+
       background: #7b5b36;
+
       transition: width 0.3s ease;
+
     }
+
+
 
     .nav-links a:hover::after {
+
       width: 100%;
+
     }
+
+
 
     .theme-toggle {
+
       font-size: 1.4rem;
+
       cursor: pointer;
+
       margin-left: 20px;
+
       transition: transform 0.3s ease;
+
     }
+
+
 
     .hamburger {
+
       display: none;
+
       font-size: 1.6rem;
+
       cursor: pointer;
-    }
-    
 
-    .hello>h1{
-       font-family: druk heavy;
-       background: url(https://lagunitas.com/wp-content/themes/lagunitas/assets/images/texture.png);
-       background-position: center;
-       background-size: cover;
-       -webkit-background-clip: text;
-          margin-top: 10px;
-         -webkit-text-fill-color: transparent;
-         position: relative;
-         background-color: rgb(190, 0, 28);
-         -webkit-font-smoothing: antialiased;
-         font-size: 20.7vw;
-         line-height: 18.5vw;
-         text-transform: uppercase;
-         text-align: center;
-         background-repeat: no-repeat;
     }
 
-      
-
     
-/*****VIDEO SECTION********/
-#toto {
-  height: 100vh;
+
+
+
+/* Fullscreen background video */
+
+.video-background {
+
+  position: fixed;
+
+  top: 0;
+
+  left: 0;
+
+  height: 100%;
+
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4vw;
-  position: relative;
+
+  overflow: hidden;
+
+  z-index: -1;
+
 }
+
+
+
+.video-background video {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+}
+
+
+
+/* Main content on top of video */
+
+.main-content {
+
+  position: relative;
+
+  z-index: 1;
+
+  color: white;
+
+  text-align: center;
+
+  padding: 10vh 2rem 5rem;
+
+  min-height: 100vh;
+
+  background: rgba(0, 0, 0, 0.5); /* optional: darken for readability */
+
+}
+
+
+
+/* Headline and paragraph styles */
+
+.main-content h1 {
+
+     font-family: druk heavy;
+
+       background: url(https://lagunitas.com/wp-content/themes/lagunitas/assets/images/texture.png);
+
+       background-position: center;
+
+       background-size: cover;
+
+       -webkit-background-clip: text;
+
+          margin-top: 10px;
+
+         -webkit-text-fill-color: transparent;
+
+         position: relative;
+
+         background-color: rgb(190, 0, 28);
+
+         -webkit-font-smoothing: antialiased;
+
+         font-size: 20.7vw;
+
+         line-height: 18.5vw;
+
+         text-transform: uppercase;
+
+         text-align: center;
+
+         background-repeat: no-repeat;
+
+    
+
+}
+
+      .main-content h2 {
+
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+
+  margin-bottom: 1rem;
+
+}
+
+.main-content p {
+
+  font-size: 1.125rem;
+
+  max-width: 60ch;
+
+  margin: 0 auto;
+
+  line-height: 1.6;
+
+}
+
+/**VIDEO SECTION***/
+
+#toto {
+
+  height: 100vh;
+
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 4vw;
+
+  position: relative;
+
+}
+
+
 
 #toto-in {
+
   position: relative;
+
   height: 100%;
+
   width: 100%;
+
   border-radius: 30px;
+
   backdrop-filter: blur(50px);
+
   overflow: hidden;
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
+
   anisibility: hidden;
+
       transform: translateZ(0);
+
     }
-    
 
     
+
+
+
+    
+
+
 
 .can-opening {
+
   width: 90%;
+
   height: 90%;
+
   opacity: 1;
+
   overflow: hidden;
+
   border-radius: 20px;
+
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+
 }
+
+
 
 .can-opening video {
+
   width: 100%;
+
   height: 100%;
+
   object-fit: cover;
+
   border-radius: 20px;
+
 }
+
+
 
 /* Can popping open animation */
+
 @keyframes pop-en {
+
   0% {
+
     transform: scaleY(0);
+
     opacity: 0;
+
   }
+
   60% {
+
     transform: scaleY(1.1);
+
     opacity: 1;
+
   }
+
   100% {
+
     transform: scaleY(1);
+
   }
+
 }
+
+
 
 /* Add this to #page2 for glowing orb effect */
+
 #toto::before {
+
   content: "";
+
   position: absolute;
+
   width: 100%;
+
   height: 50%;
+
   top: -10%;
+
   left: 50%;
+
   background: radial-gradient(circle, rgba(0, 255, 255, 0.7), transparent 70%);
+
   border-radius: 100%;
+
   animation: moveOrb 6s ease-in-out infinite;
+
   filter: blur(20px);
+
   pointer-events: none;
+
   z-index: 0;
+
 }
+
+
 
 /* Glowing orb animation */
+
 @keyframes moveOrb {
+
   0% {
+
     transform: translate(0, 0) scale(1);
+
     opacity: 0.6;
+
   }
+
   50% {
+
     transform: translate(50px, -40px) scale(1.2);
+
     opacity: 1;
+
   }
+
   100% {
+
     transform: translate(0, 0) scale(1);
+
     opacity: 0.6;
+
   }
+
 }
+
+
 
 #toto::after {
+
   content: "";
+
   position: absolute;
+
   width: 100%;
+
   height: 50%;
+
   bottom: -10%;
+
   right: 50%;
+
   background: radial-gradient(circle, rgba(255, 0, 255, 0.6), transparent 70%);
+
   border-radius: 50%;
+
   animation: moveOrbReverse 6s ease-in-out infinite;
+
   filter: blur(25px);
+
   pointer-events: none;
+
   z-index: 0;
+
 }
+
+
 
 /* Reverse animation for 2nd orb */
+
 @keyframes moveOrbReverse {
+
   0% {
+
     transform: translate(0, 0) scale(1);
+
     opacity: 0.6;
+
   }
+
   50% {
+
     transform: translate(-40px, 50px) scale(1.2);
+
     opacity: 1;
+
   }
+
   100% {
+
     transform: translate(0, 0) scale(1);
+
     opacity: 0.6;
+
   }
+
+}
+
+/**boat animation**/
+
+.scene {
+
+      position: relative;
+
+      width: 100%;
+
+      height: 300px;
+
+      overflow: hidden;
+
+    }
+
+
+
+    .suny {
+
+      position: absolute;
+
+      top: 30px;
+
+      left: 10%;
+
+      width: 60px;
+
+      height: 60px;
+
+      background: #8b8a80;
+
+      border-radius: 50%;
+
+      box-shadow: 0 0 15px #5a5958;
+
+      animation: sunPulse 4s ease-in-out infinite alternate;
+
+      z-index: 2;
+
+    }
+
+
+
+    @keyframes sunPulse {
+
+      0% { transform: scale(1); opacity: 0.8; }
+
+      100% { transform: scale(1.1); opacity: 1; }
+
+    }
+
+
+
+    .clouds {
+
+      position: absolute;
+
+      top: 40px;
+
+      width: 100px;
+
+      height: 50px;
+
+      background: rgb(97, 88, 88);
+
+      border-radius: 50%;
+
+      box-shadow: 30px 0 white, 60px 10px white, 20px 20px white;
+
+      opacity: 0.9;
+
+      animation: cloudMove 50s linear infinite;
+
+      z-index: 1;
+
+    }
+
+
+
+    .clouds:nth-child(2) {
+
+      top: 80px;
+
+      left: 50%;
+
+      transform: scale(0.8);
+
+      animation-delay: 5s;
+
+    }
+
+
+
+    @keyframes cloudMove {
+
+      0% { left: -150px; }
+
+      100% { left: 110%; }
+
+    }
+
+
+
+    .boat {
+
+      position: absolute;
+
+      bottom: 15px;
+
+      left: -150px;
+
+      width: 100px;
+
+      height: 100px;
+
+      animation: boatFloat 12s linear infinite;
+
+      z-index: 3;
+
+    }
+
+
+
+    .boat svg {
+
+      width: 100%;
+
+      height: 100%;
+
+    }
+
+
+
+    @keyframes boatFloat {
+
+      0% { left: -150px; transform: translateY(0); }
+
+      25% { transform: translateY(-4px); }
+
+      50% { transform: translateY(0); }
+
+      75% { transform: translateY(-2px); }
+
+      100% { left: 110%; transform: translateY(0); }
+
+    }
+
+
+
+    .wave {
+
+      position: absolute;
+
+      bottom: 0;
+
+      width: 200%;
+
+      height: 100px;
+
+      background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg"><path fill="%230288d1" fill-opacity="1" d="M0,160 C360,320 1080,0 1440,160 L1440,320 L0,320 Z"></path></svg>') repeat-x;
+
+      background-size: contain;
+
+      animation: waveMove 11s linear infinite;
+
+      z-index: 2;
+
+      opacity: 0.9;
+
+    }
+
+
+
+    .wave.back {
+
+      height: 80px;
+
+      bottom: 20px;
+
+      background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg"><path fill="%234fc3f7" fill-opacity="1" d="M0,160 C360,320 1080,0 1440,160 L1440,320 L0,320 Z"></path></svg>') repeat-x;
+
+      background-size: contain;
+
+      animation: waveMoveBack 10s linear infinite;
+
+      z-index: 0;
+
+      opacity: 0.6;
+
+    }
+
+
+
+    .wave.front {
+
+      height: 120px;
+
+      bottom: -10px;
+
+      background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg"><path fill="%230057a3" fill-opacity="1" d="M0,160 C360,320 1080,0 1440,160 L1440,320 L0,320 Z"></path></svg>') repeat-x;
+
+      background-size: contain;
+
+      animation: waveMoveFront 19s linear infinite;
+
+      z-index: 4;
+
+      opacity: 1;
+
+    }
+
+
+
+    @keyframes waveMove {
+
+      0% { transform: translateX(0); }
+
+      100% { transform: translateX(-50%); }
+
+    }
+
+
+
+    @keyframes waveMoveBack {
+
+      0% { transform: translateX(0); }
+
+      100% { transform: translateX(-25%); }
+
+    }
+
+
+
+    @keyframes waveMoveFront {
+
+      0% { transform: translateX(0); }
+
+      100% { transform: translateX(-75%); }
+
+    }
+
+    /*QUOTE  SECTION**/
+
+    #page2 {
+
+      position: relative;
+
+      height: 100vh;
+
+      width: 100%;
+
+      overflow: hidden;
+
+    }
+
+
+
+    /* Fullscreen background video */
+
+    #page2 video#bgVideo {
+
+      position: absolute;
+
+      top: 0; left: 0;
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: cover;
+
+      z-index: -2;
+
+      pointer-events: none;
+
+    }
+
+
+
+    /* Content wrapper to center everything */
+
+    #content {
+
+      position: relative;
+
+      height: 100%;
+
+      width: 100%;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      justify-content: center;
+
+      text-align: center;
+
+      z-index: 1;
+
+    }
+
+
+
+    /* Optional heading (invisible by default) */
+
+    #part1 h1 {
+
+      font-size: 55px;
+
+      opacity: 0;
+
+      transform: rotateX(270deg);
+
+      transform-origin: left bottom;
+
+    }
+
+
+
+    #part1 h1 span {
+
+      font-family: 'Dancing Script', cursive;
+
+    }
+
+
+
+    /* Paragraph styling */
+
+    #content p {
+
+      font-size: 35px;
+
+      font-weight: 700;
+
+      width: 60%;
+
+      line-height: 45px;
+
+      text-align: center;
+
+      animation: subtleFloat 5s ease-in-out infinite;
+
+      transition: transform 0.3s ease, color 0.3s ease;
+
+      cursor: default;
+
+    }
+
+
+
+    #content p:hover {
+
+      transform: scale(1.03) rotate(-1deg);
+
+      color: #39f4c4;
+
+    }
+
+
+
+    /* Quote icons */
+
+    #page2 img {
+
+      position: absolute;
+
+      height: 60px;
+
+      animation: floatBounce 4s ease-in-out infinite;
+
+      opacity: 0.8;
+
+      transition: transform 0.3s ease;
+
+      pointer-events: none;
+
+      z-index: 1;
+
+    }
+
+
+
+    #page2 img:hover {
+
+      transform: scale(1.2) rotate(10deg);
+
+      opacity: 1;
+
+    }
+
+
+
+    #page2 #colon1 {
+
+      left: 15%;
+
+      top: 25%;
+
+      animation-delay: 0s;
+
+    }
+
+
+
+    #page2 #colon2 {
+
+      bottom: 30%;
+
+      right: 15%;
+
+      animation-delay: 1s;
+
+    }
+
+
+
+    /* Glowing orbs */
+
+    #page2::before,
+
+    #page2::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 100%;
+
+      height: 50%;
+
+      border-radius: 50%;
+
+      filter: blur(25px);
+
+      pointer-events: none;
+
+      z-index: 0;
+
+    }
+
+
+
+    #page2::before {
+
+      top: 50%;
+
+      left: 50%;
+
+      background: radial-gradient(circle, rgba(0, 255, 255, 0.7), transparent 70%);
+
+      animation: moveOrb 6s ease-in-out infinite;
+
+    }
+    #page2::after {
+
+      bottom: 50%;
+
+      right: 50%;
+
+      background: radial-gradient(circle, rgba(255, 0, 255, 0.6), transparent 70%);
+
+      animation: moveOrbReverse 6s ease-in-out infinite;
+
+    }
+
+
+
+    /* Animations */
+
+    @keyframes subtleFloat {
+
+      0% { transform: translateY(0); }
+
+      50% { transform: translateY(-6px); }
+
+      100% { transform: translateY(0); }
+
+    }
+
+
+
+    @keyframes floatBounce {
+
+      0% { transform: translateY(0); }
+
+      50% { transform: translateY(-12px); }
+
+      100% { transform: translateY(0); }
+
+    }
+
+
+
+    @keyframes moveOrb {
+
+      0% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+
+      50% { transform: translate(50px, -40px) scale(1.2); opacity: 1; }
+
+      100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+
+    }
+
+
+
+    @keyframes moveOrbReverse {
+
+      0% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+
+      50% { transform: translate(-40px, 50px) scale(1.2); opacity: 1; }
+
+      100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+
+    }
+
+    /**Whatapp**/
+
+    .cta {
+
+  background: #2ecc71;
+
+  color: #fff;
+
+  text-align: center;
+
+  padding: 80px 20px;
+
 }
 
 
-/*****INTRO SECTION WORD********/
+
+.cta-content h2 {
+
+  font-size: 2rem;
+
+  margin-bottom: 16px;
+
+}
+
+
+
+.cta-content p {
+
+  font-size: 1.1rem;
+
+  margin-bottom: 28px;
+
+}
+
+
+
+.cta-button {
+
+  background: #ffffff;
+
+  color: #2ecc71;
+
+  padding: 12px 28px;
+
+  font-size: 1rem;
+
+  border-radius: 6px;
+
+  text-decoration: none;
+
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+
+
+.cta-button:hover {
+
+  background-color: #27ae60;
+
+  color: #fff;
+
+}
+
+
+
+@media (max-width: 768px) {
+
+  .hero-heading {
+
+    font-size: 2rem;
+
+  }
+
+  .features {
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+  }
+
+}
+
+/**INTRO SECTION WORD***/
+
+
+
+
+
 
 
 
 
 .features {
+
   display: flex;
+
   flex-wrap: wrap;
+
   justify-content: center;
+
   gap: 24px;
+
   padding: 60px 20px;
+
 }
+
+
 
 .feature-box {
+
   flex: 1 1 280px;
+
   background-color: #fdfdfd;
+
   padding: 24px;
+
   border-radius: 12px;
+
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
   text-align: center;
+
 }
+
+
 
 .feature-box:hover {
+
   transform: translateY(-5px);
+
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+
 }
+
+
 
 .feature-box h3 {
+
   font-size: 1.5rem;
+
   margin-bottom: 12px;
+
   color: #34495e;
+
 }
+
+
 
 .feature-box p {
+
   font-size: 1rem;
+
   color: #666;
+
   line-height: 1.6;
+
 }
 
-.cta {
-  background: #2ecc71;
-  color: #fff;
-  text-align: center;
-  padding: 80px 20px;
-}
 
-.cta-content h2 {
-  font-size: 2rem;
-  margin-bottom: 16px;
-}
 
-.cta-content p {
-  font-size: 1.1rem;
-  margin-bottom: 28px;
-}
+/**SMALL ANIMATION***/
 
-.cta-button {
-  background: #ffffff;
-  color: #2ecc71;
-  padding: 12px 28px;
-  font-size: 1rem;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.cta-button:hover {
-  background-color: #27ae60;
-  color: #fff;
-}
-
-@media (max-width: 768px) {
-  .hero-heading {
-    font-size: 2rem;
-  }
-  .features {
-    flex-direction: column;
-    align-items: stretch;
-  }
-}
-
-/**newspaper section**/ 
-
-/*****SMALL ANIMATION********/
 .loop-wrapper {
+
     position: relative;
+
     width: 100%;
+
     height: 250px;
+
     overflow: hidden;
+
     border-bottom: 3px solid #fff;
+
     margin: 0 auto;
+
     display: block;
+
 }
+
+
 
 .sun {
+
     position: absolute;
+
     top: 80px;
+
     left: 10%;
+
     width: 100px;
+
     height: 100px;
+
 background: radial-gradient(circle at center, #ffb74d, #e64a19);    border-radius: 50%;
+
     box-shadow: 0 0 40px 10px #fff176;
+
     animation: sunRise 10s ease-in-out infinite alternate;
+
     z-index: 1;
+
 }
+
+
 
 @keyframes sunRise {
+
     from { transform: translateY(50px); opacity: 0.6; }
+
     to { transform: translateY(-30px); opacity: 1; }
+
 }
+
+
 
 .cloud {
+
     position: absolute;
+
     top: 50px;
+
     width: 150px;
+
     height: 80px;
+
     background: #fff;
+
     border-radius: 50%;
+
     box-shadow: 60px 0 #fff, 30px 10px #fff, 90px 10px #fff;
+
     animation: cloudMove 40s linear infinite;
+
     opacity: 0.6;
+
 }
+
+
 
 .cloud:nth-child(2) {
+
     top: 100px;
+
     left: 50%;
+
     animation-delay: 5s;
+
     transform: scale(0.8);
+
 }
+
+
 
 @keyframes cloudMove {
+
     0% { left: -200px; }
+
     100% { left: 120%; }
+
 }
+
+
 
 .star {
+
     position: absolute;
+
     width: 2px;
+
     height: 2px;
+
     background: white;
+
     border-radius: 50%;
+
     animation: twinkle 2s infinite alternate ease-in-out;
+
 }
+
+
 
 .star:nth-child(odd) {
+
     animation-delay: 1s;
+
 }
+
+
 
 @keyframes twinkle {
+
     0% { opacity: 0.2; transform: scale(1); }
+
     100% { opacity: 1; transform: scale(1.4); }
+
 }
+
+
 
 .mountain {
+
     position: absolute;
+
     right: -900px;
+
     bottom: -20px;
+
     width: 2px;
+
     height: 2px;
+
     box-shadow:
+
         0 0 0 50px #191b1b,
+
         60px 50px 0 70px #121313,
+
         90px 90px 0 50px #1c1d1d,
+
         250px 250px 0 50px #111111,
+
         290px 320px 0 50px #080808,
+
         320px 400px 0 50px #0a0a0a;
+
     transform: rotate(130deg);
+
     animation: mtn 20s linear infinite;
+
 }
+
+
 
 .hill {
+
     position: absolute;
+
     right: -900px;
+
     bottom: -50px;
+
     width: 400px;
+
     height: 20px;
+
     border-radius: 50%;
+
     box-shadow:
+
         0 0 0 50px #595a5a,
+
         -20px 0 0 20px #424242,
+
         -90px 0 0 50px #383838,
+
         250px 0 0 50px #222222,
+
         290px 0 0 50px #313131,
+
         620px 0 0 50px #5d6968;
+
     animation: hill 4s 2s linear infinite;
+
 }
+
+
 
 .tree, .tree:nth-child(2), .tree:nth-child(3) {
+
     position: absolute;
+
     bottom: 0;
+
     height: 100px;
+
     width: 35px;
+
     background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/130015/tree.svg) no-repeat;
+
 }
+
+
 
 .tree {
+
     animation: tree 3s 0s linear infinite;
+
 }
+
+
 
 .tree:nth-child(2) {
+
     animation: tree2 2s 0.15s linear infinite;
+
 }
+
+
 
 .tree:nth-child(3) {
+
     animation: tree3 8s 0.05s linear infinite;
+
 }
+
+
 
 .rock {
+
     position: absolute;
+
     bottom: -2px;
+
     margin-top: -17%;
+
     width: 2%;
+
     height: 2%;
+
     background: #030303;
+
     border-radius: 20px;
+
 }
+
+
 
 .truck {
+
     position: absolute;
+
     bottom: 0;
+
     right: 50%;
+
     margin-right: -60px;
+
     width: 85px;
+
     height: 60px;
+
     background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/130015/truck.svg') no-repeat;
+
     background-size: contain;
+
     animation: truck 4s 0.08s ease-in-out infinite;
+
     color: #000000;
+
 }
+
+
 
 .truck:before {
+
     content: "";
+
     position: absolute;
+
     width: 25px;
+
     height: 1px;
+
     box-shadow:
+
         -30px 28px 0 1.5px #000000,
+
         -35px 18px 0 1.5px #000000;
+
     animation: wind 1.5s ease-in-out infinite;
+
 }
+
+
 
 .wheels {
+
     transition: all ease;
+
     margin-right: -60px;
+
     background: #a82424;
+
     position: absolute;
+
     bottom: 0;
+
     right: 50%;
+
     width: 85px;
+
     height: 15px;
+
     background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/130015/wheels.svg') no-repeat;
+
     animation: truck 4s ease-in-out infinite;
+
 }
+
+
 
 /* Keyframes */
+
 @keyframes tree {
+
     0% { transform: translateX(1350px); }
+
     100% { transform: translateX(-50px); }
+
 }
+
+
 
 @keyframes tree2 {
+
     0% { transform: translateX(650px); }
+
     100% { transform: translateX(-50px); }
+
 }
+
+
 
 @keyframes tree3 {
+
     0% { transform: translateX(2750px); }
+
     100% { transform: translateX(-50px); }
+
 }
+
+
 
 @keyframes rock {
+
     0% { right: -200px; }
+
     100% { right: 2000px; }
+
 }
+
+
 
 @keyframes truck {
+
     6% { transform: translateY(0); }
+
     7% { transform: translateY(-6px); }
+
     9% { transform: translateY(0); }
+
     10% { transform: translateY(-1px); }
+
     11% { transform: translateY(0); }
+
 }
+
+
 
 @keyframes wind {
+
     0%, 100% { transform: translateY(0); }
+
     50% { transform: translateY(3px); }
+
 }
+
+
 
 @keyframes mtn {
+
     100% {
+
         transform: translateX(-2000px) rotate(130deg);
+
     }
+
 }
+
+
 
 @keyframes hill {
+
     100% {
+
         transform: translateX(-2000px);
+
     }
+
 }
 
-
-
-.vibe-magazine {
-  font-family: 'Poppins', sans-serif;
-  padding: 40px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-.vibe-logo {
-  font-size: 3rem;
-  text-align: center;
-  background: linear-gradient(45deg, #ff69b4, #ffb6c1);
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-.vibe-sub {
-  text-align: center;
-  font-size: 1.2rem;
-}
-
-.vibe-highlight {
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  gap: 20px;
-}
-
-.highlight-image img {
-  width: 100%;
-  max-width: 600px;
-  border-radius: 20px;
-  box-shadow: 0 15px 30px rgba(255,105,180,0.2);
-}
-
-.highlight-text {
-  text-align: center;
-  max-width: 600px;
-}
-
-.gradient-text {
-  background: linear-gradient(to right, #ff69b4, #c71585);
-  -webkit-background-clip: text;
-  color: transparent;
-  font-weight: 700;
-}
-
-.btn-glow {
-  display: inline-block;
-  margin-top: 15px;
-  background: #ff69b4;
-  padding: 12px 24px;
-  border-radius: 25px;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 5px 15px rgba(255,105,180,0.4);
-  transition: 0.3s ease;
-}
-
-.btn-glow:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(255,105,180,0.6);
-}
-
-.vibe-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-}
-
-.vibe-card {
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-  transition: 0.3s ease;
-}
-
-.vibe-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.1);
-}
-
-@media (min-width: 768px) {
-  .vibe-highlight {
-    flex-direction: row;
-    justify-content: center;
-  }
-  .highlight-text {
-    text-align: left;
-  }
-}
+/* CONTECT SECTION**/
 
 
 
-
-
-
-
-
-
-/**QUOTE  SECTION***/
-#page2{
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-#part1{
-    height: 90vh;
-    overflow: hidden;
-    display: flex;
-    perspective: 600px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-#page2 #part1 h1{
-    font-size: 55px;
-    opacity: 0;
-    transform: rotateX(270deg);
-    transform-origin: left bottom;
-}
-
-#page2 #part1 h1 span{
-    font-family: 'dancing script';
-}
-
-/* Animated paragraph text */
-#page2 > p {
-    font-size: 35px;
-    font-weight: 700;
-    width: 60%;
-    line-height: 45px;
-    text-align: center;
-    animation: subtleFloat 5s ease-in-out infinite;
-    transition: transform 0.3s ease, color 0.3s ease;
-    cursor: default;
-}
-
-/* Hover effect on text (gesture-like) */
-#page2 > p:hover {
-    transform: scale(1.03) rotate(-1deg);
-    color: #39f4c4;
-}
-
-/* Decorative images */
-#page2 img {
-    position: absolute;
-    height: 60px;
-    animation: floatBounce 4s ease-in-out infinite;
-    opacity: 0.8;
-    transition: transform 0.3s ease;
-    pointer-events: none;
-}
-
-/* Image hover gesture */
-#page2 img:hover {
-    transform: scale(1.2) rotate(10deg);
-    opacity: 1;
-}
-
-/* Left image animation */
-#page2 #colon1 {
-    left: 15%;
-    top: 25%;
-    animation-delay: 0s;
-}
-
-/* Right image animation */
-#page2 #colon2 {
-    bottom: 30%;
-    right: 15%;
-    animation-delay: 1s;
-}
-
-/* Text float animation */
-@keyframes subtleFloat {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-    100% { transform: translateY(0); }
-}
-
-/* Image bounce float animation */
-@keyframes floatBounce {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
-    100% { transform: translateY(0); }
-}
-
-/* Add this to #page2 for glowing orb effect */
-#page2::before {
-    content: "NOTHING";
-    position: absolute;
-    width: 100%;
-    height: 50%;
-    top: 50%;
-    left: 50%;
-    background: radial-gradient(circle, rgba(0, 255, 255, 0.7), transparent 70%);
-    border-radius: 100%;
-    animation: moveOrb 6s ease-in-out infinite;
-    filter: blur(20px);
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* Glowing orb animation */
-@keyframes moveOrb {
-    0% {
-        transform: translate(0, 0) scale(1);
-        opacity: 0.6;
-    }
-    50% {
-        transform: translate(50px, -40px) scale(1.2);
-        opacity: 1;
-    }
-    100% {
-        transform: translate(0, 0) scale(1);
-        opacity: 0.6;
-    }
-}
-
-#page2::after {
-    content: "NOTHING";
-    position: absolute;
-    width: 100%;
-    height: 50%;
-    bottom: 50%;
-    right: 50%;
-    background: radial-gradient(circle, rgba(255, 0, 255, 0.6), transparent 70%);
-    border-radius: 50%;
-    animation: moveOrbReverse 6s ease-in-out infinite;
-    filter: blur(25px);
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* Reverse animation for 2nd orb */
-@keyframes moveOrbReverse {
-    0% {
-        transform: translate(0, 0) scale(1);
-        opacity: 0.6;
-    }
-    50% {
-        transform: translate(-40px, 50px) scale(1.2);
-        opacity: 1;
-    }
-    100% {
-        transform: translate(0, 0) scale(1);
-        opacity: 0.6;
-    }
-}
-
-/** CONTECT SECTION***/
-header {
-    text-align: center;
-    padding: 2rem 1rem 0.5rem;
-    font-family: 'Playfair Display', serif;
-    border-bottom: 5px double #000;
-    position: relative;
-}
-
-header::after {
-    content: '';
-    font-size: 0.8rem;
-    font-style: italic;
-    display: block;
-    margin-top: 0.3rem;
-}
-
-header h1 {
-    font-size: 3.6rem;
-    margin: 0;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    position: relative;
-    z-index: 1;
-}
 .edition-bar {
+
     font-size: 0.9rem;
+
     margin-top: 0.2rem;
+
     font-style: italic;
+
     color: #000;
+
 }
+
+
 
 .headline {
+
     font-size: 2rem;
+
     text-align: center;
+
     margin: 1.8rem 0 1rem;
+
     font-family: 'Playfair Display', serif;
+
     text-transform: uppercase;
+
     border-top: 3px double #000;
+
     border-bottom: 3px double #000;
+
     padding: 0.5rem;
+
     background: #fdfaf3;
+
     animation: pulse 4s infinite;
+
     color: #000;
+
 }
+
+
 
 @keyframes pulse {
+
     0% { background-color: #fdfaf3; }
+
     50% { background-color: #f9f4e8; }
+
     100% { background-color: #fdfaf3; }
+
 }
+
+
 
 .container {
+
     display: grid;
+
     color: #000;
+
     grid-template-columns: 2.5fr 1fr;
+
     gap: 2rem;
+
     padding: 2rem;
+
     max-width: 1300px;
+
     margin: auto;
+
 }
+
+
 
 .main-article {
+
     color: #000;
+
     background: #fff;
+
     padding: 2rem;
+
     border: 2px solid #222;
+
     box-shadow: 5px 5px 0 #ccc;
+
     animation: fadeIn 1s ease forwards;
+
     position: relative;
+
 }
+
+
 
 .main-article::before {
+
     content: "Feature Article";
+
     position: absolute;
+
     top: -1.5rem;
+
     left: 1rem;
+
     padding: 0.2rem 0.6rem;
+
     font-size: 0.8rem;
+
     text-transform: uppercase;
+
     font-weight: bold;
+
 }
+
+
 
 .main-article h2 {
+
     color: #000;
+
     font-family: 'Playfair Display', serif;
+
     font-size: 1.8rem;
+
     margin-top: 0;
+
 }
+
+
 
 .main-article p::first-letter {
+
     color: #000;
+
     font-size: 2.2rem;
+
     font-weight: bold;
+
     float: left;
+
     line-height: 1;
+
     margin-right: 0.4rem;
+
 }
+
+
 
 .sidebar {
+
     display: flex;
+
     flex-direction: column;
+
     gap: 1.4rem;
+
 }
+
+
 
 .ad-box, .contact-box, .social-box {
+
     background: #fff;
+
     padding: 1rem 1.2rem;
+
     border: 1px solid #999;
+
     box-shadow: 3px 3px 0 #bbb;
+
     animation: slideIn 0.8s ease forwards;
+
 }
+
+
 
 .ad-box h3, .contact-box h3, .social-box h3 {
+
     color: #000;
+
     font-size: 1.1rem;
+
     border-bottom: 1px solid #ccc;
+
     margin-bottom: 0.6rem;
+
     padding-bottom: 0.3rem;
+
 }
+
+
 
 .ad-box ul {
+
     padding-left: 1rem;
+
     list-style: disc;
+
 }
+
+
 
 .contact-box input, .contact-box textarea {
+
     width: 100%;
+
     padding: 0.6rem;
+
     margin-bottom: 0.6rem;
+
     border: 1px solid #999;
+
     border-radius: 4px;
+
 }
+
+
 
 .contact-box button {
+
     background: #000;
+
     color: #fff;
+
     padding: 0.5rem 1rem;
+
     border: none;
+
     border-radius: 4px;
+
     cursor: pointer;
+
     transition: background 0.3s ease;
+
 }
+
+
 
 .contact-box button:hover {
+
     background: #333;
+
 }
+
+
 
 .social-box a {
+
     display: inline-block;
+
     margin: 0.3rem 0.4rem 0.3rem 0;
+
     text-decoration: none;
+
     color: #000;
+
     border: 1px solid #000;
+
     padding: 0.4rem 0.7rem;
+
     border-radius: 16px;
+
     font-size: 0.9rem;
+
     transition: background 0.3s;
+
 }
+
+
 
 .social-box a:hover {
+
     background: #000;
+
     color: #fff;
+
 }
+
+
 
 @keyframes fadeIn {
+
     from { opacity: 0; transform: translateY(20px); }
+
     to { opacity: 1; transform: translateY(0); }
+
 }
+
+
 
 @keyframes slideIn {
+
     from { opacity: 0; transform: translateX(20px); }
+
     to { opacity: 1; transform: translateX(0); }
+
 }
+
+
 
 #END{
+
     font-size: 48px;
+
     margin-bottom: 10px;
+
     justify-content: center;
+
     letter-spacing: .4px;
+
     color: rgb(73, 73, 73);
+
     text-align: center;
+
 }
 
+
+
 @media (max-width: 768px) {
+
     .container {
+
         grid-template-columns: 1fr;
+
     }
+
+
 
     header h1 {
-        font-size: 2.5rem;
-    }
-    
-    #page2 > p {
-        font-size: 20px;
-        line-height: 30px;
-        width: 80%;
-    }
-    
-    #page2 #part1 h1 {
-        font-size: 30px;
-    }
-    
-    #page2 img {
-        height: 40px;
-    }
-    
-    #page2 #colon1 {
-        left: 10%;
-        top: 20%;
-    }
-    
-    #page2 #colon2 {
-        right: 10%;
-        bottom: 20%;
-    }
-    
-    #END {
-        font-size: 28px;
-    }
-}
 
-/* === Mobile Navbar Styles === */
-@media (max-width: 768px) {
-    .nav-links {
-        position: absolute;
-        top: 100%;
-        width: auto;
-        background: #fff8eb;
-        flex-direction: column;
-        padding: 20px;
-        display: none;
-        border: 1px solid #ddd2b8;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        font-size: 2.5rem;
+
     }
+
+    
+
+    #page2 > p {
+
+        font-size: 20px;
+
+        line-height: 30px;
+
+        width: 80%;
+
+    }
+
+    
+
+    #page2 #part1 h1 {
+
+        font-size: 30px;
+
+    }
+
+    
+
+    #page2 img {
+
+        height: 40px;
+
+    }
+
+    
+
+    #page2 #colon1 {
+
+        left: 10%;
+
+        top: 20%;
+
+    }
+
+    
+
+    #page2 #colon2 {
+
+        right: 10%;
+
+        bottom: 20%;
+
+    }
+
+    
+
+    #END {
+
+        font-size: 28px;
+
+    }
+
+}
+    /* === Mobile Navbar Styles === */
+
+@media (max-width: 768px) {
+
+    .nav-links {
+
+        position: absolute;
+
+        top: 100%;
+
+        width: auto;
+
+        background: #fff8eb;
+
+        flex-direction: column;
+
+        padding: 20px;
+
+        display: none;
+
+        border: 1px solid #ddd2b8;
+
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+    }
+
+
 
     .navbar.night .nav-links {
+
         background: #2c2c2c;
+
         border-color: #444;
+
     }
+
+
 
     .nav-links.show {
+
         display: flex;
+
     }
+
+
 
     .hamburger {
+
         display: block;
+
     }
+
     
+
     .main-content {
+
         padding: 160px 20px 40px;
+
     }
+
 }
+
+
 
 .main-content {
-    padding: 160px 20px 40px;
+
+    padding: 15vh 4rem;
+
     text-align: center;
+
 }
+
+
 
 .main-content h2 {
+
     font-size: 2.2rem;
+
     margin-bottom: 10px;
+
 }
+
+
 
 .main-content p {
+
     font-size: 1.1rem;
+
     max-width: 600px;
+
     margin: 0 auto;
+
 }
+
+
 
 .ticker-bar {
+
     position: relative;
+
     bottom: 0;
+
     width: 100%;
+
     background: #eaddc5;
+
     color: #3d2b1f;
+
     font-size: 0.9rem;
+
     padding: 6px 0;
+
     border-top: 1px solid #cab89c;
+
     z-index: 50;
+
     font-family: 'Source Code Pro', monospace;
+
 }
 
+
+
 body.night .ticker-bar {
+
     background: #1d1d1d;
+
     color: #f0f0f0;
+
     border-color: #444;
+
 }
+
+
 
 marquee { padding: 0 10px; }
 
+
+
 /* Newspaper container responsive fixes */
+
 .newspaper-container {
+
     max-width: 100%;
+
     overflow: hidden;
+
     padding: 20px;
+
 }
 
+
+
 @media (max-width: 768px) {
+
     .newspaper-logo {
+
         font-size: 2.5rem;
+
     }
+
     .headline {
+
         font-size: 1.5rem;
+
     }
+
     .main-article h2 {
+
         font-size: 1.4rem;
+
     }
+
 }
+
+
 
 /* Fix for video section on mobile */
+
 @media (max-width: 768px) {
+
     #toto {
+
         height: 60vh;
+
         padding: 2vw;
+
     }
+
     #toto-in {
+
         border-radius: 15px;
+
     }
+
     .can-opening {
+
         width: 95%;
+
         height: 95%;
+
     }
-}
-/* General Newspaper Container Styling */
-.newspaper-container {
-  max-width: 100%;
-  overflow: hidden;
-  padding: 20px;
-  box-sizing: border-box;
+
 }
 
-/* Responsive Typography for Mobile */
-@media (max-width: 768px) {
-  .newspaper-logo {
-    font-size: 2.5rem;
-    text-align: center;
-  }
-  .headline {
-    font-size: 1.5rem;
-    text-align: center;
-    margin: 10px 0;
-  }
-  .main-article h2 {
-    font-size: 1.4rem;
-    line-height: 1.6;
-  }
+/* General Newspaper Container Styling */
+
+.newspaper-container {
+
+  max-width: 100%;
+
+  overflow: hidden;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+
 }
+
+
+
+/* Responsive Typography for Mobile */
+
+@media (max-width: 768px) {
+
+  .newspaper-logo {
+
+    font-size: 2.5rem;
+
+    text-align: center;
+
+  }
+
+  .headline {
+
+    font-size: 1.5rem;
+
+    text-align: center;
+
+    margin: 10px 0;
+
+  }
+
+  .main-article h2 {
+
+    font-size: 1.4rem;
+
+    line-height: 1.6;
+
+  }
+
+}
+
+
+
+
 
 
 
 /* Optional Fullscreen Style for Mobile */
+
 @media (max-width: 480px) {
+
   body, html {
+
     margin: 0;
+
     padding: 0;
+
     height: 100%;
+
     overflow-x: hidden;
+
   }
+
+
 
   .newspaper-container {
+
     padding: 10px;
+
   }
 
-
 }
+
 </style>
+
+
+
 </head>
-<body> 
-  
-  <!-- 🎧 Sound -->
+
+<body>
+
+    <!-- 🎧 Sound -->
+
   <audio id="paperSound" src="Pure 40 HZ Binaural Beats_ The Frequency for FOCUS, MEMORY, and CONCENTRATION [1_G60OdEzXs] (mp3cut.net).mp3" preload="auto"></audio>
 
-  
+
 
   <!-- 🧭 Navbar -->
+
   <nav class="navbar" id="navbar">
+
     <div class="nav-logo">
+
       <span class="nav-icon">#</span>Ecosyfom 
+
     </div>
+
     <div class="hamburger" id="hamburger">☰</div>
+
     <div class="nav-links" id="navLinks">
+
       <a href="#main-content">Experience</a>
+
       <a href="#TECH.html">Let's Talk</a>
+
       <a href="#NEWS.html">Client</a>
+
     </div>
+
     <div class="theme-toggle" id="themeToggle">🌙</div>
+
   </nav>
 
-  <!-- 📰 Main Content -->
-  <div class="main-content">
-      <div class="hello">
-            <h1>ECOSYFOM</h1>
-        </div>
 
-    <h2>Art of Selling Without Saying a Word</h2>
-    <p>We don’t chase trends.
-We create them — with tech, taste, and a touch of desire.
-Welcome to CAUSEHERE, where brands seduce and conversions follow.</p>
-  </div>
-  
-<!--video introducing-->
+
+<!-- Background Video -->
+
+<div class="video-background">
+
+
+
+<video autoplay muted loop playsinline>
+
+
+
+16%
+
+
+
+<source src="VID-20250703-WA0007.mp4" type="video/mp4" />
+
+
+
+Your browser does not support the video tag.
+
+
+
+</video>
+
+
+
+</div>
+
+
+
+<!-- Main Content Over Video -->
+
+<div class="main-content">
+
+
+
+<div class="hello">
+
+
+
+<h1>E-COSY</h1>
+
+
+
+</div>
+
+
+
+<h2>Art of Selling Without Saying a Word</h2>
+
+
+
+<p>
+
+
+
+We don't chase trends. We create them - with tech, taste, and a touch of desire.
+
+
+
+Welcome to CAUSEHERE, where brands seduce and conversions follow.
+
+
+
+</p>
+
+
+
+</div>
+
+
+
+  <!--video introducing-->
+
  <div id="toto">
+
             <div id="toto-in">
+
               <div class="can-opening">
+
                 <video autoplay muted loop playsinline>
-                  <source src="accern-rhea-cover-big.mp4" type="video/mp4">
+
+                  <source src="VID-20250703-WA0007.mp4" type="video/mp4">
+
                   Your browser does not support the video tag.
+
                 </video>
+
               </div>
+
             </div>
+
   </div>
-      
 
-<!--loop truck reading-->
-     <div class="loop-wrapper">
-    <div class="sun"></div>
-    <div class="cloud"></div>
-    <div class="cloud"></div>
 
-    <!-- Optional: Stars -->
-    <div class="star" style="top:30px; left:60px;"></div>
-    <div class="star" style="top:80px; left:120px;"></div>
-    <div class="star" style="top:20px; left:300px;"></div>
 
-    <div class="mountain"></div>
-    <div class="hill"></div>
-    <div class="tree"></div>
-    <div class="tree"></div>
-    <div class="tree"></div>
-    <div class="rock"></div>
-    <div class="truck"></div>
-    <div class="wheels"></div>
+  <!--aniation of baot-->
+
+  <div class="scene">
+
+    <div class="suny"></div>
+
+    <div class="clouds"></div>
+
+    <div class="clouds"></div>
+
+
+
+    <!-- Custom Boat (SVG) -->
+
+    <div class="boat">
+
+      <svg viewBox="0 0 64 64">
+
+        <path d="M10 40 C20 50, 40 50, 54 40 L54 45 C40 55, 20 55, 10 45 Z" fill="#a0522d"/>
+
+        <polygon points="32,10 32,40 15,35" fill="#f2f2f2"/>
+
+        <polygon points="32,10 32,40 49,35" fill="#fff8dc"/>
+
+        <line x1="32" y1="10" x2="32" y2="40" stroke="#5c4033" stroke-width="2"/>
+
+        <path d="M32 10 Q35 8, 38 10" fill="none" stroke="red" stroke-width="2"/>
+
+      </svg>
+
+    </div>
+
+
+
+    <!-- Waves -->
+
+    <div class="wave back"></div>
+
+    <div class="wave"></div>
+
+    <div class="wave front"></div>
+
   </div>
+
+
+
+  <!--telling something to lesson and ending qute-->
+
+<section id="page2">
+
+    <!-- Background video -->
+
+    <video id="bgVideo" autoplay muted loop playsinline>
+
+      <source src="VID-20250703-WA0007.mp4" type="video/mp4" />
+
+    </video>
+
+
+
+    <!-- Content wrapper to center things properly -->
+
+    <div id="content">
+
+      <!-- Optional Heading -->
+
+      <div id="part1">
+
+        <h1><span>What Our Visitors Say</span></h1>
+
+      </div>
+
+
+
+      <!-- Main testimonial -->
+
+      <p>
+
+        Excellent couple of hours, relax and enjoy in the fun. Staff were
+
+        accommodating, friendly and very helpful. Café on site for
+
+        refreshments etc. Will keep children entertained during the holidays.
+
+        Worth a visit if you haven't been.
+
+      </p>
+
+    </div>
+
+
+
+    <!-- Floating quote icons -->
+
+    <img
+
+      id="colon1"
+
+      src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-left.svg"
+
+      alt="Left quote"
+
+    />
+
+    <img
+
+      id="colon2"
+
+      src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-right.svg"
+
+      alt="Right quote"
+
+    />
+
+  </section>
+
+
+
+  <!--What app-->
+
+  <section class="cta">
+
+  <div class="cta-content">
+
+ <h2>Ready to Elevate Your Online Aura?</h2>
+
+<p>Let Ecosyfom lead the glow-up. Slide into our DMs</p>
+
+<a href="https://wa.me/qr/WY7EMWIHBOVZC1" class="cta-button">Let’s Make Magic</a>
+
+  </div>
+
+</section>
+
+    
+
+
+<!--box part-->
 
 <section class="features">
+
   <div class="feature-box">
+
     <h3>Beautifully Simple</h3>
+
     <p>Everything they crave, nothing they expect.
+
 Design that whispers luxury and screams results.</p>
+
   </div>
+
   <div class="feature-box">
+
     <h3>Built to Seduce</h3>
+
     <p>Layouts crafted to turn clicks into chemistry.
+
 Because aesthetics should work as hard as they flirt.</p>
+
   </div>
+
   <div class="feature-box">
+
     <h3>Craves Connection</h3>
+
 <p>Every pixel touches more than just screens —
+
     it speaks to desire, intent, and real human emotion.</p>
+
   </div>
-</section>
-<section class="cta">
-  <div class="cta-content">
- <h2>Ready to Elevate Your Online Aura?</h2>
-<p>Let Ecosyfom lead the glow-up. Slide into our DMs</p>
-<a href="https://wa.me/qr/WY7EMWIHBOVZC1" class="cta-button">Let’s Make Magic</a>
-  </div>
+
 </section>
 
 
 
+<!--loop truck reading-->
 
-            
-<!--telling something to lesson and ending qute-->
- <div id="page2">
-        <p>
-          Excellent couple of hours, relax and enjoy in the fun. Staff were
-          accommodating, friendly and very helpful. Café on site for
-          refreshments etc. Will keep children enterntained during the holidays.
-          Worth a visit if you haven't been.
-        </p>
-        <img
-          id="colon1"
-          src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-left.svg"
-          alt=""
-        />
-        <img
-          id="colon2"
-          src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-right.svg"
-          alt=""
-        />
-      </div>
-      
-      
-      <!--VIBE section-->
+     <div class="loop-wrapper">
 
-<div class="vibe-magazine">
-  <header class="vibe-header">
-    <h1 class="vibe-logo"></h1><p class="vibe-sub"></p>
-  </header>  
-    <section class="vibe-highlight">
-    <div class="highlight-image">
-      <img src="https://images.unsplash.com/photo-1620207418302-439b387441b0" alt="Dream Visual">
-    </div>
-    <div class="highlight-text">
-      <h2>Unlock the <span class="gradient-text">Channel Your It-Gen Z lingo that’s aspirational✨</span></h2>
-      <p>This isn't just a site — it's your digital playground, your Pinterest-core fantasy, your spotlight.
-      You're not visiting...
-You're arriving. 🌟</p>
-      <a href="#contact" class="btn-glow"> Enter the Vibe Realm ✨</a>
-    </div>
-  </section> 
-  <section class="vibe-cards">
-    <div class="vibe-card">
-      <h3>Trend Spellbook 2025</h3>
-      <p>✨ Straight from your favorite Insta & TikTok creators
-Your dream fits, decoded. Your Pinterest boards? Manifested.
-From soft-girl pastels to Y2K sparkle — this is your digital closet.
-.</p>
-    </div>
-    <div class="vibe-card">
-      <h3>What’s Your Aesthetic Aura?</h3>
-      <p>Vibe check time 💫
-Take the quiz to discover your dream aesthetic —
-Cottagecore? Coquette? Cosmic-core? We’ll match your mood to your dream feed.</p>
-    </div>
-    <div class="vibe-card">
-      <h3>Limited Edition Drops, Just for You</h3>
-      <p>✨ Not just prints — pieces🧷 of your personality.
-Handpicked. Bold. Ultra-Vibey.
-Hang them. Gift them. Frame your energy.
-New Drop Every Week! Don’t miss the sparkle.</p>
-    </div>
-  </section>
-</div>
+    <div class="sun"></div>
+
+    <div class="cloud"></div>
+
+    <div class="cloud"></div>
 
 
 
-  <header>
-  <h1>E-cosyfom</h1>
-  <div class="edition-bar"></div>
-</header>
-<div class="headline">ABOUT US — THE VISION THAT DRIVES E-cosyfom</div><div class="container">
+    <!-- Optional: Stars -->
+
+    <div class="star" style="top:30px; left:60px;"></div>
+
+    <div class="star" style="top:80px; left:120px;"></div>
+
+    <div class="star" style="top:20px; left:300px;"></div>
+
+
+
+    <div class="mountain"></div>
+
+    <div class="hill"></div>
+
+    <div class="tree"></div>
+
+    <div class="tree"></div>
+
+    <div class="tree"></div>
+
+    <div class="rock"></div>
+
+    <div class="truck"></div>
+
+    <div class="wheels"></div>
+
+  </div>
+
+
+
+  <!--head articles-->
+
+  <div class="headline">ABOUT US — THE VISION THAT DRIVES E-cosyfom</div><div class="container">
+
   <div class="main-article">
+
     <h2>Our Mission & Pulse</h2>
+
     <p>
+
       Cosyfom wasn’t born — it was ignited.
+
 Built at the edge where ambition meets seduction, we blend the elegance of premium branding with the wild pulse of digital enterprise. We are a curated collective — part disruptor, part designer, all desire.
+
     </p>
+
     <p>
+
       Every pixel, every line, every move is designed to pull you in — not just to shop, but to feel. To belong. Our vision? A digital experience so sensual, so seamless, it whispers your name.
+
     </p>
+
     <p>
+
      If your story is bold, your ambition raw, and your taste unapologetic — you’ve found your stage.
+
     </p>
+
     <p>
+
      From late-night drops to early-morning power plays, CAUSEHERE is not just where it happens — it’s why it happens.
+
     </p>
+
   </div>  <div class="sidebar">
+
     <div class="ad-box">
+
       <h3>🧠 Editor's Picks</h3>
+
       <ul>
+
         <li><👀How CAUSEHERE Turns Clicks Into Craving🏚️</li>
+
         <li>Meet the Masters💳 Behind the Moves</li>
+
         <li>What Luxury🤑Looks Like on Your Screen/</li>
+
       </ul>
+
     </div>
+
       <form action="send.php" method="POST" class="contact-box">
+
   <h3>📬 Send Your Scoop</h3>
 
+
+
   <input type="text" name="name" placeholder="Your Name" required />
+
   <input type="email" name="email" placeholder="Your Email" required />
+
   <textarea name="message" rows="3" placeholder="Your Message" required></textarea>
 
+
+
   <!-- Honeypot anti-spam field (hidden from users) -->
+
   <input type="text" name="bot-field" style="display: none;" />
 
+
+
   <label style="font-size:14px; margin:8px 0; display:block;">
+
     <input type="checkbox" name="copy" />
+
     Send me a copy of this message
+
   </label>
 
+
+
   <button type="submit">Send</button>
+
       </form>
+
+
 
       
 
+
+
 <div class="social-box">
+
   <h3>🔗 Stay Connected</h3>
+
   <a href="NEWS.html">ABOUT US</a>
+
   <a href="TECH.html">TECH-RETRO</a>
+
   <a href="https://www.instagram.com/ecosyfom?igsh=N2gybWUxZmhkODk3">Instagram</a>
+
   <a href="#END">Email Us</a>
+
 </div>
 
+
+
   </div>
+
 </div>
+
+
 
 <!--last website crate-->
+
           <div id="END">
+
             Website Created with <i class="ri-heart-3-fill"></i> The ECOSYFOM OWNER
+
         </div>
 
+
+
   <!-- 🧾 Ticker -->
+
   <div class="ticker-bar">
+
     <marquee behavior="scroll" direction="left" scrollamount="4">
+
       🗞️ BREAKING: The Daily NEON unveils AI-powered journalism | 📡 LIVE: Quantum Chips hit mainstream | 🧠 INTEL: JARVIS-level assistants coming soon | ⚙️ UPDATE: Robotics gets classic design makeover!
+
     </marquee>
+
   </div>
-  <script>
+
+
+
+<script>
+
 const sound = document.getElementById("paperSound");
+
 const navbar = document.getElementById("navbar");
+
 const hamburger = document.getElementById("hamburger");
+
 const navLinks = document.getElementById("navLinks");
+
 const themeToggle = document.getElementById("themeToggle");
+
 const breakingFlash = document.getElementById("breakingFlash");
 
+
+
 // Initialize UI elements immediately without loader delay
+
 window.addEventListener('DOMContentLoaded', (event) => {
+
     sound.play().catch(e => console.log("Audio play failed:", e));
+
     navbar.classList.add("show");
+
     
+
     // Show breaking news after a delay
+
     setTimeout(() => {
+
         breakingFlash.style.display = "block";
+
     }, 2000);
+
 });
+
+
 
 hamburger.addEventListener("click", () => {
+
     navLinks.classList.toggle("show");
+
 });
+
+
 
 themeToggle.addEventListener("click", () => {
+
     document.body.classList.toggle("night");
+
     navbar.classList.toggle("night");
+
     themeToggle.textContent = themeToggle.textContent === "🌙" ? "☀️" : "🌙";
+
 });
+
+
 
 // Initialize GSAP animations
+
 gsap.registerPlugin(ScrollTrigger);
 
+
+
 // Animate newspaper sections
+
 gsap.utils.toArray(".animate-fade-in").forEach(section => {
+
     gsap.from(section, {
+
         scrollTrigger: {
+
             trigger: section,
+
             start: "top 80%",
+
             toggleActions: "play none none none"
+
         },
+
         opacity: 0,
+
         y: 50,
+
         duration: 1
+
     });
+
 });
+
+
 
 // Initialize locomotive scroll
+
 const scroll = new LocomotiveScroll({
+
     el: document.querySelector("[data-scroll-container]"),
+
     smooth: true
+
 });
+
 </script>
+
     
 
+
+
   <!-- 🔧 JavaScript -->
+
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+
         integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
+
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+
         integrity="sha512-Ic9xkERjyZ1xgJ5svx3y0u3xrvfT/uPkV99LBwe68xjy/mGtO+4eURHZBW2xW4SZbFrF1Tf090XqB+EVgXnVjw=="
+
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
+
+
+
+
 </body>
+
 </html>
+    
