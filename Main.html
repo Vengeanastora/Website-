@@ -158,30 +158,6 @@
         .nav-links a:hover::after {
             width: 100%;
         }
-            .sound-control{
-  width:42px;
-  height:42px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:rgba(255,255,255,.1);
-  border:none;
-  border-radius:50%;
-  color:#fff;
-  cursor:pointer;
-  transition:background .25s, transform .25s;
-}
-
-.sound-control:hover{ 
-  background:rgba(255,255,255,.25);
-  transform:scale(1.1);
-}
-
-.sound-control i{
-  font-size:1.1rem;
-  pointer-events:none;          /* keep click on button */
-}
-        
         .theme-toggle {
             font-size: 1.4rem;
             cursor: pointer;
@@ -267,134 +243,247 @@
             font-family: 'Poppins', sans-serif;
         }
         
-        /**video section*/
-        #toto {
-          height: 100vh;
-          width: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 4vw;
-          position: relative;
-        }
-        #toto video{
-            position: absolute;
-            top:0;
-            left:0;
-            height:100%;
-            width:100%;
-            object-fit: cover;
-            z-index:-1;
-        }
+      /*VIDEO SECTION**/
 
-        #toto-in {
-          position: relative;
-          height: 100%;
-          width: 100%;
-          border-radius: 30px;
-          backdrop-filter: blur(50px);
-          overflow: hidden;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          visibility: hidden;
-          transform: translateZ(0);
-        }
+#toto {
 
-        .can-opening {
-          width: 90%;
-          height: 90%;
-          opacity: 1;
-          overflow: hidden;
-          border-radius: 20px;
-          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-        }
+  height: 100vh;
 
-        .can-opening video {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          border-radius: 20px;
-        }
+  width: 100%;
 
-        /* Can popping open animation */
-        @keyframes pop-en {
-          0% {
-            transform: scaleY(0);
-            opacity: 0;
-          }
-          60% {
-            transform: scaleY(1.1);
-            opacity: 1;
-          }
-          100% {
-            transform: scaleY(1);
-          }
-        }
+  display: flex;
 
-        /* Glowing orb effect */
-        #toto::before {
-          content: "";
-          position: absolute;
-          width: 100%;
-          height: 50%;
-          top: -10%;
-          left: 50%;
-          background: radial-gradient(circle, rgba(0, 255, 255, 0.7), transparent 70%);
-          border-radius: 100%;
-          animation: moveOrb 6.5s ease-in-out infinite;
-          filter: blur(20px);
-          pointer-events: none;
-          z-index: 0;
-        }
+  align-items: center;
 
-        /* Glowing orb animation */
-        @keyframes moveOrb {
-          0% {
-            transform: translate(0, 0) scale(1);
-            opacity: 0.6;
-          }
-          50% {
-            transform: translate(50px, -40px) scale(1.2);
-            opacity: 1;
-          }
-          100% {
-            transform: translate(0, 0) scale(1);
-            opacity: 0.6;
-          }
-        }
+  justify-content: center;
 
-        #toto::after {
-          content: "";
-          position: absolute;
-          width: 100%;
-          height: 50%;
-          bottom: -10%;
-          right: 50%;
-          background: radial-gradient(circle, rgba(255, 0, 255, 0.6), transparent 70%);
-          border-radius: 50%;
-          animation: moveOrbReverse 7s ease-in-out infinite;
-          filter: blur(25px);
-          pointer-events: none;
-          z-index: 0;
-        }
+  padding: 4vw;
 
-        /* Reverse animation for 2nd orb */
-        @keyframes moveOrbReverse {
-          0% {
-            transform: translate(0, 0) scale(1);
-            opacity: 0.6;
-          }
-          50% {
-            transform: translate(-40px, 50px) scale(1.2);
-            opacity: 1;
-          }
-          100% {
-            transform: translate(0, 0) scale(1);
-            opacity: 0.6;
-          }
-        }
+  position: relative;
 
+}
+
+
+
+#toto-in {
+
+  position: relative;
+
+  height: 100%;
+
+  width: 100%;
+
+  border-radius: 30px;
+
+  backdrop-filter: blur(50px);
+
+  overflow: hidden;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  anisibility: hidden;
+
+      transform: translateZ(0);
+
+    }
+
+    
+
+
+
+    
+
+
+
+.can-opening {
+
+  width: 90%;
+
+  height: 90%;
+
+  opacity: 1;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+
+}
+
+
+
+.can-opening video {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  border-radius: 20px;
+
+}
+
+
+
+/* Can popping open animation */
+
+@keyframes pop-en {
+
+  0% {
+
+    transform: scaleY(0);
+
+    opacity: 0;
+
+  }
+
+  60% {
+
+    transform: scaleY(1.1);
+
+    opacity: 1;
+
+  }
+
+  100% {
+
+    transform: scaleY(1);
+
+  }
+
+}
+
+
+
+/* Add this to #page2 for glowing orb effect */
+
+#toto::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 100%;
+
+  height: 50%;
+
+  top: -10%;
+
+  left: 50%;
+
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.7), transparent 70%);
+
+  border-radius: 100%;
+
+  animation: moveOrb 6s ease-in-out infinite;
+
+  filter: blur(20px);
+
+  pointer-events: none;
+
+  z-index: 0;
+
+}
+
+
+
+/* Glowing orb animation */
+
+@keyframes moveOrb {
+
+  0% {
+
+    transform: translate(0, 0) scale(1);
+
+    opacity: 0.6;
+
+  }
+
+  50% {
+
+    transform: translate(50px, -40px) scale(1.2);
+
+    opacity: 1;
+
+  }
+
+  100% {
+
+    transform: translate(0, 0) scale(1);
+
+    opacity: 0.6;
+
+  }
+
+}
+
+
+
+#toto::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 100%;
+
+  height: 50%;
+
+  bottom: -10%;
+
+  right: 50%;
+
+  background: radial-gradient(circle, rgba(255, 0, 255, 0.6), transparent 70%);
+
+  border-radius: 50%;
+
+  animation: moveOrbReverse 6s ease-in-out infinite;
+
+  filter: blur(25px);
+
+  pointer-events: none;
+
+  z-index: 0;
+
+}
+
+
+
+/* Reverse animation for 2nd orb */
+
+@keyframes moveOrbReverse {
+
+  0% {
+
+    transform: translate(0, 0) scale(1);
+
+    opacity: 0.6;
+
+  }
+
+  50% {
+
+    transform: translate(-40px, 50px) scale(1.2);
+
+    opacity: 1;
+
+  }
+
+  100% {
+
+    transform: translate(0, 0) scale(1);
+
+    opacity: 0.6;
+
+  }
+
+}
         /* === BOAT ANIMATION SECTION === */
         .scene {
             position: relative;
@@ -1247,18 +1336,6 @@
             <a href="#main-content">Experience</a>
             <a href="#contact">Let's Talk</a>
             <a href="#about">About Us</a>
-                 <!-- Sound Control Button -->
-            !-- right-hand sound-control button -->
-  <button id="soundControl" class="sound-control" aria-label="Toggle music">
-    <i class="fas fa-volume-mute"></i>
-  </button>
-</nav>
-
-<!-- background music (hidden) -->
-    <audio id="bgMusic" src="Pure 40 HZ Binaural Beats_ The Frequency for FOCUS, MEMORY, and CONCENTRATION [1_G60OdEzXs] (mp3cut.net).mp3" preload="auto"></audio>
-            
-            <a href="#features">Features</a>
-        </div>
         <div class="theme-toggle" id="themeToggle">🌙</div>
     </nav>
 
@@ -1422,27 +1499,78 @@
         
     <script>
         // Initialize when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // Navbar animation
-            const navbar = document.getElementById('navbar');
-            setTimeout(() => {
-                navbar.classList.add('show');
-            }, 500);
-            
-            // Theme toggle
-            const themeToggle = document.getElementById('themeToggle');
-            themeToggle.addEventListener('click', () => {
-                document.body.classList.toggle('night');
-                themeToggle.textContent = themeToggle.textContent === '🌙' ? '☀️' : '🌙';
-            });
-            
-            // Mobile menu toggle
-            const hamburger = document.getElementById('hamburger');
-            const navLinks = document.getElementById('navLinks');
-            hamburger.addEventListener('click', () => {
-                navLinks.classList.toggle('show');
-            });
-            
+        const sound = document.getElementById("paperSound");
+
+const navbar = document.getElementById("navbar");
+
+const hamburger = document.getElementById("hamburger");
+
+const navLinks = document.getElementById("navLinks");
+
+const themeToggle = document.getElementById("themeToggle");
+
+const breakingFlash = document.getElementById("breakingFlash");
+
+
+
+// Initialize UI elements immediately without loader delay
+
+window.addEventListener('DOMContentLoaded', (event) => {
+
+    sound.play().catch(e => console.log("Audio play failed:", e));
+
+    navbar.classList.add("show");
+
+    
+
+    // Show breaking news after a delay
+
+    setTimeout(() => {
+
+        breakingFlash.style.display = "block";
+
+    }, 2000);
+
+});
+
+
+
+hamburger.addEventListener("click", () => {
+
+    navLinks.classList.toggle("show");
+
+});
+
+
+
+themeToggle.addEventListener("click", () => {
+
+    document.body.classList.toggle("night");
+
+    navbar.classList.toggle("night");
+
+    themeToggle.textContent = themeToggle.textContent === "🌙" ? "☀️" : "🌙";
+
+});
+
+
+
+// Initialize GSAP animations
+
+gsap.registerPlugin(ScrollTrigger);
+
+
+
+
+// Initialize locomotive scroll
+
+const scroll = new LocomotiveScroll({
+
+    el: document.querySelector("[data-scroll-container]"),
+
+    smooth: true
+
+});
             // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
@@ -1456,29 +1584,7 @@
                     }
                 });
             });
-             const audio   = document.getElementById('bgMusic');
-             const control = document.getElementById('soundControl');
-              const icon    = control.querySelector('i');
-
-             let muted = true;         
-            // start silent (autoplay-safe)
-  audio.muted = true;
-
-  control.addEventListener('click', async () => {
-    try{
-      if (muted){
-        audio.muted = false;
-        await audio.play();
-        icon.classList.replace('fa-volume-mute','fa-volume-up');
-      }else{
-        audio.muted = true;
-        icon.classList.replace('fa-volume-up','fa-volume-mute');
-      }
-      muted = !muted;
-    }catch(err){
-      console.error('Audio toggle failed:', err);
-    }
-  }); 
+        
             
             // Boat animation enhancement
             const boat = document.querySelector('.boat');
