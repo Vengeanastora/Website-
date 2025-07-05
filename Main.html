@@ -158,6 +158,29 @@
         .nav-links a:hover::after {
             width: 100%;
         }
+            .sound-control{
+  width:42px;
+  height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(255,255,255,.1);
+  border:none;
+  border-radius:50%;
+  color:#fff;
+  cursor:pointer;
+  transition:background .25s, transform .25s;
+}
+
+.sound-control:hover{ 
+  background:rgba(255,255,255,.25);
+  transform:scale(1.1);
+}
+
+.sound-control i{
+  font-size:1.1rem;
+  pointer-events:none;          /* keep click on button */
+}
         
         .theme-toggle {
             font-size: 1.4rem;
@@ -1204,11 +1227,7 @@
         <!-- Sound Element -->
     <audio id="paperSound" src="Pure 40 HZ Binaural Beats_ The Frequency for FOCUS, MEMORY, and CONCENTRATION [1_G60OdEzXs] (mp3cut.net).mp3" preload="auto"></audio>
     
-    <!-- Sound Control Button -->
-    <div class="sound-control" id="soundControl">
-        <i class="fas fa-volume-mute">music</i>
-    </div>
-    
+
     <!-- Background Video -->
     <div class="video-background">
         <video autoplay muted loop playsinline>
@@ -1224,9 +1243,20 @@
         </div>
         <div class="hamburger" id="hamburger">☰</div>
         <div class="nav-links" id="navLinks">
+    
             <a href="#main-content">Experience</a>
             <a href="#contact">Let's Talk</a>
             <a href="#about">About Us</a>
+                 <!-- Sound Control Button -->
+            !-- right-hand sound-control button -->
+  <button id="soundControl" class="sound-control" aria-label="Toggle music">
+    <i class="fas fa-volume-mute"></i>
+  </button>
+</nav>
+
+<!-- background music (hidden) -->
+    <audio id="bgMusic" src="Pure 40 HZ Binaural Beats_ The Frequency for FOCUS, MEMORY, and CONCENTRATION [1_G60OdEzXs] (mp3cut.net).mp3" preload="auto"></audio>
+            
             <a href="#features">Features</a>
         </div>
         <div class="theme-toggle" id="themeToggle">🌙</div>
@@ -1426,51 +1456,29 @@
                     }
                 });
             });
-            
-            // Sound control
-            const sound = document.getElementById('paperSound');
-            const soundControl = document.getElementById('soundControl');
-            let isPlaying = false;
-            
-            soundControl.addEventListener('click', function() {
-                if (isPlaying) {
-                    sound.pause();
-                    soundControl.innerHTML = '<i class="fas fa-volume-mute"></i>';
-                } else {
-                    sound.play().catch(e => console.log("Audio play failed:", e));
-                    soundControl.innerHTML = '<i class="fas fa-volume-up"></i>';
-                }
-                isPlaying = !isPlaying;
-            });
-            
-            // Initialize animations with GSAP
-            gsap.registerPlugin(ScrollTrigger);
-            
-            // Animate elements on scroll
-            gsap.utils.toArray('.feature-box, .main-article, .ad-box, .contact-box, .social-box').forEach((element, index) => {
-                gsap.from(element, {
-                    scrollTrigger: {
-                        trigger: element,
-                        start: 'top 90%',
-                        toggleActions: 'play none none none'
-                    },
-                    opacity: 0,
-                    y: 50,
-                    duration: 0.4,
-                    delay: index * 0.1
-                });
-            });
-            
-            // Animate headline
-            gsap.from('.headline', {
-                scrollTrigger: {
-                    trigger: '.headline',
-                    start: 'top 80%'
-                },
-                opacity: 0,
-                y: 30,
-                duration: 1
-            });
+             const audio   = document.getElementById('bgMusic');
+             const control = document.getElementById('soundControl');
+              const icon    = control.querySelector('i');
+
+             let muted = true;         
+            // start silent (autoplay-safe)
+  audio.muted = true;
+
+  control.addEventListener('click', async () => {
+    try{
+      if (muted){
+        audio.muted = false;
+        await audio.play();
+        icon.classList.replace('fa-volume-mute','fa-volume-up');
+      }else{
+        audio.muted = true;
+        icon.classList.replace('fa-volume-up','fa-volume-mute');
+      }
+      muted = !muted;
+    }catch(err){
+      console.error('Audio toggle failed:', err);
+    }
+  }); 
             
             // Boat animation enhancement
             const boat = document.querySelector('.boat');
@@ -1484,21 +1492,6 @@
                 });
             }, 8000);
             
-            // Initialize video section animation
-            const totoIn = document.getElementById('toto-in');
-            gsap.from(totoIn, {
-                scrollTrigger: {
-                    trigger: totoIn,
-                    start: 'top bottom',
-                    toggleActions: 'play none none none'
-                },
-                opacity: 0,
-                y: 100,
-                duration: 1.2,
-                ease: "power3.out"
-            });
-        });
-
         // EmailJS form submission
         document.getElementById('contact-form').addEventListener('submit', function(event) {
             event.preventDefault();
