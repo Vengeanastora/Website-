@@ -265,47 +265,7 @@
 .main-content h1 {
   animation: cinematicIntro 1.8s ease-out forwards;
 }
-            
-/* Cinnamon Animation */
-        .cinnamon-animation {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .cinnamon-particle {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background: var(--cinnamon);
-            border-radius: 50%;
-            box-shadow: 0 0 15px var(--cinnamon), 0 0 30px var(--cinnamon);
-            animation: cinnamonFloat 8s linear infinite;
-            z-index: -1;
-        }
-
-        @keyframes cinnamonFloat {
-            0% {
-                transform: translateY(100vh) rotate(0deg) scale(0.5);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) rotate(360deg) scale(1.2);
-                opacity: 0;
-            }
-        }
-            
-@media (max-width: 768px) {
+            @media (max-width: 768px) {
   .main-content {
     padding: 15vh 1rem;
   }
@@ -339,7 +299,8 @@
   animation: letterFadeIn 0.6s ease-out forwards;
 }
       /*VIDEO SECTION**/
-            /* Video Section */
+
+
         .video-section {
             position: relative;
             height: 100vh;
@@ -414,15 +375,6 @@
             color: rgba(245, 245, 245, 0.9);
             line-height: 1.7;
         }
-
-
-
-
-
-    
-
-
-
 
 
         /* === BOAT ANIMATION SECTION === */
@@ -707,8 +659,7 @@
             font-size: 1.1rem;
             margin-bottom: 28px;
         }
-
-        .cta-button {
+            .cta-button {
             background: #ffffff;
             color: #2ecc71;
             padding: 12px 28px;
@@ -1137,17 +1088,7 @@
             color: rgb(73, 73, 73);
             text-align: center;
         }
-.film-grain {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://www.transparenttextures.com/patterns/crissxcross.png');
-            opacity: 0.03;
-            pointer-events: none;
-            z-index: 100;
-}
+
         /* === TICKER === */
         .ticker-bar {
             position: relative;
@@ -1167,34 +1108,6 @@
             color: #f0f0f0;
             border-color: #444;
         }
-            /* 3D Curtains */
-        .curtain {
-            position: fixed;
-            top: 0;
-            width: 50%;
-            height: 100vh;
-            background: var(--cinnamon);
-            z-index: 2000;
-            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
-        }
-
-        .curtain-left {
-            left: 0;
-            transform-origin: left;
-        }
-
-        .curtain-right {
-            right: 0;
-            transform-origin: right;
-        }
-
-        .page-loaded .curtain-left {
-            transform: scaleX(0);
-        }
-
-        .page-loaded .curtain-right {
-            transform: scaleX(0);
-        }
 /* === MOBILE RESPONSIVENESS === */
         @media (max-width: 992px) {
             .container {
@@ -1210,48 +1123,33 @@
                 flex: 1 1 300px;
             }
         }
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .nav-links {
-                gap: 25px;
-            }
-            
-            .feature-card, .testimonial-card {
-                padding: 40px 25px;
-            }
-        }
+        
         @media (max-width: 768px) {
-            .navbar {
-                padding: 15px;
-            }
-             
             .nav-links {
-                position: fixed;
-                top: 80px;
+                position: absolute;
+                top: 100%;
                 left: 0;
                 width: 100%;
-                background: rgba(12, 12, 14, 0.95);
+                background: #fff8eb;
                 flex-direction: column;
-                align-items: center;
-                padding: 30px 0;
-                gap: 25px;
-                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-                transition: clip-path 0.5s ease;
+                padding: 20px;
+                display: none;
+                border: 1px solid #ddd2b8;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             }
             
-            .nav-links.active {
-                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            .navbar.night .nav-links {
+                background: #2c2c2c;
+                border-color: #444;
+            }
+            
+            .nav-links.show {
+                display: flex;
             }
             
             .hamburger {
                 display: block;
             }
-            
-            .video-container {
-                width: 95%;
-                height: 65%;
-            }
-        }
             
             .main-content {
                 padding: 120px 20px 40px;
@@ -1311,13 +1209,7 @@
         <!-- Sound Element -->
     <audio id="paperSound" src="Pure 40 HZ Binaural Beats_ The Frequency for FOCUS, MEMORY, and CONCENTRATION [1_G60OdEzXs] (mp3cut.net).mp3" preload="auto"></audio>
     
-<!-- Loading Curtains -->
-    <div class="curtain curtain-left"></div>
-    <div class="curtain curtain-right"></div>
-    
-    <!-- Film Grain Overlay -->
-    <div class="film-grain"></div>
-    
+
     <!-- Background Video -->
     <div class="video-background">
         <video autoplay muted loop playsinline>
@@ -1331,7 +1223,7 @@
         <div class="nav-logo">
             <span class="nav-icon">🤙</span>Ecosyfom 
         </div>
-        <div class="hamburger" id="hamburger"></div>
+        <div class="hamburger" id="hamburger">☰</div>
         <div class="nav-links" id="navLinks">
     
             <a href="https://github.com/Vengeanastora/Website-/blob/d23ef3c9e4adb8301c895bb4463a4907e25820bd/TECH.html">Experience</a>
@@ -1349,23 +1241,21 @@
             Welcome to ECOSYFOM, where brands seduce and conversions follow.
         </p>
         <a href="#NEWS.html" class="cta-button">Begin the Journey</a>
-         <div class="cinnamon-animation" id="cinnamon-container"></div>
-       
     </section>
-<!-- Video Section -->
     <section class="video-section">
         <div class="video-container">
             <video autoplay muted loop playsinline>
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4" type="video/mp4">
+                <source src="3.mp4" type="video/mp4">
             </video>
             <div class="video-overlay">
                 <h2>Nature in Cinematic 3D</h2>
-                <p>Witness the breathtaking beauty of nature through our revolutionary 3D cinematography. Every detail comes to life with stunning clarity and depth.</p>
+                <p></p>
                 <a href="#" class="btn">View Demo</a>
             </div>
         </div>
     </section>
     
+   
     <!-- Boat Animation -->
     <section class="scene">
         <div class="suny"></div>
@@ -1441,7 +1331,7 @@
         <div class="wheels"></div>
     </div>
 
-    <!-- About Section -->
+<!-- About Section -->
     <div class="headline" id="about">ABOUT US — THE VISION THAT DRIVES E-cosyfom</div>
     <div class="container">
         <div class="main-article">
@@ -1537,21 +1427,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 });
 
-// Initialize on load
-        window.addEventListener('DOMContentLoaded', function() {
-            createCinnamonParticles();
+
 
 hamburger.addEventListener("click", () => {
 
     navLinks.classList.toggle("show");
 
 });
- // Mobile menu toggle
-        document.querySelector('.hamburger').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-            this.querySelector('i').classList.toggle('fa-bars');
-            this.querySelector('i').classList.toggle('fa-times');
-        });
+
 
 
 themeToggle.addEventListener("click", () => {
@@ -1563,33 +1446,7 @@ themeToggle.addEventListener("click", () => {
     themeToggle.textContent = themeToggle.textContent === "🌙" ? "☀️" : "🌙";
 
 });
- // Create cinnamon particles
-        function createCinnamonParticles() {
-            const container = document.getElementById('cinnamon-container');
-            const particleCount = 40;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'cinnamon-particle';
-                
-                // Random position
-                particle.style.left = `${Math.random() * 100}%`;
-                particle.style.top = `${Math.random() * 100}%`;
-                
-                // Random size
-                const size = 5 + Math.random() * 10;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                
-                // Random animation
-                const duration = 6 + Math.random() * 6;
-                const delay = Math.random() * 5;
-                particle.style.animation = `cinnamonFloat ${duration}s linear ${delay}s infinite`;
-                
-                container.appendChild(particle);
-            }
-        }
-        
+
 
 
 // Initialize GSAP animations
@@ -1650,11 +1507,6 @@ const scroll = new LocomotiveScroll({
         document.querySelectorAll('.main-content h1').forEach(el => {
   el.innerHTML = el.textContent.split('').map(l => `<span>${l}</span>`).join('');
 });
-            // Add page loaded class for curtain animation
-            setTimeout(() => {
-                document.body.classList.add('page-loaded');
-            }, 500);
-        });
     </script>
 </body>
 </html>
