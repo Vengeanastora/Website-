@@ -992,7 +992,53 @@
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
+.footer {
+    background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+    color: #f0f0f0;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.4);
+    position: relative;
+    z-index: 10;
+    transition: background 0.5s ease, color 0.3s ease;
+    animation: fadeUp 1.2s ease-out;
+}
 
+.footer p {
+    margin: 0;
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+/* Night mode */
+body.dark-mode .footer {
+    background: linear-gradient(135deg, #111, #222);
+    color: #ccc;
+    box-shadow: 0 -2px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Fade-in animation */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .footer {
+        font-size: 0.8rem;
+        padding: 1rem;
+    }
+}
         /* Responsive */
         @media (max-width: 992px) {
             .container {
@@ -1093,30 +1139,31 @@
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-logo">
-            <span class="nav-icon">🤙</span>Ecosyfom 
+            <span class="nav-icon">🤙</span>HELLO BUDDY
         </div>
-        <div class="hamburger" id="hamburger">☰</div>
+        <div class="hamburger" id="hamburger">🏛️</div>
         <div class="nav-links" id="navLinks">
-            <a href="https://github.com/Vengeanastora/Website-/blob/d23ef3c9e4adb8301c895bb4463a4907e25820bd/TECH.html">Experience</a>
-            <a href="#contact">Let's Talk</a>
-            <a href="#about">About Us</a>
+            <a href="#video-section"> 💣Experience</a>
+            <a href="#contact">🎭Let's Talk</a>
+            <a href="#about">😶‍🌫️About Us</a>
         </div>
         <div class="theme-toggle" id="themeToggle">🌙</div>
     </nav>
 
     <!-- Hero Section -->
     <section class="main-content" id="main-content">
-        <h1>E-COSYFOM</h1>
+        <h1>MEET</h1>
         <h2>Art of Selling Without Saying a Word</h2>
         <p>
-            We don't chase trends. We create them - with tech, taste, and a touch of desire.
-            Welcome to ECOSYFOM, where brands seduce and conversions follow.
+            NAMASKAR Pyare Mitron,don't chase 💹trends. han just aise likha hai ,
+            create them - with tech, taste👅, and a touch of desire.
+            Welcome to 🪙WEBSITE, where brands seduce and conversions follow.
         </p>
         <a href="#NEWS.html" class="hero-button">Begin the Journey</a>
     </section>
       <section class="typing-section">
         <div class="container typing-container">
-            <h2 class="mb-2">Our Philosophy</h2>
+            <h2 class="mb-2">🤔Philosophy</h2>
             <div class="typing-text" id="typing-text"></div>
         </div>
     </section>
@@ -1126,8 +1173,8 @@
                 <source src="intro.mp4" type="video/mp4">
             </video>
             <div class="video-overlay">
-                <h2>Nature in Cinematic 3D</h2>
-                <a href="#" class="btn">View Demo</a>
+                <h2>ON TREND 📈</h2>
+                <a href="#NEWS.html" class="btn">View Demo</a>
             </div>
         </div>
     </section>
@@ -1159,7 +1206,7 @@
         </video>
         <div id="content">
             <div id="part1">
-                <h1><span>What Our Visitors Say</span></h1>
+                <h1><span>🫴SOMETHING OURSELF😅</span></h1>
             </div>
             <p> Smooth like sin, sharp like a suit- I don't chase, I lead.   </p>
         </div>
@@ -1172,7 +1219,7 @@
     <section class="cta">
         <div class="cta-content">
             <h2>Ready to Elevate Your Online Aura?</h2>
-            <p>Let Ecosyfom lead the glow-up. Slide into our DMs</p>
+            <p>🙋Let ME lead the glow-up. Slide into our 😉 DMs</p>
             <a href="https://wa.me/message/JYBDQG6GDZSYC1" class="cta-button">Let’s Make Magic</a>
         </div>
     </section>
@@ -1247,10 +1294,10 @@
                         <div class="social-box">
                 <h3><i class="fas fa-link"></i> Stay Connected</h3>
                 <div class="social-links">
-                    <a href="#toto"><i class="fas fa-user"></i> About</a>
+                    <a href="#NEWS.html"><i class="fas fa-user"></i> About</a>
                     <a href="https://www.instagram.com/ecosyfom"><i class="fab fa-instagram"></i> Instagram</a>
                     <a href="mailto:ecosyfom@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-                    <a href="https://github.com/Vengeanastora/Website-/blob/d23ef3c9e4adb8301c895bb4463a4907e25820bd/TECH.html"><i class="fas fa-website"></i> 🕸️ WEBSITE</a>
+                    <a href="main.html">🕸️ WEBSITE</a>
                 </div>
             </div>
         </div>
@@ -1260,6 +1307,9 @@
     <div id="END">
         Website Created with <i class="fas fa-heart"></i> by The ECOSYFOM Team
     </div>
+    <footer class="footer">
+        <p>📡 Right to Hai nahin || toh bhi website online hai🧠 </p>
+    </footer>
 
     <!-- Ticker -->
     <div class="ticker-bar">
