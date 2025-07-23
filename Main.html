@@ -23,7 +23,18 @@
             src: url("https://fonts.gstatic.com/s/worksans/v18/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K0nXBi8Jpg.woff2") format('woff2');
         }
         :root {
-            /* Day Mode - Bluest Violet Aesthetic */
+            --light-bg: #1a1a1a;  
+        --dark-bg: #f9f9f9;  
+        --primary-text: #e0e0e0;  
+        --secondary-text: #aaa;  
+        --border-color: #333;  
+        --highlight: #666;  
+        --card-bg: rgba(30, 30, 30, 0.85);  
+        --overlay-bg: rgba(255, 255, 255, 0.1);
+        }
+
+        body.night {
+        /* Day Mode - Bluest Violet Aesthetic */
 --light-bg: #eef0ff;                     /* Pale bluish-violet background */
 --dark-bg: #ffffff;                      /* Clean white for contrast sections */
 --primary-text: #1a1c3a;                 /* Deep indigo (high contrast) */
@@ -33,17 +44,6 @@
 --card-bg: rgba(255, 255, 255, 0.9);     /* Soft white with slight transparency */
 --overlay-bg: rgba(123, 143, 255, 0.06); /* Cool periwinkle overlay/mist */
 --transition: all 0.3s ease;
-        }
-
-        body.night {
-        --light-bg: #1a1a1a;  
-        --dark-bg: #f9f9f9;  
-        --primary-text: #e0e0e0;  
-        --secondary-text: #aaa;  
-        --border-color: #333;  
-        --highlight: #666;  
-        --card-bg: rgba(30, 30, 30, 0.85);  
-        --overlay-bg: rgba(255, 255, 255, 0.1);
         }
         * {
             margin: 0;
