@@ -206,7 +206,7 @@
             color: var(--secondary-text);
             animation: fadeIn 1.6s ease-out;
         }
-        .cta-button {
+        .hero-button {
             background: transparent;
             color: var(--primary-text);
             padding: 14px 36px;
@@ -220,7 +220,7 @@
             animation: fadeIn 1.8s ease-out;
         }
 
-        .cta-button:hover {
+        .hero-button:hover {
             background: var(--primary-text);
             color: var(--light-bg);
         }
@@ -539,29 +539,37 @@
             100% { transform: translateY(0); }
         }
 
-        /* CTA Section */
+        /* === CTA SECTION === */
         .cta {
-            background: #25D366;
+            background: #2ecc71;
+            color: #fff;
             text-align: center;
-            padding: 100px 20px;
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            backdrop-filter: blur(4px);
+            padding: 80px 20px;
         }
 
         .cta-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--primary-text);
+            font-size: 2rem;
+            margin-bottom: 16px;
         }
 
         .cta-content p {
-            font-size: 1.3rem;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            color: var(--secondary-text);
+            font-size: 1.1rem;
+            margin-bottom: 28px;
+        }
+
+        .cta-button {
+            background: #ffffff;
+            color: #2ecc71;
+            padding: 12px 28px;
+            font-size: 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease
+        }
+
+        .cta-button:hover {
+            background-color: #27ae60;
+            color: #fff;
         }
 
         /* Features Section */
@@ -1122,7 +1130,7 @@
             We don't chase trends. We create them - with tech, taste, and a touch of desire.
             Welcome to ECOSYFOM, where brands seduce and conversions follow.
         </p>
-        <a href="#NEWS.html" class="cta-button">Begin the Journey</a>
+        <a href="#NEWS.html" class="hero-button">Begin the Journey</a>
     </section>
       <section class="typing-section">
         <div class="container typing-container">
