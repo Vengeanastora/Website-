@@ -23,29 +23,28 @@
             src: url("https://fonts.gstatic.com/s/worksans/v18/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K0nXBi8Jpg.woff2") format('woff2');
         }
         :root {
-            /* Day mode variables - Cinematic Blue Overlay Theme */
---light-bg: rgba(10, 25, 47, 0.85);      /* Deep blue with transparency for content areas */
---dark-bg: #0a192f;                      /* Dark navy blue - fits behind transparent areas */
---primary-text: #ffffff;                 /* Pure white - high contrast for readability */
---secondary-text: #ccd6f6;              /* Soft light blue - elegant subtext */
---border-color: #233554;                /* Mid-blue border for cards/sections */
---highlight: #64ffda;                   /* Neon aqua - for buttons, links, accents */
---card-bg: rgba(15, 32, 60, 0.85);       /* Transparent card background with navy tint */
---overlay-bg: rgba(0, 0, 0, 0.4);        /* Dark overlay to help text pop on video */
+            /* Day mode variables - Violet Pink Glow Theme */
+--light-bg: rgba(38, 0, 60, 0.85);        /* Deep violet transparent overlay */
+--dark-bg: #1a001f;                      /* Very dark plum base for behind cards */
+--primary-text: #ffe6fa;                 /* Soft pink-white for readability */
+--secondary-text: #d9a7e0;               /* Muted lavender-pink for subtitles */
+--border-color: #a84ebf;                 /* Violet border glow */
+--highlight: #ff6ec7;                    /* Hot pink highlight - glowing accent */
+--card-bg: rgba(72, 0, 80, 0.75);        /* Dark violet glassy card background */
+--overlay-bg: rgba(255, 110, 199, 0.08); /* Pink mist overlay - subtle glow */
 --transition: all 0.3s ease;
         }
 
         body.night {
-            --light-bg: #1a1a1a;
-            --dark-bg: #f9f9f9;
-            --primary-text: #e0e0e0;
-            --secondary-text: #aaa;
-            --border-color: #333;
-            --highlight: #666;
-            --card-bg: rgba(30, 30, 30, 0.85);
-            --overlay-bg: rgba(255, 255, 255, 0.1);
+            --light-bg: #1c002b;                           /* Deep violet background */
+--dark-bg: #f9f9f9;                            /* Can be left as-is for contrast fallback */
+--primary-text: #fcdfff;                       /* Light pinkish-white text */
+--secondary-text: #c09fcf;                     /* Soft muted lavender */
+--border-color: #662d91;                       /* Rich violet border */
+--highlight: #ff6ec7;                          /* Neon pink highlight for buttons/hover */
+--card-bg: rgba(56, 0, 70, 0.85);              /* Dark violet transparent card background */
+--overlay-bg: rgba(255, 110, 199, 0.1);        /* Pink mist overlay for layers */
         }
-
         * {
             margin: 0;
             padding: 0;
