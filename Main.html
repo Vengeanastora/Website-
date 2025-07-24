@@ -61,66 +61,6 @@
             transition: background 0.6s ease, color 0.6s ease;
             overflow-x: hidden;
         }
-        #custom-loader {
-    position: fixed;
-    inset: 0;
-    background: rgba(20, 20, 40, 0.7);
-    backdrop-filter: blur(20px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    transition: opacity 1.2s ease;
-}
-
-.loader-circle {
-    position: relative;
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    background: radial-gradient(circle at center, rgba(255,255,255,0.15), rgba(255,255,255,0.03));
-    box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: rotate 4s linear infinite;
-}
-
-.loader-glow {
-    position: absolute;
-    width: 140%;
-    height: 140%;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    animation: pulse 2s ease-in-out infinite;
-    pointer-events: none;
-}
-
-#loader-typing {
-    color: var(--primary-text);
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    text-align: center;
-    max-width: 100px;
-    animation: typingGlow 1.5s ease-in-out infinite;
-}
-
-/* Animations */
-@keyframes rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 0.6; }
-    50% { transform: scale(1.1); opacity: 1; }
-}
-
-@keyframes typingGlow {
-    0%, 100% { opacity: 0.8; }
-    50% { opacity: 1; }
-}
         
         /* Navigation */
         .navbar {
@@ -1330,12 +1270,7 @@ body.dark-mode .footer {
     </style>
 </head>
 <body>
-<div id="custom-loader">
-    <div class="loader-circle">
-        <div class="loader-glow"></div>
-        <p id="loader-typing">Connecting Dimensions...</p>
-    </div>
-</div>
+
     <!-- Sound Element -->
     <audio id="paperSound" src="Pure 40 HZ Binaural Beats_ The Frequency for FOCUS, MEMORY, and CONCENTRATION [1_G60OdEzXs] (mp3cut.net).mp3" preload="auto"></audio>
       <!-- Background Video -->
@@ -1557,15 +1492,6 @@ body.dark-mode .footer {
         const navLinks = document.getElementById("navLinks");
         const themeToggle = document.getElementById("themeToggle");
         
-window.addEventListener("load", () => {
-    const loader = document.getElementById("custom-loader");
-    setTimeout(() => {
-        loader.style.opacity = "0";
-        setTimeout(() => {
-            loader.style.display = "none";
-        }, 1000);
-    }, 2000);
-});
 
 
         // Initialize UI
