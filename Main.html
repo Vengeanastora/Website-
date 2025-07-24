@@ -476,8 +476,9 @@
     align-items: center;
     justify-content: center;
     z-index: 9999;
-    transition: opacity 1.2s ease;
-}
+    opacity: 1;
+    transition: opacity 0.4s ease;
+        }
 
 .loader-circle {
     position: relative;
@@ -1559,17 +1560,21 @@ body.dark-mode .footer {
         const hamburger = document.getElementById("hamburger");
         const navLinks = document.getElementById("navLinks");
         const themeToggle = document.getElementById("themeToggle");
+        window.addEventListener("load", () => {
+    const loader = document.getElementById("custom-loader");
+
+    // Start fade-out immediately after load
+    loader.style.transition = "opacity 0.4s ease";
+    loader.style.opacity = "0";
+
+    // Hide completely after fade-out
+    setTimeout(() => {
+        loader.style.display = "none";
+    }, 400); // matches transition time
+});
         
 
-window.addEventListener("load", () => {
-    const loader = document.getElementById("custom-loader");
-    setTimeout(() => {
-        loader.style.opacity = "0";
-        setTimeout(() => {
-            loader.style.display = "none";
-        }, 500); // fade-out transition duration (keep this or reduce slightly)
-    }, 800); // faster initial delay (was 2000)
-});
+
         // Initialize UI
         window.addEventListener('DOMContentLoaded', (event) => {
             // Show navbar
