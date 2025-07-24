@@ -383,7 +383,149 @@
 
         /* Boat Animation */
         
+                .swiss-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
         
+        .swiss-menu, .swiss-image {
+            width: 100%;
+            padding: 40px 60px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 2px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+        
+        .swiss-menu::before, .swiss-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
+            z-index: -1;
+        }
+        
+        .swiss-menu:hover, .swiss-image:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .menu-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: 8px;
+            margin-bottom: 40px;
+            
+            text-transform: uppercase;
+            position: relative;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .menu-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: #333;
+            animation: expandLine 1.5s ease;
+        }
+        
+        .menu-item {
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            margin: 25px 0;
+         
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .menu-item:nth-child(2) { animation-delay: 0.2s; }
+        .menu-item:nth-child(3) { animation-delay: 0.4s; }
+        .menu-item:nth-child(4) { animation-delay: 0.6s; }
+        .menu-item:nth-child(5) { animation-delay: 0.8s; }
+        
+        .menu-item:hover {
+            letter-spacing: 6px;
+            color: #222;
+        }
+        
+        .quality-badge {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            
+            font-weight: 300;
+            animation: fadeIn 2s ease;
+        }
+        
+        .swiss-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 1s ease;
+        }
+        
+        .swiss-image img {
+            max-width: 100%;
+            height: auto;
+            filter: grayscale(20%) contrast(110%);
+            transition: all 0.5s ease;
+        }
+        
+        .swiss-image:hover img {
+            filter: grayscale(0%) contrast(120%);
+            transform: scale(1.02);
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes expandLine {
+            from { width: 0; }
+            to { width: 60px; }
+        }
         /* === BOAT ANIMATION SECTION === */
         .scene {
             position: relative;
@@ -1250,7 +1392,23 @@ body.dark-mode .footer {
         </div>
     </section>
     
-   
+       <div class="swiss-container">
+        <!-- Your original image -->
+        <div class="swiss-image">
+            <img src="https://images.app.goo.gl/3Zen69E6hMSztaes5" alt="Swiss Menu Design">
+        </div>
+        
+        <!-- The interactive menu version -->
+        <div class="swiss-menu">
+            <div class="menu-title">Menu</div>
+            <div class="menu-item">Water</div>
+            <div class="menu-item">Your Project</div>
+            <div class="menu-item">Swiss Quality</div>
+            <div class="menu-item">K.M.S. Swiss</div>
+            <div class="menu-item">Innovation</div>
+            <div class="quality-badge">Precision · Excellence · Tradition</div>
+        </div>
+       </div>
     <!-- Boat Animation -->
     <section class="scene">
         <div class="suny"></div>
