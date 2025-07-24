@@ -1677,22 +1677,124 @@ body.dark-mode .footer {
                 typingText.style.animation = 'none';
             }
         }
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Elements
+        const sound = document.getElementById("paperSound");
+        const navbar = document.getElementById("navbar");
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.getElementById("navLinks");
+        const themeToggle = document.getElementById("themeToggle");
+        const loader = document.getElementById('custom-loader');
+        const loaderTyping = document.getElementById('loader-typing');
+        const progressBar = document.querySelector('.loader-progress-bar');
+        const typingText = document.getElementById('typing-text');
+        const typingSection = document.querySelector('.typing-section');
+        const mainHeadings = document.querySelectorAll('.main-content h1');
+        const boat = document.querySelector('.boat');
 
-        // Start typing animation when section is in view
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    typeWriter();
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
+        // Show navbar
+        navbar.classList.add("show");
 
-        observer.observe(document.querySelector('.typing-section'));
+        // Play sound
+        try {
+            sound.volume = 0.3;
+            sound.play();
+        } catch (e) {
+            console.log("Audio play failed:", e);
+        }
 
-        // Smooth scrolling for anchor links
+        // Loader Typing Sequence
+        const messages = [
+            { text: "Connecting Dimensions...", duration: 2000 },
+            { text: "Syncing Neural Networks...", duration: 2000 },
+            { text: "Loading Quantum Interface...", duration: 2000 },
+            { text: "Ready to Explore", duration: 1000 }
+        ];
+
+        let currentMessage = 0;
+        let progress = 0;
+        const totalDuration = messages.reduce((sum, msg) => sum + msg.duration, 0);
+
+        // Progress bar interval
+        const progressInterval = setInterval(() => {
+            progress += 100 / (totalDuration / 100);
+            progressBar.style.width = `${Math.min(progress, 100)}%`;
+            if (progress >= 100) {
+                clearInterval(progressInterval);
+            }
+        }, 100);
+
+        // Fallback loader timeout
+        setTimeout(() => {
+            if (loader.style.display !== "none") {
+                gsap.to(loader, {
+                    opacity: 0,
+                    duration: 0.8,
+                    onComplete: () => {
+                        loader.style.display = "none";
+                    }
+                });
+            }
+        }, 10000);
+
+        // Hamburger Toggle
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+
+        // Theme Toggle
+        themeToggle.addEventListener("click", () => {
+            document.body.classList.toggle("night");
+            themeToggle.textContent = themeToggle.textContent === "🌙" ? "☀️" : "🌙";
+        });
+
+        // GSAP Register
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Boat floating animation
+        if (boat) {
+            setInterval(() => {
+                gsap.to(boat, {
+                    y: -10,
+                    duration: 2,
+                    yoyo: true,
+                    repeat: 1,
+                    ease: "power1.inOut"
+                });
+            }, 8000);
+        }
+
+        // Typing effect
+        const text = "In a duniya full of rang, hum chunte hain monochrome ki shanti. Black aur white design koi limitation nahi — yeh ek focused nazariya hai. Jab hum color hata dete hain, tab asli roop dikhayi deta hai — form, space aur typography ka sachcha essence.";
+        let i = 0;
+
+        function typeWriter() {
+            if (i < text.length) {
+                typingText.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, Math.random() * 50 + 20);
+            } else {
+                typingText.style.animation = 'none';
+            }
+        }
+
+        // Observer for typing
+        if (typingSection) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        typeWriter();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            observer.observe(typingSection);
+        }
+
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
@@ -1703,9 +1805,9 @@ body.dark-mode .footer {
                 }
             });
         });
-        
-        // Letter animation for main heading
-        document.querySelectorAll('.main-content h1').forEach(el => {
+
+        // Animated heading text
+        mainHeadings.forEach(el => {
             const text = el.textContent;
             el.innerHTML = '';
             text.split('').forEach(letter => {
@@ -1715,8 +1817,7 @@ body.dark-mode .footer {
                 span.style.display = 'inline-block';
                 el.appendChild(span);
             });
-            
-            // Animate each letter
+
             const letters = el.querySelectorAll('span');
             letters.forEach((letter, i) => {
                 gsap.to(letter, {
@@ -1727,19 +1828,7 @@ body.dark-mode .footer {
                 });
             });
         });
-        // Fallback in case loading takes too long
-            setTimeout(() => {
-                if (loader.style.display !== "none") {
-                    gsap.to(loader, {
-                        opacity: 0,
-                        duration: 0.8,
-                        onComplete: () => {
-                            loader.style.display = "none";
-                        }
-                    });
-                }
-            }, 10000); // 10 second timeout
-        });
-    </script>
+    });
+</script>
 </body>
 </html>
