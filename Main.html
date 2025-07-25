@@ -24,28 +24,25 @@
         }
         :root {
             --light-bg: #1a1a1a;  
-        --dark-bg: #f9f9f9;  
-        --primary-text: #e0e0e0;  
-        --secondary-text: #aaa;  
-        --border-color: #333;  
-        --highlight: #666;  
-        --card-bg: rgba(30, 30, 30, 0.85);  
-        --overlay-bg: rgba(255, 255, 255, 0.1);
+            --dark-bg: #f9f9f9;  
+            --primary-text: #e0e0e0;  
+            --secondary-text: #aaa;  
+            --border-color: #333;  
+            --highlight: #666;  
+            --card-bg: rgba(30, 30, 30, 0.85);  
+            --overlay-bg: rgba(255, 255, 255, 0.1);
+            --transition: all 0.3s ease;
         }
 
         body.night {
-
---light-bg: #eef0ff;                     
---dark-bg: #ffffff;                      
---primary-text: #1a1c3a;                 
---secondary-text: #5a5b8a;               
---border-color: #c9ccf3;                 
---highlight: #7b8fff;                   
---card-bg: rgba(255, 255, 255, 0.9);     
---overlay-bg: rgba(123, 143, 255, 0.06); 
---transition: all 0.3s ease;
-
-        
+            --light-bg: #eef0ff;                     
+            --dark-bg: #ffffff;                      
+            --primary-text: #1a1c3a;                 
+            --secondary-text: #5a5b8a;               
+            --border-color: #c9ccf3;                 
+            --highlight: #7b8fff;                   
+            --card-bg: rgba(255, 255, 255, 0.9);     
+            --overlay-bg: rgba(123, 143, 255, 0.06); 
         }
         * {
             margin: 0;
@@ -62,7 +59,7 @@
             overflow-x: hidden;
         }
         
-                 /* Add this to your existing CSS */
+        /* Add this to your existing CSS */
         #custom-loader {
             position: fixed;
             inset: 0;
@@ -179,7 +176,6 @@
         }
 
         body.night .navbar {
-            
             border-color: #333;
         }
 
@@ -187,7 +183,6 @@
             font-size: 1.6rem;
             font-weight: 700;
             letter-spacing: 1px;
-            
             display: flex;
             align-items: center;
             gap: 10px;
@@ -322,32 +317,33 @@
             background: var(--primary-text);
             color: var(--light-bg);
         }
-/* ===== TYPING ANIMATION SECTION ===== */
-        .typing-section {
-            background-color: var(--black);
-            color: var(--white);
-            padding: 8rem 0;
-        }
 
-        .typing-container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
+        /* ===== TYPING ANIMATION SECTION ===== */
+        .typing-section {
+            background-color: var(--light-bg);
+            color: var(--primary-text);
+            padding: 8rem 0;
+        }
 
-        .typing-text {
-            font-family: var(--font-mono);
-            font-size: 1.5rem;
-            line-height: 1.8;
-            min-height: 200px;
-            position: relative;
-        }
+        .typing-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
 
-        .typing-text::after {
-            content: '|';
-            animation: blink 1s infinite;
-            position: absolute;
-        }
+        .typing-text {
+            font-family: 'Source Code Pro', monospace;
+            font-size: 1.5rem;
+            line-height: 1.8;
+            min-height: 200px;
+            position: relative;
+        }
+
+        .typing-text::after {
+            content: '|';
+            animation: blink 1s infinite;
+            position: absolute;
+        }
 
         /* Video Section */
         .video-section {
@@ -414,7 +410,7 @@
 
         /* Boat Animation */
         
-                .swiss-container {
+        .swiss-container {
             position: relative;
             width: 100%;
             max-width: 600px;
@@ -458,7 +454,6 @@
             font-weight: 600;
             letter-spacing: 8px;
             margin-bottom: 40px;
-            
             text-transform: uppercase;
             position: relative;
             animation: fadeInDown 1s ease;
@@ -480,7 +475,6 @@
             font-size: 1.2rem;
             letter-spacing: 4px;
             margin: 25px 0;
-         
             text-transform: uppercase;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -502,7 +496,6 @@
             margin-top: 40px;
             font-size: 0.9rem;
             letter-spacing: 3px;
-            
             font-weight: 300;
             animation: fadeIn 2s ease;
         }
@@ -557,8 +550,7 @@
             from { width: 0; }
             to { width: 60px; }
         }
-        
-        
+
         /* === BOAT ANIMATION SECTION === */
         .scene {
             position: relative;
@@ -667,7 +659,7 @@
             opacity: 1;
         }
         
-        @keyframes waveMove {
+         @keyframes waveMove {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
@@ -703,7 +695,7 @@
             object-fit: cover;
             z-index: -1;
         }
-                #content {
+        #content {
             position: relative;
             text-align: center;
             padding: 50px;
@@ -758,8 +750,7 @@
             50% { transform: translateY(-15px); }
             100% { transform: translateY(0); }
         }
-
-        /* === CTA SECTION === */
+/* === CTA SECTION === */
         .cta {
             background: #2ecc71;
             color: #fff;
@@ -832,7 +823,7 @@
             color: var(--secondary-text);
             line-height: 1.7;
         }
-      /**SMALL ANIMATION***/
+        /**SMALL ANIMATION***/
         .loop-wrapper {
             position: relative;
             width: 100%;
@@ -856,7 +847,7 @@
             z-index: 1;
         }
 
-                @keyframes sunRise {
+        @keyframes sunRise {
             from { transform: translateY(50px); opacity: 0.6; }
             to { transform: translateY(-30px); opacity: 1; }
         }
@@ -967,7 +958,7 @@
             background: #030303;
             border-radius: 20px;
         }
-                .truck {
+        .truck {
             position: absolute;
             bottom: 0;
             right: 50%;
@@ -1049,8 +1040,7 @@
                 transform: translateX(-2000px);
             }
         }
-
-        /* About Section */
+       /* About Section */
         .headline {
             font-size: 2.2rem;
             text-align: center;
@@ -1181,7 +1171,6 @@
             flex-wrap: wrap;
             gap: 10px;
         }
-
         .social-box a {
             display: inline-block;
             padding: 8px 15px;
@@ -1361,7 +1350,7 @@ body.dark-mode .footer {
             }
         }
     </style>
-</head>
+    </head>
 <body>
     
   <!-- Custom Loader -->
@@ -1394,11 +1383,10 @@ body.dark-mode .footer {
             <a href="https://vengeanastora.github.io/Website-/NEWS.html"> 💣Experience</a>
             <a href="#contact">🎭Let's Talk</a>
             <a href="#about">😶‍🌫️About Us</a>
-            <a href="@themeToggle">🎑Theme</a>
+            <a href="#themeToggle">🎑Theme</a>
         </div>
         <div class="theme-toggle" id="themeToggle">🌙</div>
     </nav>
-
     <!-- Hero Section -->
     <section class="main-content" id="main-content">
     <h1>MEET</h1>
@@ -1412,12 +1400,12 @@ body.dark-mode .footer {
     </section>
 
     
-      <section class="typing-section">
-        <div class="container typing-container">
-            <h2 class="mb-2">🤔Philosophy</h2>
-            <div class="typing-text" id="typing-text"></div>
-        </div>
-    </section>
+    <section class="typing-section">
+        <div class="container typing-container">
+            <h2 class="mb-2">🤔Philosophy</h2>
+            <div class="typing-text" id="typing-text"></div>
+        </div>
+    </section>
     <section class="video-section">
         <div class="video-container">
             <video autoplay muted loop playsinline>
@@ -1481,13 +1469,12 @@ body.dark-mode .footer {
         <img id="colon1" src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-left.svg" alt="Left quote" />
         <img id="colon2" src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-right.svg" alt="Right quote" />
     </section>
-    
     <!-- CTA Section -->
     <section class="cta">
         <div class="cta-content">
             <h2>Ready to Elevate Your Online Aura?</h2>
             <p>🙋Let ME lead the glow-up. Slide into our 😉 DMs</p>
-            <a href="https://vengeanastora.github.io/Website-/NEWS.html" class="cta-button">Let’s Make Magic</a>
+            <a href="https://vengeanastora.github.io/Website-/NEWS.html" class="cta-button">Let's Make Magic</a>
         </div>
     </section>
 
@@ -1503,7 +1490,7 @@ body.dark-mode .footer {
     </div>
     <div class="feature-box">
         <h3>🧿 Nazar Se Bachao</h3>
-        <p>This isn’t design. It’s *darshan*. Ek baar dekha, toh dil aur click dono pakka.</p>
+        <p>This isn't design. It's *darshan*. Ek baar dekha, toh dil aur click dono pakka.</p>
     </div>
     </section>
     
@@ -1527,16 +1514,16 @@ body.dark-mode .footer {
         <div class="main-article">
             <h2>Our Mission & Pulse</h2>
             <p>
-                ECOSYFOM na janma — yeh तो प्रकट हुआ. Born not from code, but from kama, kalpana, and cosmic fire. We’re not a brand. We’re a yagya of desire and disruption.
+                ECOSYFOM na janma — yeh तो प्रकट हुआ. Born not from code, but from kama, kalpana, and cosmic fire. We're not a brand. We're a yagya of desire and disruption.
         </p>
             <p>
-                Har pixel mein hai mantra. Har motion ek leela. We don’t design pages — we summon presence. Seduction is not our feature — it’s our fabric.
+                Har pixel mein hai mantra. Har motion ek leela. We don't design pages — we summon presence. Seduction is not our feature — it's our fabric.
         </p>
             <p>
                 Tumhara junoon, tumhara swag, aur hamara stage — that's not a pitch, that's prophecy. If you feel it, you're already one of US 
             </p>
             <p>
-                From midnight musings to morning meditations, ECOSYFOM isn’t your destination. It’s your calling.
+                From midnight musings to morning meditations, ECOSYFOM isn't your destination. It's your calling.
         </p>
         </div>
         <div class="sidebar">
@@ -1555,15 +1542,14 @@ body.dark-mode .footer {
                     <input type="email" name="email" placeholder="Your Email" required />
                     <textarea name="message" rows="3" placeholder="Your Message" required></textarea>
                     <button type="submit">Send Message</button>
-                </form>
-            </div>
+                </form></div>
                         <div class="social-box">
                 <h3><i class="fas fa-link"></i> Stay Connected</h3>
                 <div class="social-links">
                     <a href="https://vengeanastora.github.io/Website-/NEWS.html"><i class="fas fa-user"></i> About</a>
                     <a href="https://www.instagram.com/ecosyfom"><i class="fab fa-instagram"></i> Instagram</a>
                     <a href="mailto:ecosyfom@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-                    <a href="https://vengeanastora.github.io/Website-/NEWS.html"><i class="fashttps://vengeanastora.github.io/Website-/NEWS.html fa-website"></i> 🕸️ WEBSITE</a>
+                    <a href="https://vengeanastora.github.io/Website-/NEWS.html"><i class="fas fa-globe"></i> 🕸️ WEBSITE</a>
                 </div>
             </div>
         </div>
@@ -1587,97 +1573,6 @@ body.dark-mode .footer {
     </div>
         
     <script>
-    
-        // Initialize when DOM is loaded
-        const sound = document.getElementById("paperSound");
-        const navbar = document.getElementById("navbar");
-        const hamburger = document.getElementById("hamburger");
-        const navLinks = document.getElementById("navLinks");
-        const themeToggle = document.getElementById("themeToggle");
-        
- // Loader Animation Script
-        document.addEventListener('DOMContentLoaded', function() {
-            const loader = document.getElementById('custom-loader');
-            const loaderTyping = document.getElementById('loader-typing');
-            const progressBar = document.querySelector('.loader-progress-bar');
-            
-            // Typing messages sequence with delays
-            const messages = [
-                { text: "Connecting Dimensions...", duration: 2000 },
-                { text: "Syncing Neural Networks...", duration: 2000 },
-                { text: "Loading Quantum Interface...", duration: 2000 },
-                { text: "Ready to Explore", duration: 1000 }
-            ];
-            
-            // Timeline for loader animation
-            let currentMessage = 0;
-            let progress = 0;
-            const totalDuration = messages.reduce((sum, msg) => sum + msg.duration, 0);
-            
-            // Update progress bar
-            const progressInterval = setInterval(() => {
-                progress += 100 / (totalDuration / 100);
-                progressBar.style.width = `${Math.min(progress, 100)}%`;
-                
-                if (progress >= 100) {
-                    clearInterval(progressInterval);
-                }
-            }, 100);
-        // Initialize UI
-        window.addEventListener('DOMContentLoaded', (event) => {
-            // Show navbar
-            navbar.classList.add("show");
-            
-            // Play sound (if user interaction is needed, might require a button)
-            try {
-                sound.volume 
-                = 0.3;
-                sound.play();
-            } catch(e) {
-                console.log("Audio play failed:", e);
-            }
-        });
-
-        // Hamburger menu toggle
-        hamburger.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
-        });
-
-        // Theme toggle
-        themeToggle.addEventListener("click", () => {
-            document.body.classList.toggle("night");
-            themeToggle.textContent = themeToggle.textContent === "🌙" ? "☀️" : "🌙";
-        });
-
-        // Initialize GSAP animations
-        gsap.registerPlugin(ScrollTrigger);
-        
-        // Boat animation enhancement
-        const boat = document.querySelector('.boat');
-        setInterval(() => {
-            gsap.to(boat, {
-                y: -10,
-                duration: 2,
-                yoyo: true,
-                repeat: 1,
-                ease: "power1.inOut"
-            });
-        }, 8000);
-         // Typing animation
-        const text = "In a duniya full of rang, hum chunte hain monochrome ki shanti. Black aur white design koi limitation nahi — yeh ek focused nazariya hai. Jab hum color hata dete hain, tab asli roop dikhayi deta hai — form, space aur typography ka sachcha essence.";
-        const typingText = document.getElementById('typing-text');
-        let i = 0;
-        
-        function typeWriter() {
-            if (i < text.length) {
-                typingText.innerHTML += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, Math.random() * 50 + 20);
-            } else {
-                typingText.style.animation = 'none';
-            }
-        }
-<script>
     document.addEventListener('DOMContentLoaded', function () {
         // Elements
         const sound = document.getElementById("paperSound");
@@ -1716,16 +1611,44 @@ body.dark-mode .footer {
         let progress = 0;
         const totalDuration = messages.reduce((sum, msg) => sum + msg.duration, 0);
 
-        // Progress bar interval
+        // Function to update loader messages
+        function updateLoaderMessage() {
+            if (currentMessage < messages.length) {
+                loaderTyping.textContent = messages[currentMessage].text;
+                currentMessage++;
+                
+                // Schedule next message if there are more
+                if (currentMessage < messages.length) {
+                    setTimeout(updateLoaderMessage, messages[currentMessage-1].duration);
+                } else {
+                    // All messages shown, hide loader after delay
+                    setTimeout(() => {
+                        gsap.to(loader, {
+                            opacity: 0,
+                            duration: 0.8,
+                            onComplete: () => {
+                                loader.style.display = "none";
+                            }
+                        });
+                    }, messages[currentMessage-1].duration);
+                }
+            }
+        }
+
+        // Start the loader sequence
+        updateLoaderMessage();
+
+        // Progress bar animation
         const progressInterval = setInterval(() => {
             progress += 100 / (totalDuration / 100);
             progressBar.style.width = `${Math.min(progress, 100)}%`;
+            
             if (progress >= 100) {
                 clearInterval(progressInterval);
             }
         }, 100);
 
-        // Fallback loader timeout
+        // Fallback in case loader gets stuck
         setTimeout(() => {
             if (loader.style.display !== "none") {
                 gsap.to(loader, {
@@ -1736,9 +1659,8 @@ body.dark-mode .footer {
                     }
                 });
             }
-        }, 10000);
-
-        // Hamburger Toggle
+        }, totalDuration + 2000); // Extra buffer time
+// Hamburger Toggle
         hamburger.addEventListener("click", () => {
             navLinks.classList.toggle("active");
         });
@@ -1832,3 +1754,5 @@ body.dark-mode .footer {
 </script>
 </body>
 </html>
+           
+       
