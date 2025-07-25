@@ -1585,8 +1585,6 @@ body.dark-mode .footer {
         const loaderTyping = document.getElementById('loader-typing');
         const progressBar = document.querySelector('.loader-progress-bar');
         const typingText = document.getElementById('typing-text');
-        const typingSection = document.querySelector('.typing-section');
-        const mainHeadings = document.querySelectorAll('.main-content h1');
         const boat = document.querySelector('.boat');
 
         // Show navbar
@@ -1618,17 +1616,16 @@ body.dark-mode .footer {
                 loaderTyping.textContent = messages[currentMessage].text;
                 currentMessage++;
                 
-                // Schedule next message if there are more
                 if (currentMessage < messages.length) {
                     setTimeout(updateLoaderMessage, messages[currentMessage-1].duration);
                 } else {
-                    // All messages shown, hide loader after delay
                     setTimeout(() => {
                         gsap.to(loader, {
                             opacity: 0,
                             duration: 0.8,
                             onComplete: () => {
                                 loader.style.display = "none";
+                                initAllAnimations();
                             }
                         });
                     }, messages[currentMessage-1].duration);
@@ -1657,11 +1654,13 @@ body.dark-mode .footer {
                     duration: 0.8,
                     onComplete: () => {
                         loader.style.display = "none";
+                        initAllAnimations();
                     }
                 });
             }
-        }, totalDuration + 2000); // Extra buffer time
-// Hamburger Toggle
+        }, totalDuration + 2000);
+
+        // Hamburger Toggle
         hamburger.addEventListener("click", () => {
             navLinks.classList.toggle("active");
         });
@@ -1674,6 +1673,182 @@ body.dark-mode .footer {
 
         // GSAP Register
         gsap.registerPlugin(ScrollTrigger);
+
+        // Initialize all animations
+        function initAllAnimations() {
+            // Hero section animation
+            gsap.from(".main-content h1", {
+                scrollTrigger: {
+                    trigger: ".main-content",
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: "power2.out"
+            });
+
+            gsap.from(".main-content h2", {
+                scrollTrigger: {
+                    trigger: ".main-content",
+                    start: "top 70%",
+                    toggleActions: "play none none none"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                delay: 0.3,
+                ease: "power2.out"
+            });
+
+            gsap.from(".main-content p", {
+                scrollTrigger: {
+                    trigger: ".main-content",
+                    start: "top 60%",
+                    toggleActions: "play none none none"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                delay: 0.6,
+                ease: "power2.out"
+            });
+
+            gsap.from(".hero-button", {
+                scrollTrigger: {
+                    trigger: ".main-content",
+                    start: "top 50%",
+                    toggleActions: "play none none none"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                delay: 0.9,
+                ease: "power2.out"
+            });
+
+            // Typing section animation
+            gsap.from(".typing-section h2", {
+                scrollTrigger: {
+                    trigger: ".typing-section",
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.out"
+            });
+
+            // Video section animation
+            gsap.from(".video-container", {
+                scrollTrigger: {
+                    trigger: ".video-section",
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                },
+                y: 100,
+                opacity: 0,
+                duration: 1,
+                ease: "power2.out"
+            });
+
+            // Swiss container animation
+            gsap.from(".swiss-container", {
+                scrollTrigger: {
+                    trigger: ".swiss-container",
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                },
+                y: 100,
+                opacity: 0,
+                duration: 1,
+                ease: "power2.out"
+            });
+
+            // Boat animation section
+            gsap.from(".scene", {
+                scrollTrigger: {
+                    trigger: ".scene",
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                },
+                y: 100,
+                opacity: 0,
+                duration: 1,
+                ease: "power2.out"
+            });
+
+            // Testimonial section
+            gsap.from("#page2 #part1 h1", {
+                scrollTrigger: {
+                    trigger: "#page2",
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: "power2.out"
+            });
+
+            // CTA section
+            gsap.from(".cta-content h2", {
+                scrollTrigger: {
+                    trigger: ".cta",
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.out"
+            });
+
+            // Features section - fixed animation
+            const featureBoxes = gsap.utils.toArray(".feature-box");
+            featureBoxes.forEach((box, i) => {
+                gsap.from(box, {
+                    scrollTrigger: {
+                        trigger: ".features",
+                        start: "top 80%",
+                        toggleActions: "play none none none"
+                    },
+                    y: 100,
+                    opacity: 0,
+                    duration: 0.8,
+                    delay: i * 0.15,
+                    ease: "power2.out"
+                });
+            });
+
+            // About section
+            gsap.from(".headline", {
+                scrollTrigger: {
+                    trigger: ".headline",
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.out"
+            });
+
+            // Footer
+            gsap.from("#END", {
+                scrollTrigger: {
+                    trigger: "#END",
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.out"
+            });
+        }
 
         // Boat floating animation
         if (boat) {
@@ -1703,6 +1878,7 @@ body.dark-mode .footer {
         }
 
         // Observer for typing
+        const typingSection = document.querySelector('.typing-section');
         if (typingSection) {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -1730,6 +1906,7 @@ body.dark-mode .footer {
         });
 
         // Animated heading text
+        const mainHeadings = document.querySelectorAll('.main-content h1');
         mainHeadings.forEach(el => {
             const text = el.textContent;
             el.innerHTML = '';
@@ -1752,7 +1929,7 @@ body.dark-mode .footer {
             });
         });
     });
-</script>
+    </script>
 </body>
 </html>
            
