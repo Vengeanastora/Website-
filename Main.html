@@ -320,46 +320,36 @@
         }
 
         /* ===== TYPING ANIMATION SECTION ===== */
-        /* ===== TYPING ANIMATION SECTION ===== */
 .typing-section {
-    background: linear-gradient(145deg, rgba(20,20,40,0.9), rgba(60,60,90,0.7));
-    color: #fff;
-    padding: 6rem 1.5rem;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-top: 1px solid rgba(255,255,255,0.1);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    background-color: var(--light-bg);
+    color: var(--primary-text);
+    padding: 8rem 1rem; /* Reduced side padding for small screens */
+    box-sizing: border-box;
 }
 
 .typing-container {
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
-    padding: 2rem;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    padding: 0 1rem; /* Safe padding for edge overflow */
+    box-sizing: border-box;
 }
 
 .typing-text {
     font-family: 'Source Code Pro', monospace;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     line-height: 1.8;
-    min-height: 180px;
+    min-height: 200px;
     position: relative;
-    color: #00f7ff;
-    text-shadow: 0 0 5px #00f7ff, 0 0 10px #00f7ff;
-    padding: 1rem;
     word-wrap: break-word;
     white-space: pre-wrap;
+    box-sizing: border-box;
 }
 
 .typing-text::after {
     content: '|';
     animation: blink 1s infinite;
     position: absolute;
-    right: -10px;
-    color: #fff;
 }
 
 @keyframes blink {
@@ -367,29 +357,30 @@
     50% { opacity: 0; }
 }
 
-/* ===== RESPONSIVE TWEAKS ===== */
+/* ===== RESPONSIVE FIXES ONLY ===== */
 @media (max-width: 768px) {
     .typing-text {
         font-size: 1.3rem;
-        min-height: 150px;
+        min-height: 160px;
     }
 
-    .typing-container {
-        padding: 1.5rem;
+    .typing-section {
+        padding: 6rem 1rem;
     }
 }
 
 @media (max-width: 480px) {
     .typing-text {
         font-size: 1.1rem;
-        padding: 0.5rem;
-        min-height: 120px;
+        min-height: 140px;
     }
 
-    .typing-container {
-        padding: 1rem;
+    .typing-section {
+        padding: 5rem 0.8rem;
     }
 }
+
+
         /* Video Section */
         .video-section {
             position: relative;
@@ -604,18 +595,186 @@
 
     .menu-item {
         font-size: 1rem;
+.swiss-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.swiss-menu, .swiss-image {  
+    width: 100%;  
+    padding: 40px 60px;  
+    text-align: center;  
+    background-color: rgba(255, 255, 255, 0.15);  
+    backdrop-filter: blur(10px);  
+    border-radius: 2px;  
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);  
+    border: 1px solid rgba(255, 255, 255, 0.3);  
+    overflow: hidden;  
+    transition: all 0.5s ease;  
+}
+
+.swiss-menu::before, .swiss-image::before {  
+    content: '';  
+    position: absolute;  
+    top: 0;  
+    left: 0;  
+    width: 100%;  
+    height: 100%;  
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);  
+    z-index: -1;  
+}
+
+.swiss-menu:hover, .swiss-image:hover {  
+    transform: translateY(-5px);  
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);  
+}
+
+.menu-title {  
+    font-size: 2.5rem;  
+    font-weight: 600;  
+    letter-spacing: 8px;  
+    margin-bottom: 40px;  
+    text-transform: uppercase;  
+    position: relative;  
+    animation: fadeInDown 1s ease;  
+}
+
+.menu-title::after {  
+    content: '';  
+    position: absolute;  
+    bottom: -15px;  
+    left: 50%;  
+    transform: translateX(-50%);  
+    width: 60px;  
+    height: 2px;  
+    background: #333;  
+    animation: expandLine 1.5s ease;  
+}
+
+.menu-item {  
+    font-size: 1.2rem;  
+    letter-spacing: 4px;  
+    margin: 25px 0;  
+    text-transform: uppercase;  
+    cursor: pointer;  
+    transition: all 0.3s ease;  
+    opacity: 0;  
+    animation: fadeInUp 0.8s ease forwards;  
+}
+
+.menu-item:nth-child(2) { animation-delay: 0.2s; }  
+.menu-item:nth-child(3) { animation-delay: 0.4s; }  
+.menu-item:nth-child(4) { animation-delay: 0.6s; }  
+.menu-item:nth-child(5) { animation-delay: 0.8s; }
+
+.menu-item:hover {  
+    letter-spacing: 6px;  
+    color: #222;  
+}
+
+.quality-badge {  
+    margin-top: 40px;  
+    font-size: 0.9rem;  
+    letter-spacing: 3px;  
+    font-weight: 300;  
+    animation: fadeIn 2s ease;  
+}
+
+.swiss-image {  
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+    animation: fadeIn 1s ease;  
+}
+
+.swiss-image img {  
+    max-width: 100%;  
+    height: auto;  
+    filter: grayscale(20%) contrast(110%);  
+    transition: all 0.5s ease;  
+}
+
+.swiss-image:hover img {  
+    filter: grayscale(0%) contrast(120%);  
+    transform: scale(1.02);  
+}
+
+@keyframes fadeInDown {  
+    from { opacity: 0; transform: translateY(-30px); }  
+    to { opacity: 1; transform: translateY(0); }  
+}
+
+@keyframes fadeInUp {  
+    from { opacity: 0; transform: translateY(20px); }  
+    to { opacity: 1; transform: translateY(0); }  
+}
+
+@keyframes fadeIn {  
+    from { opacity: 0; }  
+    to { opacity: 1; }  
+}
+
+@keyframes expandLine {  
+    from { width: 0; }  
+    to { width: 60px; }  
+}
+
+/* ===== RESPONSIVE ONLY (No layout change) ===== */
+@media (max-width: 1024px) {
+    .swiss-container {
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .swiss-menu, .swiss-image {
+        padding: 30px 40px;
+    }
+
+    .menu-title {
+        font-size: 2rem;
+        letter-spacing: 6px;
+        margin-bottom: 30px;
+    }
+
+    .menu-item {
+        font-size: 1.1rem;
+        letter-spacing: 3px;
+        margin: 20px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .swiss-menu, .swiss-image {
+        padding: 25px 30px;
+    }
+
+    .menu-title {
+        font-size: 1.8rem;
+        letter-spacing: 5px;
+    }
+
+    .menu-item {
+        font-size: 1rem;
         letter-spacing: 2px;
+    }
+
+    .quality-badge {
+        font-size: 0.8rem;
     }
 }
 
 @media (max-width: 480px) {
-    .swiss-menu,
-    .swiss-image {
+    .swiss-menu, .swiss-image {
         padding: 20px 15px;
     }
 
     .menu-title {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
         letter-spacing: 3px;
     }
 
@@ -625,7 +784,7 @@
     }
 
     .quality-badge {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
     }
 }
         
